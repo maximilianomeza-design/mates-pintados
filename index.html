@@ -55,21 +55,29 @@
     </div>
   </section>
 
-  <!-- Talleres -->
   <section id="talleres">
-    <h3>Talleres Creativos</h3>
-    <p>Sumate a nuestros talleres y aprendé a pintar tus propios mates. Técnica, inspiración y arte en un espacio relajado.</p>
-    <form>
+  <h3>Talleres Creativos</h3>
+  <p>Sumate a nuestros talleres y aprendé a pintar tus propios mates. Técnica, inspiración y arte en un espacio relajado.</p>
+
+  <form>
+    <div class="form-group">
       <input type="text" placeholder="Nombre" required>
+    </div>
+    <div class="form-group">
       <input type="email" placeholder="Correo electrónico" required>
-      <select>
+    </div>
+    <div class="form-group">
+      <select required>
+        <option value="">Seleccioná un taller</option>
         <option>Taller de mates florales</option>
         <option>Taller de arte abstracto</option>
         <option>Taller de técnicas naturales</option>
       </select>
-      <button>Reservar mi lugar</button>
-    </form>
-  </section>
+    </div>
+    <button type="submit" class="btn-primary">Reservar mi lugar</button>
+  </form>
+</section>
+
 
   <!-- Portfolio -->
   <section id="portfolio">
