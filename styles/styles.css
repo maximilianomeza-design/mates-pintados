@@ -151,3 +151,61 @@ form button:hover {
   background: #1b4332;
   transform: scale(1.03);
 }
+/* === CONTACTO / FOOTER MEJORADO === */
+
+#contacto {
+  background: linear-gradient(to top, #fefcf9, #f2fdf4);
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid #dcefdc;
+}
+
+#contacto h3 {
+  color: #1b4332;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+#contacto p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #2d6a4f;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  border: 1px solid #2d6a4f;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: #2d6a4f;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Footer final */
+footer {
+  background: #2d6a4f;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+footer strong {
+  color: #d8f3dc;
+}
