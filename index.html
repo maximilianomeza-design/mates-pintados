@@ -3,34 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muebles de Algarrobo | Diseño y Durabilidad</title>
-  <meta name="description" content="Fábrica de muebles de algarrobo con estilo industrial moderno. Diseños cálidos, duraderos y de madera natural para tu hogar." />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Mates Pintados a Mano | Tienda y Talleres</title>
+  <meta name="description" content="Tienda artesanal de mates pintados a mano y talleres de arte. Descubrí piezas únicas y aprendé a crear las tuyas." />
+  <link href="styles/styles.css" rel="stylesheet">
+  <script src="scripts/main.js" defer></script>
 </head>
-<body class="bg-beige-100 text-gray-800 font-sans">
-  <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 shadow-sm z-50">
-    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold text-brown-700">Fábrica de Algarrobo</h1>
-      <ul class="flex space-x-6 text-sm">
-        <li><a href="#catalogo" class="hover:text-brown-600">Catálogo</a></li>
-        <li><a href="#videos" class="hover:text-brown-600">Procesos</a></li>
-        <li><a href="#nosotros" class="hover:text-brown-600">Nosotros</a></li>
-        <li><a href="#contacto" class="hover:text-brown-600">Contacto</a></li>
-      </ul>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>Mates a Mano</h1>
+    <nav>
+      <a href="#tienda">Tienda</a>
+      <a href="#talleres">Talleres</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section class="pt-32 pb-20 bg-gradient-to-b from-beige-50 to-beige-200 text-center">
-    <h2 class="text-4xl font-extrabold text-brown-700 mb-4">Muebles de Algarrobo con Estilo Industrial Natural</h2>
-    <p class="text-lg text-gray-600 mb-8">Diseño, calidad y durabilidad en cada pieza artesanal</p>
-    <div class="flex justify-center space-x-4">
-      <a href="#catalogo" class="bg-brown-600 text-white px-6 py-3 rounded-lg hover:bg-brown-700 transition">Ver catálogo</a>
-      <a href="#contacto" class="border border-brown-600 text-brown-600 px-6 py-3 rounded-lg hover:bg-brown-50 transition">Comprar ahora</a>
+  <!-- Hero principal -->
+  <section id="hero">
+    <h2>Arte en cada sorbo ☕️</h2>
+    <p>Mates pintados a mano, únicos y llenos de vida. Descubrí nuestra colección o participá en los talleres.</p>
+    <div class="cta-buttons">
+      <a href="#tienda" class="btn-primary">Ver Tienda</a>
+      <a href="#talleres" class="btn-secondary">Inscribirme al Taller</a>
     </div>
   </section>
 
-  <footer class="py-8 bg-beige-200 text-center text-sm text-gray-600">
-    <p>&copy; 2025 Fábrica de Muebles de Algarrobo. Todos los derechos reservados.</p>
+  <!-- Tienda -->
+  <section id="tienda">
+    <h3>Tienda Artesanal</h3>
+    <div class="grid">
+      <div class="card">
+        <img src="assets/mate1.webp" alt="Mate pintado floral">
+        <h4>Mate Floral</h4>
+        <p>$4500</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="assets/mate2.webp" alt="Mate artesanal abstracto">
+        <h4>Mate Abstracto</h4>
+        <p>$4700</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="assets/mate3.webp" alt="Mate botánico pintado">
+        <h4>Mate Botánico</h4>
+        <p>$4800</p>
+        <button>Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Talleres -->
+  <section id="talleres">
+    <h3>Talleres Creativos</h3>
+    <p>Sumate a nuestros talleres y aprendé a pintar tus propios mates. Técnica, inspiración y arte en un espacio relajado.</p>
+    <form>
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <select>
+        <option>Taller de mates florales</option>
+        <option>Taller de arte abstracto</option>
+        <option>Taller de técnicas naturales</option>
+      </select>
+      <button>Reservar mi lugar</button>
+    </form>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h3>Portfolio de Obras</h3>
+    <div class="grid">
+      <img src="assets/obra1.webp" alt="Mate decorado floral">
+      <img src="assets/obra2.webp" alt="Mate artesanal geométrico">
+      <img src="assets/obra3.webp" alt="Mate artístico botánico">
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h3>Llevate arte a tus días 🌿</h3>
+    <p>Seguinos en redes o escribinos para encargos personalizados.</p>
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Email</a>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2025 Mates a Mano. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
