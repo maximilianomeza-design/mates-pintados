@@ -1,12 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const images = document.querySelectorAll('.slider img');
-  let current = 0;
+  const track = document.querySelector('.slider-track');
+  const slides = Array.from(track.children);
+  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
 
-  function showNextImage() {
-    images[current].classList.remove('active');
-    current = (current + 1) % images.length;
-    images[current].classList.add('active');
+  let currentIndex = 0;
+
+  function updateSlidePosition() {
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
   }
 
-  setInterval(showNextImage, 2000); // cambia cada 2 segundos
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  });
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  });
+
+  // Cambio automático cada 5 segundos
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  }, 5000);
 });
