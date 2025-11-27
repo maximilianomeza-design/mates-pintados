@@ -299,22 +299,47 @@ footer strong {
     width: 90%;
   }
 }
-/* --- PORTFOLIO --- */
-#portfolio .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem 0;
+/* --- PORTFOLIO (AJUSTE VISUAL + SLIDER) --- */
+#portfolio {
+  text-align: center;
+  padding: 3rem 1rem;
 }
 
-#portfolio img {
-  width: 100%;
+#portfolio h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #2e2a26;
+  font-family: 'Marcellus', serif;
+}
+
+/* Contenedor general */
+.slider {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-#portfolio img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+/* Imágenes dentro del carrusel */
+.slider img {
+  width: 100%;
+  height: 480px; /* Altura fija que mantiene la proporción */
+  object-fit: cover;
+  display: none;
+  border-radius: 1rem;
+}
+
+/* Imagen activa */
+.slider img.active {
+  display: block;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Efecto de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
