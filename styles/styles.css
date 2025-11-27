@@ -343,3 +343,65 @@ footer strong {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+/* --- PORTFOLIO SLIDER AVANZADO --- */
+#portfolio {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+#portfolio h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #2e2a26;
+  font-family: 'Marcellus', serif;
+}
+
+/* Contenedor general */
+.slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+/* Pista de imágenes */
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Imágenes */
+.slider-track img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Muestra la foto entera */
+  flex: 0 0 100%;
+  border-radius: 1rem;
+}
+
+/* Flechas */
+.slider-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(76, 181, 174, 0.8);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-container button:hover {
+  background: rgba(57, 159, 152, 1);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
