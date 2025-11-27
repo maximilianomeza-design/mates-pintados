@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('button');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.style.transform = 'scale(0.95)';
-      setTimeout(() => btn.style.transform = 'scale(1)', 150);
-    });
-  });
+  const images = document.querySelectorAll('.slider img');
+  let current = 0;
+
+  function showNextImage() {
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+  }
+
+  setInterval(showNextImage, 4000); // cambia cada 4 segundos
 });
