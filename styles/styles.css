@@ -221,7 +221,7 @@ h3 {
 }
 
 .taller-video video {
-  width: 70%;                 /* 🔹 más pequeño y proporcionado */
+  width: 50%;                 /* 🔹 más pequeño y proporcionado */
   max-width: 340px;
   border-radius: 1rem;
   border: 6px solid #e7dcc5;  /* 🔹 tono madera clara */
