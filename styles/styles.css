@@ -1,259 +1,292 @@
-/* ========================================
-   MATES A MANO — TIERRA & COLOR EDITION 2025
-   Estilo cálido, artesanal y moderno
-======================================== */
+/* =========================
+   ESTILOS GENERALES
+========================= */
 
-/* --- RESET BÁSICO --- */
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f1e5;
+  color: #2b2b2b;
+  line-height: 1.6;
 }
 
-/* --- BASE GLOBAL --- */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f7f1e5; /* Arena beige suave */
+h1, h2, h3 {
+  font-family: 'Marcellus', serif;
   color: #2b2b2b;
-  line-height: 1.6;
 }
-/* === TEXTURA DE FONDO DE MADERA PULIDA === */
-body {
-  background-color: #f7f1e5;
-  background-image: url('assets/fondo-textura.webp');
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: repeat;
-  background-blend-mode: multiply;
-  color: #2b2b2b;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
-/* --- ENCABEZADO --- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
-  background: rgba(255, 250, 245, 0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
 }
 
 header h1 {
+  font-size: 1.6rem;
   font-family: 'Marcellus', serif;
-  font-size: 2.4rem;
-  color: #2e2a26;
-  letter-spacing: 0.5px;
+  color: #2b2b2b;
 }
 
 nav a {
   margin: 0 1rem;
-  text-decoration: none;
-  color: #2b2b2b;
   font-weight: 500;
+  color: #2b2b2b;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #4cb5ae; /* Turquesa principal */
+  color: #4cb5ae;
 }
 
-/* --- HERO SECTION --- */
+/* =========================
+   HERO PRINCIPAL
+========================= */
+
 #hero {
+  padding: 8rem 1rem 5rem;
   text-align: center;
-  padding: 6rem 2rem 4rem;
-  background: linear-gradient(to bottom, #f7f1e5, #fffaf3);
+  background: url('../assets/fondo-textura.webp') center/cover no-repeat;
+  color: #2b2b2b;
 }
 
 #hero h2 {
-  font-family: 'Marcellus', serif;
-  font-size: 2rem;
-  color: #2e2a26;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
 }
 
 #hero p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
   font-size: 1.1rem;
-  color: #4a4a4a;
+  margin-bottom: 2rem;
 }
 
 .btn-primary {
   background: #4cb5ae;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 0.6rem;
-  padding: 0.75rem 1.5rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-  display: inline-block;
-  margin: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .btn-primary:hover {
   background: #399f98;
-  transform: scale(1.05);
 }
 
 .btn-secondary {
   border: 2px solid #4cb5ae;
   color: #4cb5ae;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.6rem;
-  text-decoration: none;
+  background: transparent;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  margin-left: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
   transition: all 0.3s ease;
-  display: inline-block;
-  margin: 0.5rem;
 }
 
 .btn-secondary:hover {
   background: #4cb5ae;
-  color: white;
-  transform: scale(1.05);
+  color: #fff;
 }
 
-/* --- SECCIONES --- */
-section {
-  max-width: 1100px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: #fffaf3;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
+/* =========================
+   TIENDA ARTESANAL
+========================= */
 
-h3 {
-  font-family: 'Marcellus', serif;
-  font-size: 1.6rem;
-  color: #2e2a26;
-  margin-bottom: 1rem;
+#tienda {
+  padding: 4rem 1rem;
   text-align: center;
 }
 
-/* --- TIENDA --- */
-.grid {
+#tienda h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.tienda-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.card {
-  background: white;
+.producto {
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.card h4 {
-  font-family: 'Marcellus', serif;
-  color: #2e2a26;
+.producto h4 {
   margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
-.card p {
-  color: #444;
-  font-weight: 500;
-}
-
-/* --- CONTACTO / REDES --- */
-#contacto {
-  text-align: center;
-  padding: 4rem 2rem 2rem;
-  background: linear-gradient(to top, #fffaf3, #f7f1e5);
-  border-top: 1px solid #e0d7c9;
-}
-
-#contacto h3 {
-  color: #2e2a26;
-  font-family: 'Marcellus', serif;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-#contacto p {
-  color: #4a4a4a;
+.producto p {
   font-size: 1rem;
-  margin-bottom: 1.5rem;
+  color: #4b4b4b;
 }
 
-.social-links {
+.producto button {
+  background: #4cb5ae;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.producto button:hover {
+  background: #399f98;
+}
+
+/* =========================
+   TALLERES CREATIVOS
+========================= */
+
+#talleres {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #f7f1e5;
+}
+
+#talleres h3 {
+  font-family: 'Marcellus', serif;
+  color: #2e2a26;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+#talleres p {
+  font-family: 'Inter', sans-serif;
+  color: #4b4b4b;
+  margin-bottom: 2rem;
+}
+
+/* --- CONTENEDOR GENERAL --- */
+.talleres-container {
   display: flex;
   justify-content: center;
+  align-items: center; 
   gap: 1.5rem;
   flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 0.8rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-.social-links a {
-  color: #4cb5ae;
-  border: 1px solid #4cb5ae;
-  text-decoration: none;
+/* --- VIDEO CON MARCO ARTESANAL --- */
+.taller-video {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taller-video video {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 1rem;
+  border: 6px solid #e7dcc5;
+  background-color: #f7f1e5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.taller-video video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* --- FORMULARIO --- */
+.taller-form {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: left;
+}
+
+.taller-form label {
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
+  color: #2e2a26;
+}
+
+.taller-form input,
+.taller-form select {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
   font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 2rem;
-  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
 }
 
-.social-links a:hover {
+.taller-form button {
   background: #4cb5ae;
   color: white;
-  transform: scale(1.05);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* --- FOOTER --- */
-footer {
-  background: #4cb5ae;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
+.taller-form button:hover {
+  background: #399f98;
 }
 
-footer strong {
-  color: #f7f1e5;
-}
+/* =========================
+   PORTFOLIO CON CARRUSEL MULTIPLE
+========================= */
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    margin: 0 0.5rem;
-  }
-
-  section {
-    margin: 2rem 1rem;
-  }
-
-  form {
-    width: 90%;
-  }
-}
-/* --- PORTFOLIO CON CARRUSEL MULTIPLE + NOMBRES --- */
 #portfolio {
   text-align: center;
   padding: 3rem 1rem;
@@ -286,7 +319,7 @@ footer strong {
   transition: transform 0.6s ease-in-out;
 }
 
-/* Cada figura */
+/* Figura e imagen */
 .slider-track figure {
   flex: 0 0 33.333%;
   padding: 0.5rem;
@@ -341,13 +374,76 @@ footer strong {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* Responsive */
+/* =========================
+   CONTACTO
+========================= */
+
+#contacto {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #f7f1e5 0%, #fff 100%);
+}
+
+#contacto h3 {
+  font-family: 'Marcellus', serif;
+  margin-bottom: 1rem;
+}
+
+#contacto p {
+  color: #4b4b4b;
+}
+
+.contacto-links a {
+  margin: 0 1rem;
+  color: #4cb5ae;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contacto-links a:hover {
+  color: #399f98;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #4cb5ae;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   RESPONSIVE GENERAL
+========================= */
+
 @media (max-width: 768px) {
-  .slider-track figure {
-    flex: 0 0 50%; /* 🔹 2 imágenes visibles en móvil */
+  nav a {
+    margin: 0 0.6rem;
   }
 
-  .slider-track figcaption {
-    font-size: 0.9rem;
+  #hero h2 {
+    font-size: 2rem;
+  }
+
+  .slider-track figure {
+    flex: 0 0 50%;
+  }
+
+  .talleres-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .taller-video video {
+    width: 90%;
+    max-width: none;
+    max-height: 260px;
+    border: 4px solid #e7dcc5;
   }
 }
