@@ -1,98 +1,65 @@
 /* ===================================================
    main.js — Viva el Mate 🌿
-   Interacciones y animaciones 2025
    =================================================== */
 
-// =========================
-// 1. SLIDER PORTFOLIO CORREGIDO
-// =========================
+// Slider Portfolio
 const track = document.querySelector(".slider-track");
 const slides = document.querySelectorAll(".slider-track figure");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
-
 let currentIndex = 0;
-const slidesPerView = 3; // número de imágenes visibles al mismo tiempo
+const slidesPerView = 3;
 
 function updateSliderPosition() {
   const totalSlides = slides.length;
   const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
-
   if (currentIndex > maxIndex) currentIndex = 0;
   if (currentIndex < 0) currentIndex = maxIndex;
-
   const offset = -currentIndex * (100 / slidesPerView);
   track.style.transform = `translateX(${offset}%)`;
 }
-
 function moveSlide(direction) {
   currentIndex += direction;
   updateSliderPosition();
 }
-
 prevBtn?.addEventListener("click", () => moveSlide(-1));
 nextBtn?.addEventListener("click", () => moveSlide(1));
-
-// Auto deslizamiento cada 5 segundos
 setInterval(() => moveSlide(1), 5000);
-
-// Inicializar
 updateSliderPosition();
 
-// =========================
-// 2. SCROLL SUAVE ENTRE SECCIONES
-// =========================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href");
-    const target = document.querySelector(targetId);
+// Scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const target = document.querySelector(a.getAttribute("href"));
     if (target) {
       e.preventDefault();
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
     }
   });
 });
 
-// =========================
-// 3. NAV ACTIVO SEGÚN SCROLL
-// =========================
+// Nav activa
 const navLinks = document.querySelectorAll("nav a");
-
 window.addEventListener("scroll", () => {
   let current = "";
   document.querySelectorAll("section[id]").forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
+    if (scrollY >= section.offsetTop - 100) current = section.id;
   });
-
   navLinks.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
+    if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
   });
 });
 
-// =========================
-// 4. ANIMACIÓN DE BOTONES
-// =========================
+// Efecto de click en botones
 document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
   btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
   btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
 });
 
-// =========================
-// 5. AJUSTE VISUAL PORTFOLIO
-// (igualar alturas y suavizar transición)
-// =========================
+// Ajuste visual Portfolio
 window.addEventListener("load", () => {
-  const images = document.querySelectorAll(".slider-track img");
-  images.forEach(img => {
+  document.querySelectorAll(".slider-track img").forEach(img => {
     img.style.height = "300px";
     img.style.objectFit = "cover";
   });
