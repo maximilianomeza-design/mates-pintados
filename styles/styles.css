@@ -299,7 +299,7 @@ footer strong {
     width: 90%;
   }
 }
-/* --- PORTFOLIO (AJUSTE VISUAL + SLIDER) --- */
+/* --- PORTFOLIO SLIDER OPTIMIZADO (Versión 2025) --- */
 #portfolio {
   text-align: center;
   padding: 3rem 1rem;
@@ -312,51 +312,7 @@ footer strong {
   font-family: 'Marcellus', serif;
 }
 
-/* Contenedor general */
-.slider {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Imágenes dentro del carrusel */
-.slider img {
-  width: 100%;
-  height: 480px; /* Altura fija que mantiene la proporción */
-  object-fit: cover;
-  display: none;
-  border-radius: 1rem;
-}
-
-/* Imagen activa */
-.slider img.active {
-  display: block;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-/* Efecto de entrada suave */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-/* --- PORTFOLIO SLIDER AVANZADO --- */
-#portfolio {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-#portfolio h3 {
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  color: #2e2a26;
-  font-family: 'Marcellus', serif;
-}
-
-/* Contenedor general */
+/* Contenedor general del slider */
 .slider-container {
   position: relative;
   width: 90%;
@@ -365,8 +321,12 @@ footer strong {
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 /* Pista de imágenes */
@@ -375,33 +335,68 @@ footer strong {
   transition: transform 0.6s ease-in-out;
 }
 
-/* Imágenes */
+/* Imágenes dentro del carrusel */
 .slider-track img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* Muestra la foto entera */
   flex: 0 0 100%;
+  max-width: 100%;
+  max-height: 420px; /* 🔹 Tamaño visual equilibrado */
+  object-fit: contain; /* 🔹 Mantiene proporción sin recorte */
   border-radius: 1rem;
+  transition: transform 0.4s ease, opacity 0.6s ease;
 }
 
-/* Flechas */
+/* Efecto sutil al pasar el mouse */
+.slider-track img:hover {
+  transform: scale(1.02);
+}
+
+/* Flechas de navegación */
 .slider-container button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(76, 181, 174, 0.8);
+  background: rgba(76, 181, 174, 0.85);
   color: white;
   border: none;
   font-size: 2rem;
   padding: 0.3rem 0.8rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10;
 }
 
 .slider-container button:hover {
   background: rgba(57, 159, 152, 1);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .prev { left: 10px; }
 .next { right: 10px; }
+
+/* --- ANIMACIÓN DE ENTRADA --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.slider-track img.active {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* --- RESPONSIVE ADAPTATION --- */
+@media (max-width: 768px) {
+  .slider-container {
+    max-width: 95%;
+    padding: 0.5rem;
+  }
+
+  .slider-track img {
+    max-height: 320px; /* 🔹 Reduce altura en móviles */
+  }
+
+  .slider-container button {
+    font-size: 1.6rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
