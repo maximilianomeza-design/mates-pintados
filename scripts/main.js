@@ -1,10 +1,10 @@
 /* ===================================================
    main.js — Viva el Mate 🌿
-   Efectos, interacciones y slider
+   Interacciones y animaciones 2025
    =================================================== */
 
 // =========================
-// 1. SLIDER PORTFOLIO
+// 1. SLIDER PORTFOLIO CORREGIDO
 // =========================
 const track = document.querySelector(".slider-track");
 const slides = document.querySelectorAll(".slider-track figure");
@@ -12,27 +12,32 @@ const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
 let currentIndex = 0;
+const slidesPerView = 3; // número de imágenes visibles al mismo tiempo
 
-// Mueve el carrusel hacia la dirección indicada
-function moveSlide(direction) {
-  const totalSlides = slides.length;
-  currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-  updateSliderPosition();
-}
-
-// Actualiza la posición del slider
 function updateSliderPosition() {
-  const slidesPerView = 3; // cantidad de imágenes visibles
+  const totalSlides = slides.length;
+  const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+
+  if (currentIndex > maxIndex) currentIndex = 0;
+  if (currentIndex < 0) currentIndex = maxIndex;
+
   const offset = -currentIndex * (100 / slidesPerView);
   track.style.transform = `translateX(${offset}%)`;
 }
 
-// Botones
+function moveSlide(direction) {
+  currentIndex += direction;
+  updateSliderPosition();
+}
+
 prevBtn?.addEventListener("click", () => moveSlide(-1));
 nextBtn?.addEventListener("click", () => moveSlide(1));
 
-// Auto deslizamiento cada 6 segundos
-setInterval(() => moveSlide(1), 6000);
+// Auto deslizamiento cada 5 segundos
+setInterval(() => moveSlide(1), 5000);
+
+// Inicializar
+updateSliderPosition();
 
 // =========================
 // 2. SCROLL SUAVE ENTRE SECCIONES
@@ -79,4 +84,16 @@ window.addEventListener("scroll", () => {
 document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
   btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
   btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
+});
+
+// =========================
+// 5. AJUSTE VISUAL PORTFOLIO
+// (igualar alturas y suavizar transición)
+// =========================
+window.addEventListener("load", () => {
+  const images = document.querySelectorAll(".slider-track img");
+  images.forEach(img => {
+    img.style.height = "300px";
+    img.style.objectFit = "cover";
+  });
 });
