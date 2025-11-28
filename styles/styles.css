@@ -1,6 +1,5 @@
 /* ===================================================
-   Viva el Mate 🌿
-   Estilos completos - versión 2025
+   Viva el Mate 🌿 — Estilos completos 2025
    =================================================== */
 
 /* --- RESET GENERAL --- */
@@ -28,9 +27,8 @@ header {
   background-color: #fffaf4;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -43,7 +41,6 @@ header {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  width: 100%;
   text-align: center;
 }
 
@@ -51,7 +48,6 @@ header {
   font-family: 'Pacifico', cursive;
   font-size: 2.2rem;
   color: #2e2a26;
-  position: relative;
   text-shadow: 0 1px 0 #fff, 0 3px 5px rgba(0,0,0,0.1);
 }
 
@@ -145,7 +141,7 @@ nav a.active {
 }
 
 /* ===================================================
-   SECCIÓN: BENEFICIOS / CONFIANZA
+   SECCIÓN: BENEFICIOS
    =================================================== */
 #beneficios {
   background-color: #f6f5f3;
@@ -165,10 +161,10 @@ nav a.active {
 }
 
 .beneficio img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
 }
 
 .beneficio h4 {
@@ -211,9 +207,9 @@ nav a.active {
   padding: 1rem;
   text-align: center;
   width: 260px;
+  position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
 }
 
 .producto:hover {
@@ -221,7 +217,6 @@ nav a.active {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Imagen con zoom --- */
 .producto img {
   width: 100%;
   height: 240px;
@@ -236,7 +231,6 @@ nav a.active {
   filter: brightness(1.05);
 }
 
-/* --- Precio + Promo --- */
 .producto h4 {
   font-family: 'Marcellus', serif;
   font-size: 1.1rem;
@@ -247,7 +241,6 @@ nav a.active {
   font-weight: 600;
   color: #2e2a26;
   margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
 }
 
 .producto::after {
@@ -284,47 +277,82 @@ nav a.active {
 }
 
 /* ===================================================
-   SECCIÓN: TESTIMONIOS
+   TESTIMONIOS (CARRUSEL)
    =================================================== */
 #testimonios {
-  background-color: #0f0f0f;
-  color: #fff;
+  background-color: #FFF8F1;
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+#testimonios h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.9rem;
+  margin-bottom: 2rem;
+  color: #2E2A26;
+}
+
+.testimonios-carousel {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.testimonios-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  transition: transform 0.8s ease-in-out;
+  animation: testimonialScroll 20s infinite ease-in-out;
 }
 
 .testimonio {
-  max-width: 320px;
-  padding: 1rem;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin: 0 0.5rem;
 }
 
 .testimonio img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  margin-bottom: 1rem;
   object-fit: cover;
-  border: 2px solid #4cb5ae;
+  border: 2px solid #4CB5AE;
+  margin-bottom: 1rem;
 }
 
 .testimonio p {
-  font-size: 0.95rem;
-  font-style: italic;
-  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #3f3a36;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
 }
 
 .testimonio strong {
-  display: block;
-  font-size: 0.9rem;
   font-weight: 600;
+  color: #2E2A26;
+}
+
+@keyframes testimonialScroll {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+
+.testimonios-track:hover {
+  animation-play-state: paused;
 }
 
 /* ===================================================
-   SECCIÓN: TALLERES
+   TALLERES
    =================================================== */
 #talleres {
   text-align: center;
@@ -434,7 +462,7 @@ nav a.active {
   height: 300px;
   object-fit: cover;
   border-radius: 1rem;
-  transition: transform 0.3s ease, opacity 0.6s ease;
+  transition: transform 0.3s ease;
 }
 
 .slider-track img:hover {
@@ -463,7 +491,7 @@ nav a.active {
 .next { right: 10px; }
 
 /* ===================================================
-   CONTACTO + FOOTER
+   CONTACTO Y FOOTER
    =================================================== */
 #contacto {
   text-align: center;
@@ -505,27 +533,20 @@ footer {
 }
 
 /* ===================================================
-   BOTONES + RESPONSIVE
+   RESPONSIVE
    =================================================== */
-button.pressed,
-.btn-primary.pressed,
-.btn-secondary.pressed {
-  transform: scale(0.97);
-  transition: transform 0.1s ease;
-}
-
 @media (max-width: 768px) {
   .talleres-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .taller-video video,
-  .taller-form {
-    max-width: 100%;
-  }
-
   .slider-track figure {
     flex: 0 0 100%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 0.8rem;
   }
 }
