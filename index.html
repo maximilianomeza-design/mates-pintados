@@ -3,25 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>VIVA EL MATE | Mates pintados a mano y talleres artísticos</title>
   <meta name="description" content="Mates pintados a mano creados con arte, color y alma. Descubrí piezas únicas y talleres donde vos también podés crear las tuyas.">
-
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-  <!-- Estilos -->
   <link href="styles/styles.css" rel="stylesheet">
-
-  <!-- JavaScript -->
   <script src="scripts/main.js" defer></script>
 </head>
 <body>
 
-  <!-- =========================
-       ENCABEZADO
-  ========================== -->
   <header>
     <div class="header-logo">
       <span class="sparkle">✨</span>
@@ -36,117 +26,50 @@
     </nav>
   </header>
 
-  <!-- =========================
-       HERO PRINCIPAL
-  ========================== -->
   <section id="hero">
     <h2>Cada mate, una historia pintada</h2>
     <p>Mates pintados a mano con alma y color. Obras únicas inspiradas en la naturaleza, la vida y el arte cotidiano.</p>
-
     <div class="cta-buttons">
       <a href="#tienda" class="btn-primary">Ver Tienda</a>
       <a href="#talleres" class="btn-secondary">Inscribirme al Taller</a>
     </div>
   </section>
 
-  <!-- =========================
-       BENEFICIOS / CONFIANZA
-  ========================== -->
   <section id="beneficios">
-    <div class="beneficio">
-      <img src="assets/icono-envio.png" alt="Icono envío a todo el país">
-      <h4>Enviamos tu compra</h4>
-      <p>Llegamos a todo el país</p>
-    </div>
-
-    <div class="beneficio">
-      <img src="assets/icono-pago.png" alt="Icono formas de pago">
-      <h4>Pagá como quieras</h4>
-      <p>Tarjeta o efectivo</p>
-    </div>
-
-    <div class="beneficio">
-      <img src="assets/icono-seguridad.png" alt="Icono seguridad">
-      <h4>Comprá con seguridad</h4>
-      <p>Tus datos siempre protegidos</p>
-    </div>
+    <div class="beneficio"><img src="assets/icono-envio.svg" alt="Icono envío"><h4>Enviamos tu compra</h4><p>Llegamos a todo el país</p></div>
+    <div class="beneficio"><img src="assets/icono-pago.svg" alt="Icono pago"><h4>Pagá como quieras</h4><p>Tarjeta o efectivo</p></div>
+    <div class="beneficio"><img src="assets/icono-seguridad.svg" alt="Icono seguridad"><h4>Comprá con seguridad</h4><p>Tus datos siempre protegidos</p></div>
   </section>
 
-  <!-- =========================
-       SECCIÓN: TIENDA
-  ========================== -->
   <section id="tienda">
     <h3>Tienda Artesanal</h3>
-
     <div class="tienda-grid">
-      <div class="producto">
-        <img src="assets/mate-ojoturco2.png" alt="Mate pintado diseño ojo turco">
-        <h4>Mate Ojo turco</h4>
-        <p class="precio">$9.900</p>
-        <button>Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="assets/mate-abstracto1.png" alt="Mate artesanal abstracto">
-        <h4>Mate Abstracto</h4>
-        <p class="precio">$9.700</p>
-        <button>Agregar al carrito</button>
-      </div>
-
-      <div class="producto">
-        <img src="assets/mate-flores4.png" alt="Mate botánico pintado a mano">
-        <h4>Mate Botánico</h4>
-        <p class="precio">$9.800</p>
-        <button>Agregar al carrito</button>
-      </div>
+      <div class="producto"><img src="assets/mate-ojoturco2.png" alt="Mate Ojo turco"><h4>Mate Ojo turco</h4><p class="precio">$9.900</p><button>Agregar al carrito</button></div>
+      <div class="producto"><img src="assets/mate-abstracto1.png" alt="Mate Abstracto"><h4>Mate Abstracto</h4><p class="precio">$9.700</p><button>Agregar al carrito</button></div>
+      <div class="producto"><img src="assets/mate-flores4.png" alt="Mate Botánico"><h4>Mate Botánico</h4><p class="precio">$9.800</p><button>Agregar al carrito</button></div>
     </div>
   </section>
 
-  <!-- =========================
-       SECCIÓN: TESTIMONIOS
-  ========================== -->
   <section id="testimonios">
-    <div class="testimonio">
-      <img src="assets/clienta1.jpg" alt="Cliente feliz con su mate">
-      <p><em>“El local soñado, no sabes con cuál mate quedarte, todos hermosos! La atención un 10 👏🏼💛”</em></p>
-      <strong>Lara Anduran</strong>
-    </div>
-
-    <div class="testimonio">
-      <img src="assets/cliente2.jpg" alt="Cliente feliz con su mate">
-      <p><em>“Extraordinario el mate, estoy muy feliz! Excelente servicio y producto.”</em></p>
-      <strong>Pedro Schneider</strong>
-    </div>
-
-    <div class="testimonio">
-      <img src="assets/cliente3.jpg" alt="Cliente feliz con su mate">
-      <p><em>“Los mejores mates del mercado ☕💞. Flor y Pablo te atienden con la mejor predisposición. ¡Un lujo!”</em></p>
-      <strong>Matías Franco</strong>
+    <h3>Lo que dicen quienes ya tienen su mate 💛</h3>
+    <div class="testimonios-carousel">
+      <div class="testimonios-track">
+        <div class="testimonio"><img src="assets/clienta1.jpg" alt="Cliente feliz"><p>“El local soñado, no sabés con cuál mate quedarte, todos hermosos! La atención un 10 👏🏼💛”</p><strong>Lara Anduran</strong></div>
+        <div class="testimonio"><img src="assets/cliente2.jpg" alt="Cliente feliz"><p>“Extraordinario el mate, estoy muy feliz! Excelente servicio y producto.”</p><strong>Pedro Schneider</strong></div>
+        <div class="testimonio"><img src="assets/cliente3.jpg" alt="Cliente feliz"><p>“Los mejores mates del mercado ☕💞. Flor y Pablo te atienden con la mejor predisposición. ¡Un lujo!”</p><strong>Matías Franco</strong></div>
+        <div class="testimonio"><img src="assets/cliente4.jpg" alt="Cliente feliz"><p>“Hermosos diseños y la calidad excelente. Me llegó rapidísimo, súper recomendable 🌿✨”</p><strong>Sofía Morales</strong></div>
+      </div>
     </div>
   </section>
 
-  <!-- =========================
-       SECCIÓN: TALLERES
-  ========================== -->
   <section id="talleres">
     <h3>Talleres Creativos</h3>
     <p>Viví la experiencia de crear tu propio mate. Cupos limitados 💛</p>
-
     <div class="talleres-container">
-      <div class="taller-video">
-        <video autoplay muted loop playsinline>
-          <source src="assets/taller1video.mp4" type="video/mp4">
-          Tu navegador no soporta videos HTML5.
-        </video>
-      </div>
-
+      <div class="taller-video"><video autoplay muted loop playsinline><source src="assets/taller1video.mp4" type="video/mp4"></video></div>
       <form class="taller-form">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="tuemail@gmail.com" required>
-
+        <label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" required>
+        <label for="email">Email</label><input type="email" id="email" name="email" required>
         <label for="taller">Elegí tu taller</label>
         <select id="taller" name="taller" required>
           <option value="">Seleccionar...</option>
@@ -154,51 +77,37 @@
           <option value="intermedio">Técnicas florales — Nivel intermedio</option>
           <option value="avanzado">Técnicas de diseño — Nivel avanzado</option>
         </select>
-
         <button type="submit">Inscribirme</button>
       </form>
     </div>
   </section>
 
-  <!-- =========================
-       SECCIÓN: PORTFOLIO
-  ========================== -->
   <section id="portfolio">
     <h3>Portfolio de Obras</h3>
-
     <div class="slider-container">
       <div class="slider-track" id="sliderTrack">
-        <figure><img src="assets/mate-ojoturco3.png" alt="Mate diseño ojo turco base rosa"><figcaption>Mate diseño ojo turco base rosa</figcaption></figure>
+        <figure><img src="assets/mate-ojoturco3.png" alt="Mate base rosa"><figcaption>Mate base rosa</figcaption></figure>
         <figure><img src="assets/mate-flores1.png" alt="Mate flores margaritas"><figcaption>Mate flores margaritas</figcaption></figure>
         <figure><img src="assets/mate-flores2.png" alt="Mate diseño natural"><figcaption>Mate diseño natural</figcaption></figure>
-        <figure><img src="assets/mate-ojoturco1.png" alt="Mate diseño ojo turco azul"><figcaption>Mate diseño ojo turco azul</figcaption></figure>
-        <figure><img src="assets/mate-flores3.png" alt="Mate flores celeste y natural"><figcaption>Mate flores celeste y natural</figcaption></figure>
+        <figure><img src="assets/mate-ojoturco1.png" alt="Mate azul"><figcaption>Mate azul</figcaption></figure>
+        <figure><img src="assets/mate-flores3.png" alt="Mate celeste"><figcaption>Mate celeste</figcaption></figure>
       </div>
       <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
       <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
   </section>
 
-  <!-- =========================
-       SECCIÓN: CONTACTO
-  ========================== -->
   <section id="contacto">
     <h3>Llevate arte para tu día 🌿</h3>
-    <p>Seguinos en redes o escribinos para encargos personalizados.</p>
+    <p>Seguinos o escribinos para encargos personalizados.</p>
     <div class="social-links">
-      <a href="#" target="_blank" class="social instagram">Instagram</a>
-      <a href="#" target="_blank" class="social whatsapp">WhatsApp</a>
+      <a href="#" class="social instagram">Instagram</a>
+      <a href="#" class="social whatsapp">WhatsApp</a>
       <a href="mailto:contacto@matesamano.com" class="social email">Email</a>
     </div>
   </section>
 
-  <!-- =========================
-       PIE DE PÁGINA
-  ========================== -->
-  <footer>
-    <p>© 2025 <strong>Viva el mate</strong>. Todos los derechos reservados.</p>
-  </footer>
+  <footer><p>© 2025 <strong>Viva el mate</strong>. Todos los derechos reservados.</p></footer>
 
-  <script src="scripts/main.js"></script>
 </body>
 </html>
