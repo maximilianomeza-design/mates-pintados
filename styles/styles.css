@@ -1,152 +1,141 @@
-/* =========================
-   ESTILOS GENERALES
-========================= */
+/* ===================================================
+   Viva el Mate 🌿
+   Estilos principales - versión 2025
+   =================================================== */
+
+/* --- RESET GENERAL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #f7f1e5;
-  color: #2b2b2b;
+  background-color: #fdf8f1;
+  color: #2e2a26;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: 'Marcellus', serif;
-  color: #2b2b2b;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0.5rem;
-}
-
-/* =========================
-   HEADER
-========================= */
-
+/* ===================================================
+   ENCABEZADO Y NAVEGACIÓN
+   =================================================== */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(6px);
+  background-color: #fffaf4;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 header h1 {
-  font-size: 1.6rem;
   font-family: 'Marcellus', serif;
-  color: #2b2b2b;
+  font-size: 1.8rem;
+  color: #2e2a26;
 }
 
 nav a {
+  color: #2e2a26;
+  text-decoration: none;
   margin: 0 1rem;
   font-weight: 500;
-  color: #2b2b2b;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   color: #4cb5ae;
+  font-weight: 600;
+  border-bottom: 2px solid #4cb5ae;
+  padding-bottom: 0.2rem;
 }
 
-/* =========================
+/* ===================================================
    HERO PRINCIPAL
-========================= */
-
+   =================================================== */
 #hero {
-  padding: 8rem 1rem 5rem;
   text-align: center;
-  background: url('../assets/fondo-textura.webp') center/cover no-repeat;
-  color: #2b2b2b;
+  padding: 6rem 2rem 5rem;
+  background: linear-gradient(180deg, #fffaf4 0%, #fdf8f1 100%);
 }
 
 #hero h2 {
-  font-size: 2.4rem;
+  font-family: 'Marcellus', serif;
+  font-size: 2.2rem;
+  color: #2e2a26;
   margin-bottom: 1rem;
 }
 
 #hero p {
   font-size: 1.1rem;
+  color: #4c4742;
   margin-bottom: 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.btn-primary {
-  background: #4cb5ae;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1.4rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.btn-primary:hover {
-  background: #399f98;
-}
-
+.btn-primary,
 .btn-secondary {
-  border: 2px solid #4cb5ae;
-  color: #4cb5ae;
-  background: transparent;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1.4rem;
-  margin-left: 1rem;
-  font-size: 1rem;
-  cursor: pointer;
+  background-color: #4cb5ae;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.btn-secondary:hover {
-  background: #4cb5ae;
-  color: #fff;
+.btn-secondary {
+  background-color: #f3e4d0;
+  color: #2e2a26;
 }
 
-/* =========================
-   TIENDA ARTESANAL
-========================= */
+.btn-primary:hover {
+  background-color: #3a9d97;
+}
 
+.btn-secondary:hover {
+  background-color: #f0d9b8;
+}
+
+/* ===================================================
+   SECCIÓN: TIENDA
+   =================================================== */
 #tienda {
-  padding: 4rem 1rem;
   text-align: center;
-  background: #f7f1e5;
+  padding: 4rem 1rem;
 }
 
 #tienda h3 {
   font-family: 'Marcellus', serif;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #2b2b2b;
+  font-size: 1.9rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Contenedor de productos centrado */
 .tienda-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem 0;
 }
 
-/* Tarjetas de producto */
+/* --- Tarjetas de productos --- */
 .producto {
-  position: relative;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -155,14 +144,15 @@ nav a:hover {
   width: 260px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .producto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagen con zoom suave */
+/* --- Imagen con zoom --- */
 .producto img {
   width: 100%;
   height: 240px;
@@ -177,187 +167,137 @@ nav a:hover {
   filter: brightness(1.05);
 }
 
-/* Título y precio */
 .producto h4 {
+  font-family: 'Marcellus', serif;
   font-size: 1.1rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Precio y promo --- */
+.precio {
+  font-weight: 600;
   color: #2e2a26;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
 }
 
-.producto p.precio {
-  font-size: 1rem;
-  color: #4b4b4b;
-  margin-bottom: 1rem;
-}
-
-/* Botón */
-.producto button {
-  background: #4cb5ae;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.producto button:hover {
-  background: #399f98;
-  transform: scale(1.03);
-}
-
-/* --- PROMO FLOTANTE AL PASAR EL CURSOR --- */
 .producto::after {
-  content: "💛 Usá el cupón 'mi-mate-pintado' y llevate la bombilla de regalo";
+  content: "🎁 Con tu compra llevate la bombilla GRATIS";
   position: absolute;
   bottom: 10px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #2e2a26;
-  background: rgba(255, 255, 255, 0.96);
-  border: 2px solid #e7dcc5;
-  border-radius: 0.8rem;
-  padding: 0.5rem 0.8rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  line-height: 1.3;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transform: translateX(-50%) scale(0);
+  background: rgba(76, 181, 174, 0.95);
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.6rem;
+  transition: transform 0.3s ease;
 }
 
 .producto:hover::after {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(-6px);
+  transform: translateX(-50%) scale(1);
 }
 
-/* =========================
-   TALLERES CREATIVOS
-========================= */
+/* --- Botón de agregar al carrito --- */
+.producto button {
+  background-color: #4cb5ae;
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
+.producto button:hover {
+  background-color: #3a9d97;
+}
+
+/* ===================================================
+   SECCIÓN: TALLERES
+   =================================================== */
 #talleres {
-  padding: 4rem 1rem;
   text-align: center;
-  background: #f7f1e5;
+  padding: 4rem 1rem;
 }
 
 #talleres h3 {
   font-family: 'Marcellus', serif;
-  color: #2e2a26;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-bottom: 1rem;
 }
 
-#talleres p {
-  font-family: 'Inter', sans-serif;
-  color: #4b4b4b;
-  margin-bottom: 2rem;
-}
-
-/* --- CONTENEDOR GENERAL --- */
 .talleres-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
   flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(6px);
-  border-radius: 0.8rem;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-/* --- VIDEO CON MARCO ARTESANAL --- */
-.taller-video {
-  flex: 1 1 40%;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  gap: 2rem;
+  background: #fffaf4;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .taller-video video {
   width: 100%;
-  max-width: 360px;
-  height: auto;
-  max-height: 300px;
-  object-fit: contain;
+  max-width: 380px;
+  height: 320px;
+  object-fit: cover;
   border-radius: 1rem;
-  border: 6px solid #e7dcc5;
-  background-color: #f7f1e5;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.taller-video video:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-/* --- FORMULARIO --- */
 .taller-form {
-  flex: 1 1 45%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.8rem;
   text-align: left;
-}
-
-.taller-form label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: #2e2a26;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 380px;
 }
 
 .taller-form input,
 .taller-form select {
-  padding: 0.6rem;
+  padding: 0.7rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
-  font-size: 1rem;
-  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
 }
 
 .taller-form button {
-  background: #4cb5ae;
-  color: white;
+  background-color: #4cb5ae;
+  color: #fff;
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.8rem;
-  margin-top: 0.8rem;
-  font-size: 1rem;
+  border-radius: 0.6rem;
+  padding: 0.7rem;
+  font-weight: 500;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .taller-form button:hover {
-  background: #399f98;
+  background-color: #3a9d97;
 }
 
-/* =========================
-   PORTFOLIO CON CARRUSEL MULTIPLE
-========================= */
-
+/* ===================================================
+   SECCIÓN: PORTFOLIO
+   =================================================== */
 #portfolio {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
 }
 
 #portfolio h3 {
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  color: #2e2a26;
   font-family: 'Marcellus', serif;
+  font-size: 1.9rem;
+  margin-bottom: 2rem;
 }
 
-/* Contenedor general */
 .slider-container {
   position: relative;
   width: 90%;
@@ -365,19 +305,16 @@ nav a:hover {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(6px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
 }
 
-/* Pista de imágenes */
 .slider-track {
   display: flex;
   transition: transform 0.6s ease-in-out;
 }
 
-/* Figura e imagen */
 .slider-track figure {
   flex: 0 0 33.333%;
   padding: 0.5rem;
@@ -387,8 +324,8 @@ nav a:hover {
 
 .slider-track img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 300px;
+  object-fit: cover;
   border-radius: 1rem;
   transition: transform 0.3s ease, opacity 0.6s ease;
 }
@@ -397,24 +334,11 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* Nombre del producto */
-.slider-track figcaption {
-  margin-top: 0.5rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #3b3b3b;
-  background: rgba(255, 255, 255, 0.6);
-  padding: 0.3rem 0.6rem;
-  border-radius: 0.5rem;
-  display: inline-block;
-}
-
-/* Flechas */
 .slider-container button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(76, 181, 174, 0.85);
+  background: rgba(76, 181, 174, 0.8);
   color: white;
   border: none;
   font-size: 2rem;
@@ -422,7 +346,6 @@ nav a:hover {
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s ease;
-  z-index: 10;
 }
 
 .slider-container button:hover {
@@ -432,84 +355,76 @@ nav a:hover {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* =========================
-   CONTACTO
-========================= */
-
+/* ===================================================
+   SECCIÓN: CONTACTO
+   =================================================== */
 #contacto {
   text-align: center;
-  padding: 3rem 1rem;
-  background: linear-gradient(180deg, #f7f1e5 0%, #fff 100%);
+  padding: 4rem 1rem;
+  background-color: #fffaf4;
 }
 
 #contacto h3 {
   font-family: 'Marcellus', serif;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-#contacto p {
-  color: #4b4b4b;
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-.contacto-links a {
-  margin: 0 1rem;
+.social {
   color: #4cb5ae;
-  font-weight: 600;
+  text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.contacto-links a:hover {
-  color: #399f98;
+.social:hover {
+  color: #3a9d97;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
+/* ===================================================
+   PIE DE PÁGINA
+   =================================================== */
 footer {
-  background: #4cb5ae;
-  color: white;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 3rem;
+  background: #fffaf4;
+  padding: 1.5rem;
   font-size: 0.9rem;
-  letter-spacing: 0.5px;
+  color: #4c4742;
 }
 
-/* =========================
-   RESPONSIVE GENERAL
-========================= */
+/* ===================================================
+   BOTONES Y EFECTOS EXTRA
+   =================================================== */
+button.pressed,
+.btn-primary.pressed,
+.btn-secondary.pressed {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
 
+/* ===================================================
+   RESPONSIVE DESIGN
+   =================================================== */
 @media (max-width: 768px) {
-  nav a {
-    margin: 0 0.6rem;
-  }
-
-  #hero h2 {
-    font-size: 2rem;
-  }
-
-  .slider-track figure {
-    flex: 0 0 50%;
-  }
-
   .talleres-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .taller-video video {
-    width: 90%;
-    max-width: none;
-    max-height: 260px;
-    border: 4px solid #e7dcc5;
+  .taller-video video,
+  .taller-form {
+    max-width: 100%;
   }
 
-  .producto {
-    width: 90%;
-  }
-
-  .producto::after {
-    font-size: 0.8rem;
+  .slider-track figure {
+    flex: 0 0 100%;
   }
 }
