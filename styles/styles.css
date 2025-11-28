@@ -299,7 +299,7 @@ footer strong {
     width: 90%;
   }
 }
-/* --- PORTFOLIO SLIDER OPTIMIZADO (Versión 2025) --- */
+/* --- PORTFOLIO CON CARRUSEL MULTIPLE + NOMBRES --- */
 #portfolio {
   text-align: center;
   padding: 3rem 1rem;
@@ -312,21 +312,18 @@ footer strong {
   font-family: 'Marcellus', serif;
 }
 
-/* Contenedor general del slider */
+/* Contenedor general */
 .slider-container {
   position: relative;
   width: 90%;
-  max-width: 750px;
+  max-width: 950px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
 }
 
 /* Pista de imágenes */
@@ -335,22 +332,39 @@ footer strong {
   transition: transform 0.6s ease-in-out;
 }
 
-/* Imágenes dentro del carrusel */
+/* Cada figura */
+.slider-track figure {
+  flex: 0 0 33.333%;
+  padding: 0.5rem;
+  margin: 0;
+  text-align: center;
+}
+
 .slider-track img {
-  flex: 0 0 100%;
-  max-width: 100%;
-  max-height: 420px; /* 🔹 Tamaño visual equilibrado */
-  object-fit: contain; /* 🔹 Mantiene proporción sin recorte */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 1rem;
-  transition: transform 0.4s ease, opacity 0.6s ease;
+  transition: transform 0.3s ease, opacity 0.6s ease;
 }
 
-/* Efecto sutil al pasar el mouse */
 .slider-track img:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-/* Flechas de navegación */
+/* Nombre del producto */
+.slider-track figcaption {
+  margin-top: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #3b3b3b;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+/* Flechas */
 .slider-container button {
   position: absolute;
   top: 50%;
@@ -362,41 +376,24 @@ footer strong {
   padding: 0.3rem 0.8rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease;
   z-index: 10;
 }
 
 .slider-container button:hover {
   background: rgba(57, 159, 152, 1);
-  transform: translateY(-50%) scale(1.05);
 }
 
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* --- ANIMACIÓN DE ENTRADA --- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.slider-track img.active {
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-/* --- RESPONSIVE ADAPTATION --- */
+/* Responsive */
 @media (max-width: 768px) {
-  .slider-container {
-    max-width: 95%;
-    padding: 0.5rem;
+  .slider-track figure {
+    flex: 0 0 50%; /* 🔹 2 imágenes visibles en móvil */
   }
 
-  .slider-track img {
-    max-height: 320px; /* 🔹 Reduce altura en móviles */
-  }
-
-  .slider-container button {
-    font-size: 1.6rem;
-    padding: 0.2rem 0.6rem;
+  .slider-track figcaption {
+    font-size: 0.9rem;
   }
 }
