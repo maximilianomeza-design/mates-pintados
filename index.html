@@ -49,102 +49,107 @@
   ========================== -->
   <section id="tienda">
     <h3>Tienda Artesanal</h3>
-    <div class="grid">
-      <div class="card">
+
+    <div class="tienda-grid">
+      <div class="producto">
         <img src="assets/mate-ojoturco2.png" alt="Mate pintado diseño ojo turco">
         <h4>Mate Ojo turco</h4>
-        <p>$9.900</p>
+        <p class="precio">$9.900</p>
         <button>Agregar al carrito</button>
       </div>
-      <div class="card">
+
+      <div class="producto">
         <img src="assets/mate-abstracto1.png" alt="Mate artesanal abstracto">
         <h4>Mate Abstracto</h4>
-        <p>$9.700</p>
+        <p class="precio">$9.700</p>
         <button>Agregar al carrito</button>
       </div>
-      <div class="card">
+
+      <div class="producto">
         <img src="assets/mate-flores4.png" alt="Mate botánico pintado a mano">
         <h4>Mate Botánico</h4>
-        <p>$9.800</p>
+        <p class="precio">$9.800</p>
         <button>Agregar al carrito</button>
       </div>
     </div>
   </section>
 
- <!-- =========================
+  <!-- =========================
        SECCIÓN: TALLERES
-========================== -->
-<section id="talleres">
-  <h3>Talleres Creativos</h3>
-  <p>Viví la experiencia de crear tu propio mate. Cupos limitados 💛</p>
+  ========================== -->
+  <section id="talleres">
+    <h3>Talleres Creativos</h3>
+    <p>Viví la experiencia de crear tu propio mate. Cupos limitados 💛</p>
 
-  <div class="talleres-container">
-    <!-- Bloque de video -->
-    <div class="taller-video">
-      <video autoplay muted loop playsinline>
-        <source src="assets/taller1video.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-      </video>
+    <div class="talleres-container">
+      <!-- Bloque de video -->
+      <div class="taller-video">
+        <video autoplay muted loop playsinline>
+          <source src="assets/taller1video.mp4" type="video/mp4">
+          Tu navegador no soporta videos HTML5.
+        </video>
+      </div>
+
+      <!-- Bloque de formulario -->
+      <form class="taller-form">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="tuemail@gmail.com" required>
+
+        <label for="taller">Elegí tu taller</label>
+        <select id="taller" name="taller" required>
+          <option value="">Seleccionar...</option>
+          <option value="inicial">Pintura en mate — Nivel inicial</option>
+          <option value="intermedio">Técnicas florales — Nivel intermedio</option>
+          <option value="avanzado">Técnicas de diseño — Nivel avanzado</option>
+        </select>
+
+        <button type="submit">Inscribirme</button>
+      </form>
     </div>
+  </section>
 
-    <!-- Bloque de formulario -->
-    <form class="taller-form">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="tuemail@gmail.com" required>
-
-      <label for="taller">Elegí tu taller</label>
-      <select id="taller" name="taller" required>
-        <option value="">Seleccionar...</option>
-        <option value="inicial">Pintura en mate — Nivel inicial</option>
-        <option value="intermedio">Técnicas florales — Nivel intermedio</option>
-        <option value="avanzado">Técnicas de diseño — Nivel avanzado</option>
-      </select>
-
-      <button type="submit">Inscribirme</button>
-    </form>
-  </div>
-</section>
   <!-- =========================
        SECCIÓN: PORTFOLIO
   ========================== -->
   <section id="portfolio">
-  <h3>Portfolio de Obras</h3>
+    <h3>Portfolio de Obras</h3>
 
-  <div class="slider-container">
-    <div class="slider-track">
-      <figure>
-        <img src="assets/mate-ojoturco3.png" alt="Mate diseño ojo turco base rosa">
-        <figcaption>Mate diseño ojo turco base rosa</figcaption>
-      </figure>
+    <div class="slider-container">
+      <div class="slider-track" id="sliderTrack">
+        <figure>
+          <img src="assets/mate-ojoturco3.png" alt="Mate diseño ojo turco base rosa">
+          <figcaption>Mate diseño ojo turco base rosa</figcaption>
+        </figure>
 
-      <figure>
-        <img src="assets/mate-flores1.png" alt="Mate flores margaritas">
-        <figcaption>Mate flores margaritas</figcaption>
-      </figure>
+        <figure>
+          <img src="assets/mate-flores1.png" alt="Mate flores margaritas">
+          <figcaption>Mate flores margaritas</figcaption>
+        </figure>
 
-      <figure>
-        <img src="assets/mate-flores2.png" alt="Mate diseño natural">
-        <figcaption>Mate diseño natural</figcaption>
-      </figure>
+        <figure>
+          <img src="assets/mate-flores2.png" alt="Mate diseño natural">
+          <figcaption>Mate diseño natural</figcaption>
+        </figure>
 
-      <figure>
-        <img src="assets/mate-ojoturco1.png" alt="Mate diseño ojo turco azul">
-        <figcaption>Mate diseño ojo turco azul</figcaption>
-      </figure>
+        <figure>
+          <img src="assets/mate-ojoturco1.png" alt="Mate diseño ojo turco azul">
+          <figcaption>Mate diseño ojo turco azul</figcaption>
+        </figure>
 
-      <figure>
-        <img src="assets/mate-flores3.png" alt="Mate flores celeste y natural">
-        <figcaption>Mate flores celeste y natural</figcaption>
-      </figure>
+        <figure>
+          <img src="assets/mate-flores3.png" alt="Mate flores celeste y natural">
+          <figcaption>Mate flores celeste y natural</figcaption>
+        </figure>
+      </div>
+
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
+  </section>
 
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div>
-</section>
   <!-- =========================
        SECCIÓN: CONTACTO
   ========================== -->
@@ -166,5 +171,20 @@
     <p>© 2025 <strong>Viva el mate</strong>. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- =========================
+       SCRIPT SLIDER PORTFOLIO
+  ========================== -->
+  <script>
+    const track = document.getElementById('sliderTrack');
+    const slides = document.querySelectorAll('.slider-track figure');
+    let currentIndex = 0;
+
+    function moveSlide(direction) {
+      const totalSlides = slides.length;
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      const offset = -currentIndex * 100 / 3; // muestra 3 por vez
+      track.style.transform = `translateX(${offset}%)`;
+    }
+  </script>
 </body>
 </html>
