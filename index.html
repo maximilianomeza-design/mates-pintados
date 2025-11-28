@@ -9,6 +9,7 @@
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
   <link href="styles/styles.css" rel="stylesheet">
@@ -22,7 +23,11 @@
        ENCABEZADO
   ========================== -->
   <header>
-    <h1>Viva el mate</h1>
+    <div class="header-logo">
+      <span class="sparkle">✨</span>
+      <h1>Viva el mate <span class="heart">💛</span></h1>
+      <span class="sparkle">🌿</span>
+    </div>
     <nav>
       <a href="#tienda">Tienda</a>
       <a href="#talleres">Talleres</a>
@@ -41,6 +46,29 @@
     <div class="cta-buttons">
       <a href="#tienda" class="btn-primary">Ver Tienda</a>
       <a href="#talleres" class="btn-secondary">Inscribirme al Taller</a>
+    </div>
+  </section>
+
+  <!-- =========================
+       BENEFICIOS / CONFIANZA
+  ========================== -->
+  <section id="beneficios">
+    <div class="beneficio">
+      <img src="assets/icono-envio.svg" alt="Icono envío a todo el país">
+      <h4>Enviamos tu compra</h4>
+      <p>Llegamos a todo el país</p>
+    </div>
+
+    <div class="beneficio">
+      <img src="assets/icono-pago.svg" alt="Icono formas de pago">
+      <h4>Pagá como quieras</h4>
+      <p>Tarjeta o efectivo</p>
+    </div>
+
+    <div class="beneficio">
+      <img src="assets/icono-seguridad.svg" alt="Icono seguridad">
+      <h4>Comprá con seguridad</h4>
+      <p>Tus datos siempre protegidos</p>
     </div>
   </section>
 
@@ -75,6 +103,29 @@
   </section>
 
   <!-- =========================
+       SECCIÓN: TESTIMONIOS
+  ========================== -->
+  <section id="testimonios">
+    <div class="testimonio">
+      <img src="assets/clienta1.jpg" alt="Cliente feliz con su mate">
+      <p><em>“El local soñado, no sabes con cuál mate quedarte, todos hermosos! La atención un 10 👏🏼💛”</em></p>
+      <strong>Lara Anduran</strong>
+    </div>
+
+    <div class="testimonio">
+      <img src="assets/cliente2.jpg" alt="Cliente feliz con su mate">
+      <p><em>“Extraordinario el mate, estoy muy feliz! Excelente servicio y producto.”</em></p>
+      <strong>Pedro Schneider</strong>
+    </div>
+
+    <div class="testimonio">
+      <img src="assets/cliente3.jpg" alt="Cliente feliz con su mate">
+      <p><em>“Los mejores mates del mercado ☕💞. Flor y Pablo te atienden con la mejor predisposición. ¡Un lujo!”</em></p>
+      <strong>Matías Franco</strong>
+    </div>
+  </section>
+
+  <!-- =========================
        SECCIÓN: TALLERES
   ========================== -->
   <section id="talleres">
@@ -82,7 +133,6 @@
     <p>Viví la experiencia de crear tu propio mate. Cupos limitados 💛</p>
 
     <div class="talleres-container">
-      <!-- Bloque de video -->
       <div class="taller-video">
         <video autoplay muted loop playsinline>
           <source src="assets/taller1video.mp4" type="video/mp4">
@@ -90,7 +140,6 @@
         </video>
       </div>
 
-      <!-- Bloque de formulario -->
       <form class="taller-form">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
@@ -119,32 +168,12 @@
 
     <div class="slider-container">
       <div class="slider-track" id="sliderTrack">
-        <figure>
-          <img src="assets/mate-ojoturco3.png" alt="Mate diseño ojo turco base rosa">
-          <figcaption>Mate diseño ojo turco base rosa</figcaption>
-        </figure>
-
-        <figure>
-          <img src="assets/mate-flores1.png" alt="Mate flores margaritas">
-          <figcaption>Mate flores margaritas</figcaption>
-        </figure>
-
-        <figure>
-          <img src="assets/mate-flores2.png" alt="Mate diseño natural">
-          <figcaption>Mate diseño natural</figcaption>
-        </figure>
-
-        <figure>
-          <img src="assets/mate-ojoturco1.png" alt="Mate diseño ojo turco azul">
-          <figcaption>Mate diseño ojo turco azul</figcaption>
-        </figure>
-
-        <figure>
-          <img src="assets/mate-flores3.png" alt="Mate flores celeste y natural">
-          <figcaption>Mate flores celeste y natural</figcaption>
-        </figure>
+        <figure><img src="assets/mate-ojoturco3.png" alt="Mate diseño ojo turco base rosa"><figcaption>Mate diseño ojo turco base rosa</figcaption></figure>
+        <figure><img src="assets/mate-flores1.png" alt="Mate flores margaritas"><figcaption>Mate flores margaritas</figcaption></figure>
+        <figure><img src="assets/mate-flores2.png" alt="Mate diseño natural"><figcaption>Mate diseño natural</figcaption></figure>
+        <figure><img src="assets/mate-ojoturco1.png" alt="Mate diseño ojo turco azul"><figcaption>Mate diseño ojo turco azul</figcaption></figure>
+        <figure><img src="assets/mate-flores3.png" alt="Mate flores celeste y natural"><figcaption>Mate flores celeste y natural</figcaption></figure>
       </div>
-
       <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
       <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
@@ -156,7 +185,6 @@
   <section id="contacto">
     <h3>Llevate arte para tu día 🌿</h3>
     <p>Seguinos en redes o escribinos para encargos personalizados.</p>
-
     <div class="social-links">
       <a href="#" target="_blank" class="social instagram">Instagram</a>
       <a href="#" target="_blank" class="social whatsapp">WhatsApp</a>
@@ -171,20 +199,6 @@
     <p>© 2025 <strong>Viva el mate</strong>. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- =========================
-       SCRIPT SLIDER PORTFOLIO
-  ========================== -->
-  <script>
-    const track = document.getElementById('sliderTrack');
-    const slides = document.querySelectorAll('.slider-track figure');
-    let currentIndex = 0;
-
-    function moveSlide(direction) {
-      const totalSlides = slides.length;
-      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-      const offset = -currentIndex * 100 / 3; // muestra 3 por vez
-      track.style.transform = `translateX(${offset}%)`;
-    }
-  </script>
+  <script src="scripts/main.js"></script>
 </body>
 </html>
