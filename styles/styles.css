@@ -21,6 +21,47 @@ body {
 }
 
 /* ===================================================
+   BANNER SUPERIOR DE INFORMACIÓN
+   =================================================== */
+#banner-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background-color: #fff3e3;
+  color: #2e2a26;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f2e2c4;
+}
+
+.banner-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.banner-item img {
+  width: 28px;
+  height: 28px;
+}
+
+.banner-item p {
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  #banner-info {
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}
+
+/* ===================================================
    ENCABEZADO Y NAVEGACIÓN
    =================================================== */
 header {
@@ -35,7 +76,6 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* --- Logo centrado y decorado --- */
 .header-logo {
   display: flex;
   align-items: center;
@@ -61,7 +101,6 @@ header {
   opacity: 0.9;
 }
 
-/* --- Navegación --- */
 nav {
   display: flex;
   justify-content: center;
@@ -141,44 +180,6 @@ nav a.active {
 }
 
 /* ===================================================
-   SECCIÓN: BENEFICIOS
-   =================================================== */
-#beneficios {
-  background-color: #f6f5f3;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  padding: 2rem 1rem;
-  text-align: center;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-
-.beneficio {
-  flex: 1 1 250px;
-  max-width: 300px;
-}
-
-.beneficio img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.8rem;
-  opacity: 0.9;
-}
-
-.beneficio h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.beneficio p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-/* ===================================================
    SECCIÓN: TIENDA
    =================================================== */
 #tienda {
@@ -199,7 +200,6 @@ nav a.active {
   gap: 2rem;
 }
 
-/* --- Tarjetas de productos --- */
 .producto {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 1rem;
@@ -244,7 +244,7 @@ nav a.active {
 }
 
 .producto::after {
-  content: "🎁 Con tu compra llevate la bombilla GRATIS";
+  content: "🎁 Llevate la bombilla GRATIS con tu compra";
   position: absolute;
   bottom: 10px;
   left: 50%;
