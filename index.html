@@ -75,29 +75,37 @@
        SECCIÓN: TALLERES
   ========================== -->
   <section id="talleres">
-    <h3>Talleres Creativos</h3>
-    <p>Sumate a nuestros encuentros de arte y aprendé a pintar tus propios mates.  
-      Descubrí técnicas, inspiración y la calma de crear con tus manos.</p>
+  <h3>Talleres Creativos</h3>
+  <p>Viví la experiencia de pintar tu propio mate. Cupos limitados 💛</p>
 
-    <form>
-      <div class="form-group">
-        <input type="text" placeholder="Nombre" required>
-      </div>
-      <div class="form-group">
-        <input type="email" placeholder="Correo electrónico" required>
-      </div>
-      <div class="form-group">
-        <select required>
-          <option value="">Seleccioná un taller</option>
-          <option>Taller de mates florales</option>
-          <option>Taller de arte abstracto</option>
-          <option>Taller de técnicas naturales</option>
-        </select>
-      </div>
-      <button type="submit" class="btn-primary">Reservar mi lugar</button>
+  <div class="talleres-container">
+    <!-- Bloque de video -->
+    <div class="taller-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/taller-majo.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </div>
+
+    <!-- Bloque de formulario -->
+    <form class="taller-form">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="tuemail@gmail.com" required>
+
+      <label for="taller">Elegí tu taller</label>
+      <select id="taller" name="taller">
+        <option value="">Seleccionar...</option>
+        <option value="inicial">Pintura en mate — Nivel inicial</option>
+        <option value="avanzado">Técnicas florales — Nivel avanzado</option>
+      </select>
+
+      <button type="submit">Inscribirme</button>
     </form>
-  </section>
-
+  </div>
+</section>
   <!-- =========================
        SECCIÓN: PORTFOLIO
   ========================== -->
