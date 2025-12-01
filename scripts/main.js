@@ -64,3 +64,11 @@ window.addEventListener("load", () => {
     img.style.objectFit = "cover";
   });
 });
+// Mostrar animación al hacer scroll
+document.addEventListener("scroll", () => {
+  const section = document.querySelector("#sobre-vivaelmate");
+  const rect = section.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.8) {
+    section.classList.add("visible");
+  }
+});
