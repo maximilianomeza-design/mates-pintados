@@ -1,5 +1,5 @@
 /* ===================================================
-   Viva el Mate 🌿 — Estilos 2025 (versión final artística)
+   Viva el Mate 🌿 — Estilos unificados 2025
    =================================================== */
 
 /* --- RESET GENERAL --- */
@@ -29,7 +29,7 @@ body {
   --color-secundario: #f3e4d0;
   --color-titulo: #2e2a26;
   --color-texto: #4c4742;
-  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* ===================================================
@@ -215,137 +215,226 @@ nav a.active {
 
 .producto:hover img { transform: scale(1.08); }
 
-.producto::after {
-  content: "🎁 Bombilla GRATIS con tu compra";
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%) scale(0);
-  background: var(--color-acento);
+.producto button {
+  background-color: var(--color-acento);
   color: #fff;
-  font-size: 0.8rem;
-  padding: 0.3rem 0.8rem;
+  border: none;
   border-radius: 0.6rem;
-  transition: transform 0.3s ease;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.producto:hover::after { transform: translateX(-50%) scale(1); }
+.producto button:hover { background-color: #3a9d97; }
 
 /* ===================================================
-   SOBRE / HISTORIA — VERSIÓN ARTÍSTICA
+   TESTIMONIOS
    =================================================== */
-#historia-viva {
+#testimonios {
+  text-align: center;
+  padding: 4rem 2rem;
   background: #fffaf4;
+}
+
+#testimonios h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.testimonios-carousel {
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonios-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollTestimonials 20s linear infinite;
+}
+
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testimonio {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+  padding: 1rem;
+  flex: 0 0 250px;
+}
+
+.testimonio img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* ===================================================
+   TALLERES
+   =================================================== */
+#talleres {
+  text-align: center;
   padding: 5rem 2rem;
 }
 
-.historia-wrapper {
+.talleres-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.taller-video video {
+  width: 320px;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.taller-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 280px;
+}
+
+.taller-form input,
+.taller-form select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
+
+.taller-form button {
+  background: var(--color-acento);
+  color: #fff;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.taller-form button:hover {
+  background: #3a9d97;
+}
+
+/* ===================================================
+   PORTFOLIO
+   =================================================== */
+#portfolio {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #fffaf4;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 1.5rem;
+}
+
+.slider-track figure {
+  flex: 0 0 280px;
+}
+
+.slider-track img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.prev, .next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 45%;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ===================================================
+   SOBRE / HISTORIA (versión artística)
+   =================================================== */
+#sobre-vivaelmate {
+  background-color: var(--color-fondo);
+  padding: 4rem 2rem;
+}
+
+.sobre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.historia-bloque {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-  gap: 3rem;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.historia-bloque.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.historia-bloque.invert {
-  flex-direction: row-reverse;
-}
-
-.historia-texto {
-  flex: 1;
-  min-width: 300px;
-  color: var(--color-texto);
-}
-
-.historia-texto h2,
-.historia-texto h3 {
-  font-family: "Marcellus", serif;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, #4cb5ae, #f9b233, #4cb5ae);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-size: 300%;
-  animation: colorFlow 6s linear infinite;
-}
-
-@keyframes colorFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.historia-texto p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.historia-imagen {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.historia-imagen img {
-  width: 90%;
-  max-width: 450px;
+.sobre-imagen img {
+  width: 400px;
   border-radius: 16px;
   box-shadow: var(--sombra-suave);
   object-fit: cover;
-  transition: transform 2s ease, filter 2s ease;
 }
 
-.historia-imagen img:hover {
-  transform: scale(1.05);
-  filter: brightness(1.05) saturate(1.2);
+.sobre-texto h3 {
+  font-family: "Marcellus", serif;
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  color: var(--color-titulo);
 }
 
-/* Línea de pincel animada */
-.pincelada {
-  width: 220px;
-  margin: 0.5rem 0 1.5rem;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: drawStroke 2s ease forwards;
+.sobre-texto p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
-@keyframes drawStroke {
-  to { stroke-dashoffset: 0; }
-}
-
-.cta-final {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.btn-volver {
-  background: linear-gradient(90deg, #4cb5ae, #f9b233);
+.btn-sobre {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--color-acento);
   color: #fff;
-  padding: 0.8rem 1.3rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
-.btn-volver:hover {
-  background: linear-gradient(90deg, #f9b233, #4cb5ae);
-  transform: scale(1.05);
+.btn-sobre:hover { background-color: #3a9d97; transform: scale(1.05); }
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+#contacto {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+footer {
+  background: #fffaf4;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 /* ===================================================
@@ -353,15 +442,7 @@ nav a.active {
    =================================================== */
 @media (max-width: 768px) {
   nav { flex-wrap: wrap; gap: 0.8rem; }
-
-  .historia-bloque {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .historia-imagen img {
-    width: 100%;
-  }
-
   .cta-buttons { flex-direction: column; }
+  .talleres-container { flex-direction: column; }
+  .sobre-container { flex-direction: column; text-align: center; }
 }
