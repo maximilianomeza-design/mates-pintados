@@ -1,6 +1,6 @@
 /* ===================================================
    main.js — Viva el Mate 🌿
-   Versión optimizada y comentada — 2025
+   Versión final optimizada — 2025
 =================================================== */
 
 /* ------------------------------
@@ -28,14 +28,10 @@ function moveSlide(direction) {
   updateSliderPosition();
 }
 
-// Botones manuales
+// Controles manuales y auto desplazamiento
 prevBtn?.addEventListener("click", () => moveSlide(-1));
 nextBtn?.addEventListener("click", () => moveSlide(1));
-
-// Auto desplazamiento
 setInterval(() => moveSlide(1), 5000);
-
-// Inicialización del slider
 updateSliderPosition();
 
 /* ------------------------------
@@ -61,23 +57,21 @@ window.addEventListener("scroll", () => {
   document.querySelectorAll("section[id]").forEach(section => {
     if (scrollY >= section.offsetTop - 100) current = section.id;
   });
-
   navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
+    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   });
 });
 
 /* ------------------------------
    EFECTO PRESIÓN EN BOTONES
 ------------------------------ */
-document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
+document.querySelectorAll("button, .btn-primary, .btn-secondary, .btn-sobre, .btn-volver").forEach(btn => {
   btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
   btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
 });
 
 /* ------------------------------
-   AJUSTE VISUAL DEL PORTFOLIO
+   AJUSTE VISUAL PORTFOLIO
 ------------------------------ */
 window.addEventListener("load", () => {
   document.querySelectorAll(".slider-track img").forEach(img => {
@@ -87,57 +81,23 @@ window.addEventListener("load", () => {
 });
 
 /* ------------------------------
-   ANIMACIONES FADE-IN AL HACER SCROLL
-   (aplica a todas las secciones visibles)
+   ANIMACIONES AL HACER SCROLL
 ------------------------------ */
 function animateOnScroll() {
-  const fadeSections = document.querySelectorAll(
-    "#sobre-vivaelmate, #talleres, #tienda, #testimonios, #portfolio"
-  );
+  const sections = document.querySelectorAll("section, .historia-bloque");
+  const triggerBottom = window.innerHeight * 0.85;
 
-  fadeSections.forEach(section => {
+  sections.forEach(section => {
     const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.8) {
-      section.classList.add("visible");
+    if (rect.top < triggerBottom) {
+      section.classList.add("visible", "section-visible");
     }
   });
 }
 
-// Escucha del evento scroll + carga inicial
 document.addEventListener("scroll", animateOnScroll);
 window.addEventListener("load", animateOnScroll);
 
 /* ===================================================
    FIN DEL SCRIPT 🌿
 =================================================== */
-/* ===================================================
-   ANIMACIONES DE SCROLL — APARICIÓN SUAVE 🌿
-   =================================================== */
-
-document.addEventListener("scroll", () => {
-  const sections = document.querySelectorAll("section");
-  const triggerBottom = window.innerHeight * 0.85;
-
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < triggerBottom) {
-      section.classList.add("section-visible");
-    }
-  });
-});
-
-/* ===================================================
-   SCROLL SUAVE EN ENLACES INTERNOS
-   =================================================== */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", e => {
-    const target = document.querySelector(anchor.getAttribute("href"));
-    if (target) {
-      e.preventDefault();
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: "smooth"
-      });
-    }
-  });
-});
