@@ -1,5 +1,5 @@
 /* ===================================================
-   Viva el Mate 🌿 — Estilos completos 2025 (versión optimizada)
+   Viva el Mate 🌿 — Estilos 2025 (versión final artística)
    =================================================== */
 
 /* --- RESET GENERAL --- */
@@ -21,7 +21,7 @@ body {
 }
 
 /* ===================================================
-   VARIABLES DE COLOR Y SOMBRAS
+   VARIABLES
    =================================================== */
 :root {
   --color-fondo: #fdf8f1;
@@ -231,256 +231,9 @@ nav a.active {
 
 .producto:hover::after { transform: translateX(-50%) scale(1); }
 
-.producto button {
-  background-color: var(--color-acento);
-  color: #fff;
-  border: none;
-  border-radius: 0.6rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.producto button:hover { background-color: #3a9d97; }
-
 /* ===================================================
-   SOBRE VIVA EL MATE
+   SOBRE / HISTORIA — VERSIÓN ARTÍSTICA
    =================================================== */
-#sobre-vivaelmate {
-  background-color: var(--color-fondo);
-  padding: 4rem 2rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-#sobre-vivaelmate.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.sobre-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.sobre-imagen img {
-  width: 400px;
-  border-radius: 16px;
-  box-shadow: var(--sombra-suave);
-  object-fit: cover;
-}
-
-.sobre-texto {
-  flex: 1;
-  max-width: 520px;
-  color: var(--color-texto);
-}
-
-.sobre-texto h3 {
-  font-family: "Marcellus", serif;
-  font-size: 1.9rem;
-  color: var(--color-titulo);
-  margin-bottom: 0.5rem;
-}
-
-.icono-hoja {
-  font-size: 1.6rem;
-  color: var(--color-acento);
-  margin-right: 0.4rem;
-  vertical-align: middle;
-}
-
-.sobre-texto h4 {
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  color: var(--color-acento);
-  margin-bottom: 1.5rem;
-}
-
-.sobre-texto p { margin-bottom: 1rem; line-height: 1.7; }
-
-.sobre-texto .frase-final {
-  font-style: italic;
-  color: var(--color-titulo);
-  font-weight: 600;
-}
-
-.btn-sobre {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: var(--color-acento);
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-sobre:hover { background-color: #4ca497; transform: scale(1.05); }
-
-/* ===================================================
-   PÁGINA SOBRE.HTML
-   =================================================== */
-#historia {
-  padding: 4rem 2rem;
-  background-color: var(--color-fondo);
-}
-
-.historia-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.historia-imagen img {
-  width: 400px;
-  border-radius: 16px;
-  box-shadow: var(--sombra-suave);
-  object-fit: cover;
-}
-
-.historia-texto {
-  flex: 1;
-  max-width: 520px;
-  color: var(--color-texto);
-}
-
-.historia-texto h2 {
-  font-family: "Marcellus", serif;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--color-titulo);
-}
-
-.historia-texto p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.btn-volver {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: var(--color-acento);
-  color: #fff;
-  padding: 0.7rem 1.3rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn-volver:hover { background-color: #4ca497; }
-
-/* ===================================================
-   RESPONSIVE GLOBAL
-   =================================================== */
-@media (max-width: 768px
-/* ===================================================
-   HISTORIA — STORYTELLING VISUAL
-=================================================== */
-#historia-viva {
-  padding: 5rem 2rem;
-  background: linear-gradient(180deg, #fffaf4 0%, #fdf8f1 100%);
-}
-
-.historia-bloque {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 3rem auto;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.historia-bloque.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.historia-bloque.invert {
-  flex-direction: row-reverse;
-}
-
-.historia-imagen img {
-  width: 400px;
-  border-radius: 16px;
-  box-shadow: var(--sombra-suave);
-  object-fit: cover;
-}
-
-.historia-texto {
-  flex: 1;
-  max-width: 520px;
-  color: var(--color-texto);
-}
-
-.historia-texto h2, .historia-texto h3 {
-  font-family: "Marcellus", serif;
-  color: var(--color-titulo);
-  margin-bottom: 1rem;
-}
-
-.historia-texto .intro {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #3c3a35;
-}
-
-.historia-texto p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.cta-final {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.btn-volver {
-  background-color: var(--color-acento);
-  color: #fff;
-  padding: 0.8rem 1.3rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn-volver:hover {
-  background-color: #3a9d97;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .historia-bloque {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .historia-imagen img {
-    width: 90%;
-  }
-}
-/* ===================================================
-   HISTORIA — CORRECCIÓN DE CENTRADO Y BALANCE VISUAL
-=================================================== */
 #historia-viva {
   background: #fffaf4;
   padding: 5rem 2rem;
@@ -499,6 +252,14 @@ nav a.active {
   margin-bottom: 4rem;
   gap: 3rem;
   text-align: left;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.historia-bloque.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .historia-bloque.invert {
@@ -514,8 +275,19 @@ nav a.active {
 .historia-texto h2,
 .historia-texto h3 {
   font-family: "Marcellus", serif;
-  color: var(--color-titulo);
   margin-bottom: 1rem;
+  background: linear-gradient(90deg, #4cb5ae, #f9b233, #4cb5ae);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 300%;
+  animation: colorFlow 6s linear infinite;
+}
+
+@keyframes colorFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .historia-texto p {
@@ -535,15 +307,61 @@ nav a.active {
   border-radius: 16px;
   box-shadow: var(--sombra-suave);
   object-fit: cover;
+  transition: transform 2s ease, filter 2s ease;
 }
 
-/* Responsivo */
+.historia-imagen img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05) saturate(1.2);
+}
+
+/* Línea de pincel animada */
+.pincelada {
+  width: 220px;
+  margin: 0.5rem 0 1.5rem;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawStroke 2s ease forwards;
+}
+
+@keyframes drawStroke {
+  to { stroke-dashoffset: 0; }
+}
+
+.cta-final {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.btn-volver {
+  background: linear-gradient(90deg, #4cb5ae, #f9b233);
+  color: #fff;
+  padding: 0.8rem 1.3rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.btn-volver:hover {
+  background: linear-gradient(90deg, #f9b233, #4cb5ae);
+  transform: scale(1.05);
+}
+
+/* ===================================================
+   RESPONSIVE
+   =================================================== */
 @media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 0.8rem; }
+
   .historia-bloque {
     flex-direction: column;
     text-align: center;
   }
+
   .historia-imagen img {
     width: 100%;
   }
+
+  .cta-buttons { flex-direction: column; }
 }
