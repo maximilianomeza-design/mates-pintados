@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobre Viva el Mate | Nuestra historia</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&family=Pacifico&display=swap" rel="stylesheet">
@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <!-- ===================================================
+       ENCABEZADO
+  =================================================== -->
   <header>
     <div class="header-logo">
       <span class="sparkle">✨</span>
@@ -27,18 +30,21 @@
   </header>
 
   <!-- ===================================================
-       HISTORIA VISUAL CON CENTRADO PERFECTO
+       HISTORIA PRINCIPAL ARTÍSTICA
   =================================================== -->
   <section id="historia-viva">
     <div class="historia-wrapper">
 
       <!-- BLOQUE 1 -->
-      <div class="historia-bloque fade">
+      <div class="historia-bloque fade visible">
         <div class="historia-imagen">
           <img src="assets/majo-taller.jpeg" alt="Majo pintando en su taller">
         </div>
         <div class="historia-texto">
           <h2><span class="icono-hoja">🍃</span> Nuestra historia</h2>
+          <svg class="pincelada" viewBox="0 0 500 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q150 0 300 10 T500 10" stroke="#4cb5ae" stroke-width="5" fill="none"/>
+          </svg>
           <p>
             Todo comenzó con una pincelada. Con la idea de transformar un mate común en una pequeña obra de arte. 
             Así nació <strong>Viva el Mate</strong>: un taller donde el color se mezcla con la calma y cada pieza cuenta su propia historia.
@@ -49,10 +55,13 @@
       <!-- BLOQUE 2 -->
       <div class="historia-bloque invert fade">
         <div class="historia-imagen">
-          <img src="assets/mates-colores.jpg" alt="Colección de mates pintados a mano">
+          <img src="assets/mate-flores3.png" alt="Colección de mates pintados a mano">
         </div>
         <div class="historia-texto">
           <h3>🎨 Donde el arte se vuelve cotidiano</h3>
+          <svg class="pincelada" viewBox="0 0 500 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q150 0 300 10 T500 10" stroke="#f9b233" stroke-width="5" fill="none"/>
+          </svg>
           <p>
             En nuestro taller, el tiempo se detiene. Los pinceles cuentan historias, los colores se entrelazan y cada mate se convierte 
             en una pieza única, creada con amor, paciencia y propósito.
@@ -63,10 +72,13 @@
       <!-- BLOQUE 3 -->
       <div class="historia-bloque fade">
         <div class="historia-imagen">
-          <img src="assets/taller-creacion.jpg" alt="Proceso de pintura artesanal">
+          <img src="assets/mate-ojoturco3.png" alt="Proceso de pintura artesanal">
         </div>
         <div class="historia-texto">
           <h3>💛 Más que un mate</h3>
+          <svg class="pincelada" viewBox="0 0 500 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q150 0 300 10 T500 10" stroke="#4cb5ae" stroke-width="5" fill="none"/>
+          </svg>
           <p>
             Para nosotros, un mate no es solo un mate — es una pausa, una conexión, una historia compartida.  
             Creemos que el arte puede habitar en lo cotidiano, y que cada diseño transmite alegría, conexión y pertenencia.
@@ -74,16 +86,50 @@
         </div>
       </div>
 
+      <!-- BLOQUE 4 -->
+      <div class="historia-bloque invert fade">
+        <div class="historia-imagen">
+          <img src="assets/mateytabla1.png" alt="Mates y tabla artesanal">
+        </div>
+        <div class="historia-texto">
+          <h3>🌿 Arte que viaja con vos</h3>
+          <svg class="pincelada" viewBox="0 0 500 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 Q150 0 300 10 T500 10" stroke="#f9b233" stroke-width="5" fill="none"/>
+          </svg>
+          <p>
+            Desde el norte argentino, creamos con el corazón, con las manos, con el alma.  
+            Creemos que cada pieza puede viajar contigo y llevar un pedacito de arte a cada rincón.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA FINAL -->
       <div class="cta-final">
         <a href="index.html" class="btn-volver">← Volver al inicio</a>
       </div>
     </div>
   </section>
 
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
   <footer>
     <p>© 2025 Viva el Mate. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Script principal -->
   <script src="scripts/main.js" defer></script>
+
+  <!-- Activar pinceladas en scroll -->
+  <script>
+    document.addEventListener("scroll", () => {
+      document.querySelectorAll(".historia-bloque").forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          section.classList.add("visible");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
