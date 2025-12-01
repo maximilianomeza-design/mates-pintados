@@ -655,3 +655,17 @@ footer {
     max-width: 90%;
   }
 }
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#sobre-vivaelmate {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+#sobre-vivaelmate.visible {
+  opacity: 1;
+}
