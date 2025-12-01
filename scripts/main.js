@@ -72,3 +72,16 @@ document.addEventListener("scroll", () => {
     section.classList.add("visible");
   }
 });
+/* ===================================================
+   ANIMACIÓN DE ENTRADA SUAVE EN "SOBRE VIVA EL MATE"
+=================================================== */
+document.addEventListener("scroll", () => {
+  const section = document.querySelector("#sobre-vivaelmate");
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // Si la sección está a la vista (entra al 80% de la pantalla)
+  if (rect.top < windowHeight * 0.8) {
+    section.classList.add("visible");
+  }
+});
