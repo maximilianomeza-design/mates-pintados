@@ -110,3 +110,34 @@ window.addEventListener("load", animateOnScroll);
 /* ===================================================
    FIN DEL SCRIPT 🌿
 =================================================== */
+/* ===================================================
+   ANIMACIONES DE SCROLL — APARICIÓN SUAVE 🌿
+   =================================================== */
+
+document.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const triggerBottom = window.innerHeight * 0.85;
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < triggerBottom) {
+      section.classList.add("section-visible");
+    }
+  });
+});
+
+/* ===================================================
+   SCROLL SUAVE EN ENLACES INTERNOS
+   =================================================== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", e => {
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+  });
+});
