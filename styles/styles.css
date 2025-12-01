@@ -676,3 +676,29 @@ footer {
   margin-right: 0.4rem;   /* Espacio entre la hoja y el texto */
   vertical-align: middle; /* Alinea la hoja con el texto */
 }
+/* ===================================================
+   ANIMACIÓN DE ENTRADA SUAVE (fade-in)
+=================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica la animación a la sección pero la mantiene oculta al principio */
+#sobre-vivaelmate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Cuando el script agrega la clase "visible", se activa la animación */
+#sobre-vivaelmate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
