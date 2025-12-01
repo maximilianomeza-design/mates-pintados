@@ -1,8 +1,11 @@
 /* ===================================================
    main.js — Viva el Mate 🌿
-   =================================================== */
+   Versión optimizada y comentada — 2025
+=================================================== */
 
-// Slider Portfolio
+/* ------------------------------
+   SLIDER DEL PORTFOLIO
+------------------------------ */
 const track = document.querySelector(".slider-track");
 const slides = document.querySelectorAll(".slider-track figure");
 const prevBtn = document.querySelector(".prev");
@@ -11,6 +14,7 @@ let currentIndex = 0;
 const slidesPerView = 3;
 
 function updateSliderPosition() {
+  if (!track) return;
   const totalSlides = slides.length;
   const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
   if (currentIndex > maxIndex) currentIndex = 0;
@@ -18,19 +22,28 @@ function updateSliderPosition() {
   const offset = -currentIndex * (100 / slidesPerView);
   track.style.transform = `translateX(${offset}%)`;
 }
+
 function moveSlide(direction) {
   currentIndex += direction;
   updateSliderPosition();
 }
+
+// Botones manuales
 prevBtn?.addEventListener("click", () => moveSlide(-1));
 nextBtn?.addEventListener("click", () => moveSlide(1));
+
+// Auto desplazamiento
 setInterval(() => moveSlide(1), 5000);
+
+// Inicialización del slider
 updateSliderPosition();
 
-// Scroll suave
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener("click", e => {
-    const target = document.querySelector(a.getAttribute("href"));
+/* ------------------------------
+   SCROLL SUAVE ENTRE SECCIONES
+------------------------------ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    const target = document.querySelector(link.getAttribute("href"));
     if (target) {
       e.preventDefault();
       window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
@@ -38,50 +51,62 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// Nav activa
+/* ------------------------------
+   MENÚ ACTIVO AL HACER SCROLL
+------------------------------ */
 const navLinks = document.querySelectorAll("nav a");
+
 window.addEventListener("scroll", () => {
   let current = "";
   document.querySelectorAll("section[id]").forEach(section => {
     if (scrollY >= section.offsetTop - 100) current = section.id;
   });
+
   navLinks.forEach(link => {
     link.classList.remove("active");
     if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
   });
 });
 
-// Efecto de click en botones
+/* ------------------------------
+   EFECTO PRESIÓN EN BOTONES
+------------------------------ */
 document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
   btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
   btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
 });
 
-// Ajuste visual Portfolio
+/* ------------------------------
+   AJUSTE VISUAL DEL PORTFOLIO
+------------------------------ */
 window.addEventListener("load", () => {
   document.querySelectorAll(".slider-track img").forEach(img => {
     img.style.height = "300px";
     img.style.objectFit = "cover";
   });
 });
-// Mostrar animación al hacer scroll
-document.addEventListener("scroll", () => {
-  const section = document.querySelector("#sobre-vivaelmate");
-  const rect = section.getBoundingClientRect();
-  if (rect.top < window.innerHeight * 0.8) {
-    section.classList.add("visible");
-  }
-});
-/* ===================================================
-   ANIMACIÓN DE ENTRADA SUAVE EN "SOBRE VIVA EL MATE"
-=================================================== */
-document.addEventListener("scroll", () => {
-  const section = document.querySelector("#sobre-vivaelmate");
-  const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
 
-  // Si la sección está a la vista (entra al 80% de la pantalla)
-  if (rect.top < windowHeight * 0.8) {
-    section.classList.add("visible");
-  }
-});
+/* ------------------------------
+   ANIMACIONES FADE-IN AL HACER SCROLL
+   (aplica a todas las secciones visibles)
+------------------------------ */
+function animateOnScroll() {
+  const fadeSections = document.querySelectorAll(
+    "#sobre-vivaelmate, #talleres, #tienda, #testimonios, #portfolio"
+  );
+
+  fadeSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8) {
+      section.classList.add("visible");
+    }
+  });
+}
+
+// Escucha del evento scroll + carga inicial
+document.addEventListener("scroll", animateOnScroll);
+window.addEventListener("load", animateOnScroll);
+
+/* ===================================================
+   FIN DEL SCRIPT 🌿
+=================================================== */
