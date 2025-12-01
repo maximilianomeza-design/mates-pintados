@@ -669,3 +669,10 @@ footer {
 #sobre-vivaelmate.visible {
   opacity: 1;
 }
+/* Icono de hoja decorativo en el título */
+.icono-hoja {
+  font-size: 1.6rem;      /* Tamaño de la hoja */
+  color: var(--color-acento); /* Usa el color principal del sitio */
+  margin-right: 0.4rem;   /* Espacio entre la hoja y el texto */
+  vertical-align: middle; /* Alinea la hoja con el texto */
+}
