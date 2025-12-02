@@ -1,6 +1,6 @@
 /* ===================================================
    main.js — Viva el Mate 🌿
-   Versión final optimizada — 2025
+   Versión actualizada 2025 con microinteracciones suaves
 =================================================== */
 
 /* ------------------------------
@@ -28,7 +28,6 @@ function moveSlide(direction) {
   updateSliderPosition();
 }
 
-// Controles manuales y auto desplazamiento
 prevBtn?.addEventListener("click", () => moveSlide(-1));
 nextBtn?.addEventListener("click", () => moveSlide(1));
 setInterval(() => moveSlide(1), 5000);
@@ -51,52 +50,94 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
    MENÚ ACTIVO AL HACER SCROLL
 ------------------------------ */
 const navLinks = document.querySelectorAll("nav a");
-
 window.addEventListener("scroll", () => {
   let current = "";
   document.querySelectorAll("section[id]").forEach(section => {
     if (scrollY >= section.offsetTop - 100) current = section.id;
   });
   navLinks.forEach(link => {
-    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
   });
 });
 
 /* ------------------------------
    EFECTO PRESIÓN EN BOTONES
 ------------------------------ */
-document.querySelectorAll("button, .btn-primary, .btn-secondary, .btn-sobre, .btn-volver").forEach(btn => {
+document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
   btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
   btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
 });
 
 /* ------------------------------
-   AJUSTE VISUAL PORTFOLIO
+   ANIMACIONES FADE-IN AL HACER SCROLL
+------------------------------ */
+function animateOnScroll() {
+  const fadeSections = document.querySelectorAll(
+    "#sobre-vivaelmate, #talleres, #tienda, #testimonios, #portfolio"
+  );
+  fadeSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8) {
+      section.classList.add("section-visible");
+    }
+  });
+}
+document.addEventListener("scroll", animateOnScroll);
+window.addEventListener("load", animateOnScroll);
+
+/* ------------------------------
+   ANIMACIÓN DE ENTRADA SUAVE DEL HERO
 ------------------------------ */
 window.addEventListener("load", () => {
-  document.querySelectorAll(".slider-track img").forEach(img => {
-    img.style.height = "300px";
-    img.style.objectFit = "cover";
+  const hero = document.querySelector("#hero");
+  if (hero) hero.classList.add("section-visible");
+});
+
+/* ------------------------------
+   SCROLL REVEAL SUAVE (detalles)
+------------------------------ */
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("section-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+document.querySelectorAll("section").forEach(sec => observer.observe(sec));
+
+/* ------------------------------
+   EFECTO HOVER MICROANIMADO EN CTA
+------------------------------ */
+const heroButtons = document.querySelectorAll("#hero a");
+heroButtons.forEach(btn => {
+  btn.addEventListener("mouseenter", () => {
+    btn.style.transition = "transform 0.2s ease, box-shadow 0.2s ease";
+    btn.style.transform = "scale(1.05)";
+    btn.style.boxShadow = "0 6px 15px rgba(0,0,0,0.1)";
+  });
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "scale(1)";
+    btn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.05)";
   });
 });
 
 /* ------------------------------
-   ANIMACIONES AL HACER SCROLL
+   SMOOTH ENTRANCE PARA EL BOTÓN “Descubrí tu mate ideal”
 ------------------------------ */
-function animateOnScroll() {
-  const sections = document.querySelectorAll("section, .historia-bloque");
-  const triggerBottom = window.innerHeight * 0.85;
-
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < triggerBottom) {
-      section.classList.add("visible", "section-visible");
-    }
-  });
-}
-
-document.addEventListener("scroll", animateOnScroll);
-window.addEventListener("load", animateOnScroll);
+window.addEventListener("load", () => {
+  const idealBtn = document.querySelector("a[href='elige-tu-mate.html']");
+  if (idealBtn) {
+    idealBtn.style.opacity = "0";
+    idealBtn.style.transition = "opacity 1.2s ease 0.8s";
+    setTimeout(() => (idealBtn.style.opacity = "1"), 400);
+  }
+});
 
 /* ===================================================
    FIN DEL SCRIPT 🌿
