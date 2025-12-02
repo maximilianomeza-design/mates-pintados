@@ -1,6 +1,6 @@
 /* ===================================================
-   main.js — Viva el Mate 🌿
-   Versión actualizada 2025 con microinteracciones suaves
+   Viva el Mate 🌿 — main.js
+   Versión final optimizada 2025
 =================================================== */
 
 /* ------------------------------
@@ -47,7 +47,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* ------------------------------
-   MENÚ ACTIVO AL HACER SCROLL
+   MENÚ ACTIVO SEGÚN SCROLL
 ------------------------------ */
 const navLinks = document.querySelectorAll("nav a");
 window.addEventListener("scroll", () => {
@@ -62,24 +62,14 @@ window.addEventListener("scroll", () => {
 });
 
 /* ------------------------------
-   EFECTO PRESIÓN EN BOTONES
------------------------------- */
-document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
-  btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
-  btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
-});
-
-/* ------------------------------
    ANIMACIONES FADE-IN AL HACER SCROLL
 ------------------------------ */
 function animateOnScroll() {
-  const fadeSections = document.querySelectorAll(
-    "#sobre-vivaelmate, #talleres, #tienda, #testimonios, #portfolio"
-  );
-  fadeSections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.8) {
-      section.classList.add("section-visible");
+  const sections = document.querySelectorAll("section");
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      sec.classList.add("section-visible");
     }
   });
 }
@@ -87,32 +77,15 @@ document.addEventListener("scroll", animateOnScroll);
 window.addEventListener("load", animateOnScroll);
 
 /* ------------------------------
-   ANIMACIÓN DE ENTRADA SUAVE DEL HERO
+   MICROINTERACCIONES EN BOTONES
 ------------------------------ */
-window.addEventListener("load", () => {
-  const hero = document.querySelector("#hero");
-  if (hero) hero.classList.add("section-visible");
+document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
+  btn.addEventListener("mousedown", () => btn.classList.add("pressed"));
+  btn.addEventListener("mouseup", () => btn.classList.remove("pressed"));
 });
 
 /* ------------------------------
-   SCROLL REVEAL SUAVE (detalles)
------------------------------- */
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("section-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-document.querySelectorAll("section").forEach(sec => observer.observe(sec));
-
-/* ------------------------------
-   EFECTO HOVER MICROANIMADO EN CTA
+   EFECTO HOVER EN CTA DEL HERO
 ------------------------------ */
 const heroButtons = document.querySelectorAll("#hero a");
 heroButtons.forEach(btn => {
@@ -128,16 +101,48 @@ heroButtons.forEach(btn => {
 });
 
 /* ------------------------------
-   SMOOTH ENTRANCE PARA EL BOTÓN “Descubrí tu mate ideal”
+   EFECTO DE ENTRADA HERO Y BOTÓN IDEAL
 ------------------------------ */
 window.addEventListener("load", () => {
+  const hero = document.querySelector("#hero");
   const idealBtn = document.querySelector("a[href='elige-tu-mate.html']");
+  if (hero) hero.classList.add("section-visible");
   if (idealBtn) {
     idealBtn.style.opacity = "0";
     idealBtn.style.transition = "opacity 1.2s ease 0.8s";
     setTimeout(() => (idealBtn.style.opacity = "1"), 400);
   }
 });
+
+/* ------------------------------
+   SLIDER TESTIMONIOS (animación automática)
+------------------------------ */
+const testimonialsTrack = document.querySelector(".testimonios-track");
+if (testimonialsTrack) {
+  testimonialsTrack.style.animation = "scrollTestimonials 30s linear infinite";
+}
+
+/* ------------------------------
+   EFECTO FADE-IN IMAGENES “Sobre Viva el Mate”
+------------------------------ */
+const sobreImg = document.querySelector("#sobre-vivaelmate img");
+if (sobreImg) {
+  sobreImg.style.opacity = "0";
+  sobreImg.style.transition = "opacity 1s ease-out, transform 1s ease-out";
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sobreImg.style.opacity = "1";
+          sobreImg.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  observer.observe(sobreImg);
+}
 
 /* ===================================================
    FIN DEL SCRIPT 🌿
