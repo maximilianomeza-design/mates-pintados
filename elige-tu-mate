@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegí tu Mate Ideal | Viva el Mate 🌿</title>
+  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fdf8ef;
+      color: #2e2e2e;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      text-align: center;
+    }
+    header {
+      background-color: #fffaf4;
+      padding: 1rem 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2rem;
+      color: #2e2e2e;
+      margin: 0;
+    }
+    section {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.6s ease;
+    }
+    .question {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .question.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .option {
+      background-color: #f3d6b1;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .option:hover {
+      background-color: #58b6aa;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    .btn-primary {
+      background-color: #58b6aa;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 2rem;
+      font-weight: 600;
+    }
+    .result {
+      display: none;
+      background: #fffaf4;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .result img {
+      max-width: 200px;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ Viva el Mate 🌿</h1>
+  </header>
+
+  <section id="intro">
+    <h2>Tu mate, tu energía 🍃</h2>
+    <p>Cada persona tiene su ritual. Contanos un poco sobre vos y descubrí el mate que vibra con tu esencia.</p>
+    <button class="btn-primary" id="startBtn">Comenzar</button>
+  </section>
+
+  <section id="quiz">
+    <div class="question" id="q1">
+      <h3>¿Qué momento del día te inspira más?</h3>
+      <div class="options">
+        <button class="option" data-value="mañana">☀️ Mañanas tranquilas</button>
+        <button class="option" data-value="tarde">🎨 Tardes creativas</button>
+        <button class="option" data-value="amigos">💬 Encuentros con amigos</button>
+        <button class="option" data-value="noche">🌙 Noches reflexivas</button>
+      </div>
+    </div>
+
+    <div class="question" id="q2">
+      <h3>¿Qué color te representa hoy?</h3>
+      <div class="options">
+        <button class="option" data-value="verde">🌿 Verde calma</button>
+        <button class="option" data-value="dorado">💛 Dorado alegría</button>
+        <button class="option" data-value="azul">💙 Azul serenidad</button>
+        <button class="option" data-value="terracota">🧡 Terracota tierra</button>
+      </div>
+    </div>
+
+    <div class="question" id="q3">
+      <h3>¿Qué diseño te atrae más?</h3>
+      <div class="options">
+        <button class="option" data-value="botanico">🌸 Botánico</button>
+        <button class="option" data-value="abstracto">✨ Abstracto</button>
+        <button class="option" data-value="minimalista">🤍 Minimalista</button>
+        <button class="option" data-value="cultural">🎭 Cultural</button>
+      </div>
+    </div>
+
+    <div class="question" id="q4">
+      <h3>¿Qué buscás en tu mate?</h3>
+      <div class="options">
+        <button class="option" data-value="energia">⚡ Energía</button>
+        <button class="option" data-value="conexion">🌿 Conexión</button>
+        <button class="option" data-value="inspiracion">🎨 Inspiración</button>
+        <button class="option" data-value="paz">☁️ Paz</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="result" id="result">
+    <h2>💛 Tu mate ideal es...</h2>
+    <img id="mateImage" src="" alt="Mate recomendado">
+    <h3 id="mateName"></h3>
+    <p id="mateDesc"></p>
+    <a href="index.html#tienda" class="btn-primary">Ver en la Tienda</a>
+  </section>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const questions = document.querySelectorAll('.question');
+    const resultSection = document.getElementById('result');
+    const mateName = document.getElementById('mateName');
+    const mateDesc = document.getElementById('mateDesc');
+    const mateImage = document.getElementById('mateImage');
+
+    let currentQuestion = 0;
+    let answers = [];
+
+    startBtn.addEventListener('click', () => {
+      document.getElementById('intro').style.display = 'none';
+      showQuestion(currentQuestion);
+    });
+
+    function showQuestion(index) {
+      questions.forEach(q => q.classList.remove('active'));
+      questions[index].classList.add('active');
+    }
+
+    document.querySelectorAll('.option').forEach(option => {
+      option.addEventListener('click', () => {
+        answers.push(option.dataset.value);
+        questions[currentQuestion].classList.remove('active');
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion(currentQuestion);
+        } else {
+          showResult();
+        }
+      });
+    });
+
+    function showResult() {
+      let recommendation = {};
+
+      if (answers.includes('botanico') || answers.includes('verde')) {
+        recommendation = {
+          name: 'Mate Botánico',
+          desc: 'Inspirado en la naturaleza y la calma. Ideal para quienes buscan conexión y equilibrio.',
+          img: 'assets/mate-flores2.png'
+        };
+      } else if (answers.includes('abstracto') || answers.includes('dorado')) {
+        recommendation = {
+          name: 'Mate Abstracto',
+          desc: 'Trazos libres y color vivo. Perfecto para espíritus creativos que buscan inspiración diaria.',
+          img: 'assets/mate-abstracto1.png'
+        };
+      } else if (answers.includes('minimalista') || answers.includes('azul')) {
+        recommendation = {
+          name: 'Mate Azul Minimal',
+          desc: 'Líneas suaves y energía tranquila. Diseñado para quienes valoran la serenidad.',
+          img: 'assets/mate-ojoturco1.png'
+        };
+      } else {
+        recommendation = {
+          name: 'Mate Cultural',
+          desc: 'Colores cálidos y esencia del norte argentino. Para quienes llevan el arte en cada gesto.',
+          img: 'assets/mate-flores3.png'
+        };
+      }
+
+      document.getElementById('quiz').style.display = 'none';
+      resultSection.style.display = 'block';
+      mateName.textContent = recommendation.name;
+      mateDesc.textContent = recommendation.desc;
+      mateImage.src = recommendation.img;
+    }
+  </script>
+</body>
+</html>
