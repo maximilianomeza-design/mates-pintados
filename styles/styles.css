@@ -1,7 +1,6 @@
 /* ===================================================
-   Viva el Mate 🌿 — Estilos Unificados 2025
-   Versión completa y depurada (misma funcionalidad original)
-=================================================== */
+   Viva el Mate 🌿 — Estilos unificados 2025
+   =================================================== */
 
 /* --- RESET GENERAL --- */
 * {
@@ -16,20 +15,21 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #fdf8f1;
-  color: #2e2a26;
+  background-color: #fdf8ef;
+  color: #2e2e2e;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* ===================================================
    VARIABLES
 =================================================== */
 :root {
-  --color-fondo: #fdf8f1;
+  --color-fondo: #fdf8ef;
   --color-acento: #58b6aa;
   --color-secundario: #f3d6b1;
+  --color-texto: #2e2e2e;
   --color-titulo: #2e2a26;
-  --color-texto: #4c4742;
   --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -116,8 +116,8 @@ nav a {
   color: var(--color-titulo);
   text-decoration: none;
   font-weight: 500;
-  position: relative;
   transition: color 0.3s ease;
+  position: relative;
 }
 
 nav a:hover,
@@ -148,18 +148,12 @@ nav a:hover::after {
   text-align: center;
   padding: 6rem 2rem 5rem;
   background: linear-gradient(180deg, #fffaf4 0%, var(--color-fondo) 100%);
-  animation: fadeInHero 1.5s ease;
+  animation: fadeInHero 1.2s ease;
 }
 
 @keyframes fadeInHero {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #hero h2 {
@@ -214,22 +208,8 @@ nav a:hover::after {
   transform: translateY(-2px);
 }
 
-/* Estilo especial botón “Descubrí tu mate ideal” */
-#hero a[style*='f3d6b1'] {
-  background: linear-gradient(90deg, #f3d6b1, #f6e0c3);
-  font-weight: 600;
-  border: 1px solid #e3cba6;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-#hero a[style*='f3d6b1']:hover {
-  background: linear-gradient(90deg, #f9b233, #58b6aa);
-  color: #fff !important;
-  transform: translateY(-3px);
-}
-
 /* ===================================================
-   TIENDA
+   TIENDA ARTESANAL
 =================================================== */
 #tienda {
   text-align: center;
@@ -291,289 +271,233 @@ nav a:hover::after {
 }
 
 /* ===================================================
-   SOBRE VIVA EL MATE
+   TESTIMONIOS
+=================================================== */
+#testimonios {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fffaf4;
+}
+
+#testimonios h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.testimonios-carousel {
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonios-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollTestimonials 20s linear infinite;
+}
+
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testimonio {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+  padding: 1rem;
+  flex: 0 0 250px;
+}
+
+.testimonio img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* ===================================================
+   TALLERES
+=================================================== */
+#talleres {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.talleres-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.taller-video video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.taller-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 350px;
+  width: 100%;
+}
+
+.taller-form input,
+.taller-form select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.taller-form button {
+  background-color: var(--color-acento);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.taller-form button:hover {
+  background-color: #3a9d97;
+}
+
+/* ===================================================
+   PORTFOLIO
+=================================================== */
+#portfolio {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+#portfolio h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  gap: 1rem;
+  animation: slidePortfolio 30s linear infinite;
+}
+
+@keyframes slidePortfolio {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+figure {
+  position: relative;
+  flex: 0 0 300px;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: var(--sombra-suave);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+/* ===================================================
+   SOBRE LA MARCA
 =================================================== */
 #sobre-vivaelmate {
-  background-color: #fffaf4;
-  padding: 5rem 2rem;
-  overflow: hidden;
+  padding: 4rem 2rem;
+  background: #fffaf4;
 }
 
 .sobre-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.sobre-imagen {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .sobre-imagen img {
-  max-width: 100%;
-  height: auto;
+  width: 320px;
   border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease;
-}
-
-.sobre-imagen img:hover {
-  transform: scale(1.03);
+  box-shadow: var(--sombra-suave);
 }
 
 .sobre-texto {
-  flex: 1;
-  min-width: 320px;
-  color: #3a3a3a;
+  max-width: 500px;
 }
 
 .sobre-texto h3 {
   font-family: 'Marcellus', serif;
-  font-size: 1.9rem;
-  color: #2e2a26;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.sobre-texto h4 {
-  font-size: 1.3rem;
-  color: #4b4b4b;
-  margin-bottom: 1.2rem;
-  font-weight: 500;
-}
-
-.sobre-texto p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.sobre-texto .frase-final {
-  font-style: italic;
-  color: #58b6aa;
-  font-weight: 500;
-  margin-top: 1.5rem;
-}
-
-.btn-sobre {
+.sobre-texto a.btn-sobre {
   display: inline-block;
-  margin-top: 1.5rem;
-  background-color: #58b6aa;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #f3d6b1, #58b6aa);
   color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
   text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-sobre:hover {
-  background-color: #3a9d97;
-  transform: translateY(-2px);
+  font-weight: 600;
 }
 
 /* ===================================================
-   CONTACTO & FOOTER
+   CONTACTO Y FOOTER
 =================================================== */
 #contacto {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
   margin-top: 1rem;
 }
 
 .social {
   text-decoration: none;
-  color: var(--color-titulo);
-  font-weight: 500;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
+  background-color: var(--color-acento);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.8rem;
+  transition: background 0.3s ease;
 }
 
 .social:hover {
-  background-color: var(--color-acento);
-  color: #fff;
-  transform: translateY(-2px);
+  background-color: #3a9d97;
 }
 
 footer {
-  background: #fffaf4;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 0;
   font-size: 0.9rem;
-  border-top: 1px solid #eee;
-}
-
-/* ===================================================
-   SOBRE.HTML — HISTORIA ARTÍSTICA
-=================================================== */
-#historia-viva {
+  color: #555;
   background: #fffaf4;
-  padding: 5rem 2rem;
-}
-
-.historia-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.historia-bloque {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 3rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.historia-bloque.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.historia-bloque.invert {
-  flex-direction: row-reverse;
-}
-
-.historia-imagen {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.historia-imagen img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 1rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease;
-}
-
-.historia-imagen img:hover {
-  transform: scale(1.03);
-}
-
-.historia-texto {
-  flex: 1;
-  min-width: 320px;
-  color: #3a3a3a;
-}
-
-.historia-texto h2,
-.historia-texto h3 {
-  font-family: 'Marcellus', serif;
-  font-weight: 600;
-  color: #2e2a26;
-  margin-bottom: 1rem;
-}
-
-.historia-texto p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.historia-texto .destacado {
-  color: #58b6aa;
-  font-weight: 600;
-}
-
-.historia-texto .frase-final {
-  font-style: italic;
-  color: #58b6aa;
-  margin-top: 1.5rem;
-}
-
-.pincelada {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 1rem;
-}
-
-.cta-final {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.btn-volver {
-  background-color: #58b6aa;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.6rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn-volver:hover {
-  background-color: #3a9d97;
-  transform: translateY(-3px);
-}
-
-/* ===================================================
-   ANIMACIÓN FADE-IN GENERAL
-=================================================== */
-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.section-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===================================================
-   RESPONSIVE
-=================================================== */
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-  }
-
-  .talleres-container {
-    flex-direction: column;
-  }
-
-  .sobre-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .sobre-imagen img {
-    max-width: 90%;
-  }
-
-  .historia-bloque {
-    flex-direction: column !important;
-    text-align: center;
-  }
-
-  .historia-imagen img {
-    max-width: 90%;
-  }
 }
