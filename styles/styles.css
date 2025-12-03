@@ -1,5 +1,6 @@
 /* ===================================================
-   Viva el Mate 🌿 — Estilos Unificados 2025 (versión completa)
+   🌿 Viva el Mate — Estilo Emocional 2025
+   Diseño artesanal, cálido y natural
 =================================================== */
 
 /* --- RESET GENERAL --- */
@@ -29,7 +30,9 @@ body {
   --color-secundario: #f3d6b1;
   --color-titulo: #2e2a26;
   --color-texto: #4c4742;
+  --color-dorado: #f9b233;
   --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicion-suave: all 0.3s ease;
 }
 
 /* ===================================================
@@ -58,7 +61,7 @@ body {
   width: 42px;
   height: 42px;
   opacity: 0.9;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: var(--transicion-suave);
 }
 
 .banner-item:hover img {
@@ -115,7 +118,7 @@ nav a {
   color: var(--color-titulo);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: var(--transicion-suave);
   position: relative;
 }
 
@@ -186,10 +189,10 @@ nav a:hover::after {
 .btn-primary,
 .btn-secondary {
   padding: 0.8rem 1.5rem;
-  border-radius: 0.6rem;
+  border-radius: 0.8rem;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: var(--transicion-suave);
 }
 
 .btn-primary {
@@ -213,7 +216,7 @@ nav a:hover::after {
   transform: translateY(-2px);
 }
 
-/* Estilo especial para el botón “Descubrí tu mate ideal” */
+/* Botón “Descubrí tu mate ideal” */
 #hero a[style*='f3d6b1'] {
   background: linear-gradient(90deg, #f3d6b1, #f6e0c3);
   font-weight: 600;
@@ -238,7 +241,13 @@ nav a:hover::after {
 #tienda h3 {
   font-family: 'Marcellus', serif;
   font-size: 1.9rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#tienda p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--color-texto);
 }
 
 .tienda-grid {
@@ -250,11 +259,11 @@ nav a:hover::after {
 
 .producto {
   background: #fff;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   box-shadow: var(--sombra-suave);
   padding: 1rem;
   width: 260px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transicion-suave);
 }
 
 .producto:hover {
@@ -266,7 +275,7 @@ nav a:hover::after {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
   margin-bottom: 1rem;
   transition: transform 0.4s ease;
 }
@@ -280,9 +289,10 @@ nav a:hover::after {
   color: #fff;
   border: none;
   border-radius: 0.6rem;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: 500;
+  transition: var(--transicion-suave);
 }
 
 .producto button:hover {
@@ -304,25 +314,15 @@ nav a:hover::after {
   margin-bottom: 2rem;
 }
 
-.testimonios-carousel {
-  overflow: hidden;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 .testimonios-track {
   display: flex;
   gap: 2rem;
-  animation: scrollTestimonials 20s linear infinite;
+  animation: scrollTestimonials 25s linear infinite;
 }
 
 @keyframes scrollTestimonials {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .testimonio {
@@ -333,14 +333,6 @@ nav a:hover::after {
   flex: 0 0 250px;
 }
 
-.testimonio img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
 /* ===================================================
    TALLERES
 =================================================== */
@@ -349,342 +341,13 @@ nav a:hover::after {
   padding: 5rem 2rem;
 }
 
-.talleres-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.taller-video video {
-  width: 320px;
-  border-radius: 1rem;
-  box-shadow: var(--sombra-suave);
-}
-
-.taller-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  width: 280px;
-}
-
-.taller-form input,
-.taller-form select {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
-}
-
-.taller-form button {
-  background: var(--color-acento);
-  color: #fff;
-  padding: 0.7rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.taller-form button:hover {
-  background: #3a9d97;
-}
-
 /* ===================================================
-   PORTFOLIO
+   SOBRE / HISTORIA
 =================================================== */
-#portfolio {
-  text-align: center;
-  padding: 5rem 2rem;
-  background: #fffaf4;
-}
-
-.slider-container {
-  position: relative;
-  overflow: hidden;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  gap: 1.5rem;
-}
-
-.slider-track figure {
-  flex: 0 0 280px;
-}
-
-.slider-track img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 0.8rem;
-}
-
-.prev,
-.next {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  position: absolute;
-  top: 45%;
-  cursor: pointer;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* ===================================================
-   SOBRE VIVA EL MATE
-=================================================== */
-#sobre-vivaelmate {
+#sobre-vivaelmate,
+#historia-viva {
   background-color: #fffaf4;
   padding: 5rem 2rem;
-  overflow: hidden;
-}
-
-.sobre-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.sobre-imagen {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.sobre-imagen img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease;
-}
-
-.sobre-imagen img:hover {
-  transform: scale(1.03);
-}
-
-.sobre-texto {
-  flex: 1;
-  min-width: 320px;
-  color: #3a3a3a;
-}
-
-.sobre-texto h3 {
-  font-family: 'Marcellus', serif;
-  font-size: 1.9rem;
-  color: #2e2a26;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.sobre-texto h4 {
-  font-size: 1.3rem;
-  color: #4b4b4b;
-  margin-bottom: 1.2rem;
-  font-weight: 500;
-}
-
-.sobre-texto p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.sobre-texto .frase-final {
-  font-style: italic;
-  color: #58b6aa;
-  font-weight: 500;
-  margin-top: 1.5rem;
-}
-
-.btn-sobre {
-  display: inline-block;
-  margin-top: 1.5rem;
-  background-color: #58b6aa;
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.6rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-sobre:hover {
-  background-color: #3a9d97;
-  transform: translateY(-2px);
-}
-
-/* ===================================================
-   CONTACTO & FOOTER
-=================================================== */
-#contacto {
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social {
-  text-decoration: none;
-  color: var(--color-titulo);
-  font-weight: 500;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border: 1px solid #ddd;
-}
-
-.social:hover {
-  background-color: var(--color-acento);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-footer {
-  background: #fffaf4;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  border-top: 1px solid #eee;
-}
-
-/* ===================================================
-   PÁGINA — ELIGE TU MATE
-=================================================== */
-#quiz,
-#result {
-  max-width: 700px;
-  margin: 2rem auto;
-}
-
-.question {
-  display: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s, transform 0.4s;
-}
-
-.question.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.option {
-  background-color: var(--color-secundario);
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.option:hover {
-  background-color: var(--color-acento);
-  color: #fff;
-  transform: scale(1.05);
-}
-
-.result {
-  display: none;
-  background: #fffaf4;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: var(--sombra-suave);
-}
-
-.result img {
-  max-width: 220px;
-  border-radius: 12px;
-  margin: 1rem 0;
-}
-
-/* ===================================================
-   ANIMACIÓN FADE-IN GENERAL
-=================================================== */
-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.section-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===================================================
-   RESPONSIVE
-=================================================== */
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-  }
-
-  .talleres-container {
-    flex-direction: column;
-  }
-
-  .sobre-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .sobre-imagen img {
-    max-width: 90%;
-  }
-}
-/* ===================================================
-   SOBRE.HTML — HISTORIA ARTÍSTICA
-=================================================== */
-
-#historia-viva {
-  background: #fffaf4;
-  padding: 5rem 2rem;
-}
-
-.historia-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .historia-bloque {
@@ -703,92 +366,38 @@ section {
   transform: translateY(0);
 }
 
-.historia-bloque.invert {
-  flex-direction: row-reverse;
-}
-
-.historia-imagen {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.historia-imagen img {
+.historia-imagen img,
+.sobre-imagen img {
   width: 100%;
   max-width: 450px;
   border-radius: 1rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--sombra-suave);
   transition: transform 0.4s ease;
 }
 
-.historia-imagen img:hover {
+.historia-imagen img:hover,
+.sobre-imagen img:hover {
   transform: scale(1.03);
-}
-
-.historia-texto {
-  flex: 1;
-  min-width: 320px;
-  color: #3a3a3a;
 }
 
 .historia-texto h2,
 .historia-texto h3 {
   font-family: 'Marcellus', serif;
-  font-weight: 600;
-  color: #2e2a26;
-  margin-bottom: 1rem;
+  color: var(--color-titulo);
 }
 
-.historia-texto p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.historia-texto .destacado {
-  color: #58b6aa;
-  font-weight: 600;
-}
-
-.historia-texto .frase-final {
+.frase-final {
+  color: var(--color-acento);
   font-style: italic;
-  color: #58b6aa;
-  margin-top: 1.5rem;
 }
 
-.pincelada {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 1rem;
-}
-
-.cta-final {
+/* ===================================================
+   FOOTER
+=================================================== */
+footer {
+  background: #fffaf4;
   text-align: center;
-  margin-top: 3rem;
-}
-
-.btn-volver {
-  background-color: #58b6aa;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.6rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn-volver:hover {
-  background-color: #3a9d97;
-  transform: translateY(-3px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .historia-bloque {
-    flex-direction: column !important;
-    text-align: center;
-  }
-
-  .historia-imagen img {
-    max-width: 90%;
-  }
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
 }
