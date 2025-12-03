@@ -1,6 +1,6 @@
 /* ===================================================
-   🌿 Viva el Mate — main.js
-   Versión emocional y fluida 2025
+   Viva el Mate 🌿 — main.js
+   Restaurado + optimizado (versión estable)
 =================================================== */
 
 /* ------------------------------
@@ -30,7 +30,7 @@ function moveSlide(direction) {
 
 prevBtn?.addEventListener("click", () => moveSlide(-1));
 nextBtn?.addEventListener("click", () => moveSlide(1));
-setInterval(() => moveSlide(1), 6000);
+setInterval(() => moveSlide(1), 5000);
 updateSliderPosition();
 
 /* ------------------------------
@@ -53,7 +53,7 @@ const navLinks = document.querySelectorAll("nav a");
 window.addEventListener("scroll", () => {
   let current = "";
   document.querySelectorAll("section[id]").forEach(section => {
-    if (scrollY >= section.offsetTop - 120) current = section.id;
+    if (scrollY >= section.offsetTop - 100) current = section.id;
   });
   navLinks.forEach(link => {
     link.classList.remove("active");
@@ -62,55 +62,32 @@ window.addEventListener("scroll", () => {
 });
 
 /* ------------------------------
-   ANIMACIONES FADE-IN AL HACER SCROLL
+   FADE-IN SUAVE CON OBSERVER
 ------------------------------ */
-const observer = new IntersectionObserver(
+const fadeObserver = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("section-visible");
-        observer.unobserve(entry.target);
+        fadeObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.25 }
+  { threshold: 0.2 }
 );
 
-document.querySelectorAll("section").forEach(section => observer.observe(section));
+document.querySelectorAll("section").forEach(section => fadeObserver.observe(section));
 
 /* ------------------------------
-   MICROINTERACCIONES EN BOTONES
+   MICROINTERACCIONES (suaves)
 ------------------------------ */
 document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
-  btn.addEventListener("mouseenter", () => {
-    btn.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
-    btn.style.transform = "scale(1.03)";
-    btn.style.boxShadow = "0 6px 14px rgba(0,0,0,0.08)";
-  });
-  btn.addEventListener("mouseleave", () => {
-    btn.style.transform = "scale(1)";
-    btn.style.boxShadow = "0 4px 10px rgba(0,0,0,0.05)";
-  });
+  btn.addEventListener("mousedown", () => (btn.style.transform = "scale(0.97)"));
+  btn.addEventListener("mouseup", () => (btn.style.transform = "scale(1)"));
 });
 
 /* ------------------------------
-   EFECTO HOVER EN CTA DEL HERO
------------------------------- */
-const heroButtons = document.querySelectorAll("#hero a");
-heroButtons.forEach(btn => {
-  btn.addEventListener("mouseenter", () => {
-    btn.style.transition = "transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease";
-    btn.style.transform = "scale(1.07)";
-    btn.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.1)";
-  });
-  btn.addEventListener("mouseleave", () => {
-    btn.style.transform = "scale(1)";
-    btn.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.05)";
-  });
-});
-
-/* ------------------------------
-   EFECTO DE ENTRADA HERO Y BOTÓN IDEAL
+   ENTRADA HERO + BOTÓN “MATE IDEAL”
 ------------------------------ */
 window.addEventListener("load", () => {
   const hero = document.querySelector("#hero");
@@ -118,60 +95,39 @@ window.addEventListener("load", () => {
   if (hero) hero.classList.add("section-visible");
   if (idealBtn) {
     idealBtn.style.opacity = "0";
-    idealBtn.style.transition = "opacity 1.5s ease 1s";
+    idealBtn.style.transition = "opacity 1s ease 0.8s";
     setTimeout(() => (idealBtn.style.opacity = "1"), 400);
   }
 });
 
 /* ------------------------------
-   SLIDER TESTIMONIOS
+   SLIDER TESTIMONIOS (autoplay)
 ------------------------------ */
 const testimonialsTrack = document.querySelector(".testimonios-track");
 if (testimonialsTrack) {
-  testimonialsTrack.style.animation = "scrollTestimonials 28s linear infinite";
+  testimonialsTrack.style.animation = "scrollTestimonials 30s linear infinite";
 }
 
 /* ------------------------------
-   EFECTO FADE-IN EN IMÁGENES “Sobre Viva el Mate”
+   EFECTO FADE EN IMÁGENES SOBRE.HTML
 ------------------------------ */
 document.querySelectorAll("#sobre-vivaelmate img, #historia-viva img").forEach(img => {
   img.style.opacity = "0";
-  img.style.transition = "opacity 1.2s ease-out, transform 1.2s ease-out";
-  const fadeImg = new IntersectionObserver(
+  img.style.transition = "opacity 1s ease-out, transform 1s ease-out";
+  const obs = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           img.style.opacity = "1";
           img.style.transform = "translateY(0)";
-          fadeImg.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.4 }
+    { threshold: 0.3 }
   );
-  fadeImg.observe(img);
+  obs.observe(img);
 });
-
-/* ===================================================
-   🌸 Detalle final: respiración visual
-   (los botones laten suavemente cada cierto tiempo)
-=================================================== */
-setInterval(() => {
-  document.querySelectorAll(".btn-primary, .btn-secondary").forEach(btn => {
-    btn.animate(
-      [
-        { transform: "scale(1)" },
-        { transform: "scale(1.03)" },
-        { transform: "scale(1)" }
-      ],
-      {
-        duration: 4000,
-        iterations: 1,
-        easing: "ease-in-out"
-      }
-    );
-  });
-}, 12000);
 
 /* ===================================================
    FIN DEL SCRIPT 🌿
