@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elegí tu Mate Ideal | Viva el Mate 🌿</title>
-  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía." />
+  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía y tu forma de vivir el mate." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
   <style>
     body {
@@ -97,24 +97,25 @@
   </header>
 
   <section id="intro">
-    <h2>Tu mate, tu energía 🍃</h2>
-    <p>Cada persona tiene su ritual. Contanos un poco sobre vos y descubrí el mate que vibra con tu esencia.</p>
+    <h2>Descubrí tu mate ideal 🍃</h2>
+    <p>Cada persona vibra distinto, y cada mate tiene su energía.  
+       Respondé unas breves preguntas y dejá que el color te guíe hacia el diseño que más se parece a vos.</p>
     <button class="btn-primary" id="startBtn">Comenzar</button>
   </section>
 
   <section id="quiz">
     <div class="question" id="q1">
-      <h3>¿Qué momento del día te inspira más?</h3>
+      <h3>¿Qué momento del día te conecta más con vos?</h3>
       <div class="options">
-        <button class="option" data-value="mañana">☀️ Mañanas tranquilas</button>
+        <button class="option" data-value="mañana">☀️ Mañanas de calma</button>
         <button class="option" data-value="tarde">🎨 Tardes creativas</button>
-        <button class="option" data-value="amigos">💬 Encuentros con amigos</button>
-        <button class="option" data-value="noche">🌙 Noches reflexivas</button>
+        <button class="option" data-value="amigos">💬 Mateadas compartidas</button>
+        <button class="option" data-value="noche">🌙 Noches de introspección</button>
       </div>
     </div>
 
     <div class="question" id="q2">
-      <h3>¿Qué color te representa hoy?</h3>
+      <h3>Si fueras un color hoy, ¿cuál serías?</h3>
       <div class="options">
         <button class="option" data-value="verde">🌿 Verde calma</button>
         <button class="option" data-value="dorado">💛 Dorado alegría</button>
@@ -124,22 +125,22 @@
     </div>
 
     <div class="question" id="q3">
-      <h3>¿Qué diseño te atrae más?</h3>
+      <h3>¿Qué tipo de diseño te representa mejor?</h3>
       <div class="options">
-        <button class="option" data-value="botanico">🌸 Botánico</button>
-        <button class="option" data-value="abstracto">✨ Abstracto</button>
-        <button class="option" data-value="minimalista">🤍 Minimalista</button>
-        <button class="option" data-value="cultural">🎭 Cultural</button>
+        <button class="option" data-value="botanico">🌸 Natural y botánico</button>
+        <button class="option" data-value="abstracto">✨ Libre y abstracto</button>
+        <button class="option" data-value="minimalista">🤍 Suave y minimalista</button>
+        <button class="option" data-value="cultural">🎭 Tradicional y cultural</button>
       </div>
     </div>
 
     <div class="question" id="q4">
-      <h3>¿Qué buscás en tu mate?</h3>
+      <h3>¿Qué buscás cuando tomás mate?</h3>
       <div class="options">
-        <button class="option" data-value="energia">⚡ Energía</button>
-        <button class="option" data-value="conexion">🌿 Conexión</button>
-        <button class="option" data-value="inspiracion">🎨 Inspiración</button>
-        <button class="option" data-value="paz">☁️ Paz</button>
+        <button class="option" data-value="energia">⚡ Energía para crear</button>
+        <button class="option" data-value="conexion">🌿 Conexión con vos o con otros</button>
+        <button class="option" data-value="inspiracion">🎨 Inspiración y color</button>
+        <button class="option" data-value="paz">☁️ Paz y silencio</button>
       </div>
     </div>
   </section>
@@ -149,7 +150,7 @@
     <img id="mateImage" src="" alt="Mate recomendado">
     <h3 id="mateName"></h3>
     <p id="mateDesc"></p>
-    <a href="index.html#tienda" class="btn-primary">Ver en la Tienda</a>
+    <a href="index.html#tienda" class="btn-primary">Verlo en la tienda</a>
   </section>
 
   <script>
@@ -192,25 +193,25 @@
       if (answers.includes('botanico') || answers.includes('verde')) {
         recommendation = {
           name: 'Mate Botánico',
-          desc: 'Inspirado en la naturaleza y la calma. Ideal para quienes buscan conexión y equilibrio.',
+          desc: 'Inspirado en la naturaleza y en la calma interior. Ideal para quienes disfrutan de los pequeños rituales y el equilibrio.',
           img: 'assets/mate-flores2.png'
         };
       } else if (answers.includes('abstracto') || answers.includes('dorado')) {
         recommendation = {
           name: 'Mate Abstracto',
-          desc: 'Trazos libres y color vivo. Perfecto para espíritus creativos que buscan inspiración diaria.',
+          desc: 'Colores que fluyen y trazos libres. Pensado para espíritus creativos que encuentran belleza en lo inesperado.',
           img: 'assets/mate-abstracto1.png'
         };
       } else if (answers.includes('minimalista') || answers.includes('azul')) {
         recommendation = {
           name: 'Mate Azul Minimal',
-          desc: 'Líneas suaves y energía tranquila. Diseñado para quienes valoran la serenidad.',
+          desc: 'Líneas suaves y alma tranquila. Para quienes valoran la serenidad, la simpleza y la armonía.',
           img: 'assets/mate-ojoturco1.png'
         };
       } else {
         recommendation = {
           name: 'Mate Cultural',
-          desc: 'Colores cálidos y esencia del norte argentino. Para quienes llevan el arte en cada gesto.',
+          desc: 'Una pieza que respira tradición, color y raíces. Ideal para almas viajeras que llevan el arte en su forma de vivir.',
           img: 'assets/mate-flores3.png'
         };
       }
