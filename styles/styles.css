@@ -501,3 +501,79 @@ footer {
   color: #555;
   background: #fffaf4;
 }
+/* ===================================================
+   SOBRE — HISTORIA ARTÍSTICA
+=================================================== */
+#historia-viva {
+  background: #fffaf4;
+  padding: 5rem 2rem;
+}
+
+.historia-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.historia-bloque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.historia-bloque.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.historia-bloque.invert {
+  flex-direction: row-reverse;
+}
+
+.historia-imagen img {
+  width: 360px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.historia-texto {
+  max-width: 500px;
+  text-align: left;
+}
+
+.historia-texto h2,
+.historia-texto h3 {
+  font-family: 'Marcellus', serif;
+  color: #2e2e2e;
+}
+
+.pincelada {
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+}
+
+.cta-final {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.btn-volver {
+  background: linear-gradient(90deg, #58b6aa, #f3d6b1);
+  color: #fff;
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.8rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.btn-volver:hover {
+  opacity: 0.8;
+}
