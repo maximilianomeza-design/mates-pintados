@@ -1,9 +1,11 @@
 /* ===================================================
-   🌿 Viva el Mate — Estilo Emocional 2025
-   Diseño artesanal, cálido y natural
+   Viva el Mate 🌿 — Estilos unificados 2025
+   Versión completa y funcional
 =================================================== */
 
-/* --- RESET GENERAL --- */
+/* ------------------------------
+   RESET GENERAL Y VARIABLES
+------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -21,18 +23,13 @@ body {
   line-height: 1.6;
 }
 
-/* ===================================================
-   VARIABLES
-=================================================== */
 :root {
   --color-fondo: #fdf8f1;
   --color-acento: #58b6aa;
   --color-secundario: #f3d6b1;
   --color-titulo: #2e2a26;
   --color-texto: #4c4742;
-  --color-dorado: #f9b233;
   --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --transicion-suave: all 0.3s ease;
 }
 
 /* ===================================================
@@ -61,7 +58,7 @@ body {
   width: 42px;
   height: 42px;
   opacity: 0.9;
-  transition: var(--transicion-suave);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .banner-item:hover img {
@@ -118,7 +115,7 @@ nav a {
   color: var(--color-titulo);
   text-decoration: none;
   font-weight: 500;
-  transition: var(--transicion-suave);
+  transition: color 0.3s ease;
   position: relative;
 }
 
@@ -154,14 +151,8 @@ nav a:hover::after {
 }
 
 @keyframes fadeInHero {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #hero h2 {
@@ -189,10 +180,10 @@ nav a:hover::after {
 .btn-primary,
 .btn-secondary {
   padding: 0.8rem 1.5rem;
-  border-radius: 0.8rem;
+  border-radius: 0.6rem;
   text-decoration: none;
   font-weight: 500;
-  transition: var(--transicion-suave);
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -216,7 +207,6 @@ nav a:hover::after {
   transform: translateY(-2px);
 }
 
-/* Botón “Descubrí tu mate ideal” */
 #hero a[style*='f3d6b1'] {
   background: linear-gradient(90deg, #f3d6b1, #f6e0c3);
   font-weight: 600;
@@ -241,13 +231,7 @@ nav a:hover::after {
 #tienda h3 {
   font-family: 'Marcellus', serif;
   font-size: 1.9rem;
-  margin-bottom: 1rem;
-}
-
-#tienda p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  color: var(--color-texto);
+  margin-bottom: 2.5rem;
 }
 
 .tienda-grid {
@@ -259,11 +243,11 @@ nav a:hover::after {
 
 .producto {
   background: #fff;
-  border-radius: 1.2rem;
+  border-radius: 1rem;
   box-shadow: var(--sombra-suave);
   padding: 1rem;
   width: 260px;
-  transition: var(--transicion-suave);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .producto:hover {
@@ -275,29 +259,24 @@ nav a:hover::after {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   margin-bottom: 1rem;
   transition: transform 0.4s ease;
 }
 
-.producto:hover img {
-  transform: scale(1.08);
-}
+.producto:hover img { transform: scale(1.08); }
 
 .producto button {
   background-color: var(--color-acento);
   color: #fff;
   border: none;
   border-radius: 0.6rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 500;
-  transition: var(--transicion-suave);
+  transition: background 0.3s ease;
 }
 
-.producto button:hover {
-  background-color: #3a9d97;
-}
+.producto button:hover { background-color: #3a9d97; }
 
 /* ===================================================
    TESTIMONIOS
@@ -314,10 +293,16 @@ nav a:hover::after {
   margin-bottom: 2rem;
 }
 
+.testimonios-carousel {
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .testimonios-track {
   display: flex;
   gap: 2rem;
-  animation: scrollTestimonials 25s linear infinite;
+  animation: scrollTestimonials 20s linear infinite;
 }
 
 @keyframes scrollTestimonials {
@@ -333,6 +318,14 @@ nav a:hover::after {
   flex: 0 0 250px;
 }
 
+.testimonio img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
 /* ===================================================
    TALLERES
 =================================================== */
@@ -341,13 +334,189 @@ nav a:hover::after {
   padding: 5rem 2rem;
 }
 
+.talleres-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.taller-video video {
+  width: 320px;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.taller-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 280px;
+}
+
+.taller-form input,
+.taller-form select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
+
+.taller-form button {
+  background: var(--color-acento);
+  color: #fff;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.taller-form button:hover { background: #3a9d97; }
+
 /* ===================================================
-   SOBRE / HISTORIA
+   PORTFOLIO
 =================================================== */
-#sobre-vivaelmate,
-#historia-viva {
+#portfolio {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #fffaf4;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 1.5rem;
+}
+
+.slider-track figure { flex: 0 0 280px; }
+
+.slider-track img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.prev, .next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 45%;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ===================================================
+   SOBRE VIVA EL MATE
+=================================================== */
+#sobre-vivaelmate {
   background-color: #fffaf4;
   padding: 5rem 2rem;
+  overflow: hidden;
+}
+
+.sobre-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sobre-imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.sobre-imagen img:hover { transform: scale(1.03); }
+
+.sobre-texto {
+  flex: 1;
+  min-width: 320px;
+  color: #3a3a3a;
+}
+
+.sobre-texto h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-texto p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* ===================================================
+   CONTACTO Y FOOTER
+=================================================== */
+#contacto {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social {
+  text-decoration: none;
+  color: var(--color-titulo);
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #ddd;
+}
+
+.social:hover {
+  background-color: var(--color-acento);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+footer {
+  background: #fffaf4;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+}
+
+/* ===================================================
+   HISTORIA (sobre.html)
+=================================================== */
+#historia-viva {
+  background: #fffaf4;
+  padding: 5rem 2rem;
+}
+
+.historia-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .historia-bloque {
@@ -366,38 +535,128 @@ nav a:hover::after {
   transform: translateY(0);
 }
 
-.historia-imagen img,
-.sobre-imagen img {
+.historia-bloque.invert { flex-direction: row-reverse; }
+
+.historia-imagen img {
   width: 100%;
   max-width: 450px;
   border-radius: 1rem;
-  box-shadow: var(--sombra-suave);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.4s ease;
 }
 
-.historia-imagen img:hover,
-.sobre-imagen img:hover {
-  transform: scale(1.03);
+.historia-imagen img:hover { transform: scale(1.03); }
+
+.historia-texto {
+  flex: 1;
+  min-width: 320px;
+  color: #3a3a3a;
 }
 
 .historia-texto h2,
 .historia-texto h3 {
   font-family: 'Marcellus', serif;
-  color: var(--color-titulo);
+  color: #2e2a26;
+  margin-bottom: 1rem;
 }
 
-.frase-final {
-  color: var(--color-acento);
-  font-style: italic;
+.pincelada {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 1rem;
+}
+
+.cta-final {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.btn-volver {
+  background-color: #58b6aa;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #3a9d97;
+  transform: translateY(-3px);
 }
 
 /* ===================================================
-   FOOTER
+   QUIZ — ELIGE TU MATE
 =================================================== */
-footer {
+#quiz, #result {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.question {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.question.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.option {
+  background-color: var(--color-secundario);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.option:hover {
+  background-color: var(--color-acento);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.result {
+  display: none;
   background: #fffaf4;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  border-top: 1px solid #eee;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.result img {
+  max-width: 220px;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+/* ===================================================
+   ANIMACIÓN GENERAL Y RESPONSIVE
+=================================================== */
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 0.8rem; }
+  .cta-buttons { flex-direction: column; }
+  .talleres-container,
+  .sobre-container,
+  .historia-bloque { flex-direction: column; text-align: center; }
 }
