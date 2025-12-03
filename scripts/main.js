@@ -1,134 +1,123 @@
 /* ===================================================
    Viva el Mate 🌿 — main.js
-   Restaurado + optimizado (versión estable)
-=================================================== */
+   Funcionalidades 2025
+   =================================================== */
 
-/* ------------------------------
-   SLIDER DEL PORTFOLIO
------------------------------- */
-const track = document.querySelector(".slider-track");
-const slides = document.querySelectorAll(".slider-track figure");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-let currentIndex = 0;
-const slidesPerView = 3;
-
-function updateSliderPosition() {
-  if (!track) return;
-  const totalSlides = slides.length;
-  const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
-  if (currentIndex > maxIndex) currentIndex = 0;
-  if (currentIndex < 0) currentIndex = maxIndex;
-  const offset = -currentIndex * (100 / slidesPerView);
-  track.style.transform = `translateX(${offset}%)`;
-}
-
-function moveSlide(direction) {
-  currentIndex += direction;
-  updateSliderPosition();
-}
-
-prevBtn?.addEventListener("click", () => moveSlide(-1));
-nextBtn?.addEventListener("click", () => moveSlide(1));
-setInterval(() => moveSlide(1), 5000);
-updateSliderPosition();
-
-/* ------------------------------
-   SCROLL SUAVE ENTRE SECCIONES
------------------------------- */
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", e => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
+// Scroll suave para navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    if (targetId.length > 1) {
       e.preventDefault();
-      window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
+      document.querySelector(targetId).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     }
   });
 });
 
-/* ------------------------------
-   MENÚ ACTIVO SEGÚN SCROLL
------------------------------- */
-const navLinks = document.querySelectorAll("nav a");
-window.addEventListener("scroll", () => {
-  let current = "";
-  document.querySelectorAll("section[id]").forEach(section => {
-    if (scrollY >= section.offsetTop - 100) current = section.id;
+// ===================================================
+// ANIMACIONES DE APARICIÓN AL SCROLL
+// ===================================================
+const fadeElements = document.querySelectorAll(".fade-in, .producto, .historia-bloque");
+
+function handleScrollAnimation() {
+  fadeElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8) {
+      el.classList.add("visible");
+    }
   });
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
-  });
-});
-
-/* ------------------------------
-   FADE-IN SUAVE CON OBSERVER
------------------------------- */
-const fadeObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("section-visible");
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-document.querySelectorAll("section").forEach(section => fadeObserver.observe(section));
-
-/* ------------------------------
-   MICROINTERACCIONES (suaves)
------------------------------- */
-document.querySelectorAll("button, .btn-primary, .btn-secondary").forEach(btn => {
-  btn.addEventListener("mousedown", () => (btn.style.transform = "scale(0.97)"));
-  btn.addEventListener("mouseup", () => (btn.style.transform = "scale(1)"));
-});
-
-/* ------------------------------
-   ENTRADA HERO + BOTÓN “MATE IDEAL”
------------------------------- */
-window.addEventListener("load", () => {
-  const hero = document.querySelector("#hero");
-  const idealBtn = document.querySelector("a[href='elige-tu-mate.html']");
-  if (hero) hero.classList.add("section-visible");
-  if (idealBtn) {
-    idealBtn.style.opacity = "0";
-    idealBtn.style.transition = "opacity 1s ease 0.8s";
-    setTimeout(() => (idealBtn.style.opacity = "1"), 400);
-  }
-});
-
-/* ------------------------------
-   SLIDER TESTIMONIOS (autoplay)
------------------------------- */
-const testimonialsTrack = document.querySelector(".testimonios-track");
-if (testimonialsTrack) {
-  testimonialsTrack.style.animation = "scrollTestimonials 30s linear infinite";
 }
 
-/* ------------------------------
-   EFECTO FADE EN IMÁGENES SOBRE.HTML
------------------------------- */
-document.querySelectorAll("#sobre-vivaelmate img, #historia-viva img").forEach(img => {
-  img.style.opacity = "0";
-  img.style.transition = "opacity 1s ease-out, transform 1s ease-out";
-  const obs = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          img.style.opacity = "1";
-          img.style.transform = "translateY(0)";
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  obs.observe(img);
+window.addEventListener("scroll", handleScrollAnimation);
+window.addEventListener("load", handleScrollAnimation);
+
+// ===================================================
+// CARRUSEL DE TESTIMONIOS (auto-deslizante)
+// ===================================================
+const track = document.querySelector(".testimonios-track");
+if (track) {
+  let offset = 0;
+  setInterval(() => {
+    offset -= 1;
+    track.style.transform = `translateX(${offset}px)`;
+    if (Math.abs(offset) >= track.scrollWidth / 2) offset = 0;
+  }, 40);
+}
+
+// ===================================================
+// CARRUSEL DE PORTFOLIO
+// ===================================================
+const portfolioTrack = document.querySelector(".slider-track");
+const portfolioContainer = document.querySelector(".slider-container");
+
+if (portfolioTrack && portfolioContainer) {
+  let slideOffset = 0;
+  setInterval(() => {
+    slideOffset -= 1;
+    portfolioTrack.style.transform = `translateX(${slideOffset}px)`;
+    if (Math.abs(slideOffset) >= portfolioTrack.scrollWidth / 2) slideOffset = 0;
+  }, 45);
+}
+
+// ===================================================
+// FORMULARIO DE TALLERES — Validación + mensaje
+// ===================================================
+const formTaller = document.querySelector(".taller-form");
+
+if (formTaller) {
+  formTaller.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const nombre = formTaller.querySelector("#nombre").value.trim();
+    const email = formTaller.querySelector("#email").value.trim();
+    const taller = formTaller.querySelector("#taller").value;
+
+    if (!nombre || !email || !taller) {
+      alert("Por favor, completá todos los campos 🌿");
+      return;
+    }
+
+    // Confirmación amigable
+    alert(`💛 ¡Gracias ${nombre}! Tu inscripción al taller fue registrada con éxito.\nTe enviaremos los detalles a ${email}.`);
+    formTaller.reset();
+  });
+}
+
+// ===================================================
+// EFECTO "RESPIRACIÓN" EN EL LOGO PRINCIPAL
+// ===================================================
+const logo = document.querySelector(".mate-icon");
+
+if (logo) {
+  setInterval(() => {
+    logo.style.transform = "scale(1.05)";
+    setTimeout(() => {
+      logo.style.transform = "scale(1)";
+    }, 800);
+  }, 3000);
+}
+
+// ===================================================
+// ANIMACIÓN DE BRILLO EN LOS SPARKLES ✨
+// ===================================================
+const sparkles = document.querySelectorAll(".sparkle");
+
+sparkles.forEach((sparkle, i) => {
+  sparkle.style.opacity = 0.3;
+  setInterval(() => {
+    sparkle.style.opacity = sparkle.style.opacity === "1" ? 0.3 : 1;
+  }, 1200 + i * 200);
 });
 
-/* ===================================================
-   FIN DEL SCRIPT 🌿
-=================================================== */
+// ===================================================
+// DESLIZAR HACIA ARRIBA AL FINAL (footer CTA opcional)
+// ===================================================
+const footer = document.querySelector("footer");
+if (footer) {
+  footer.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
