@@ -3,9 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ==============================
+       SEO GENERAL
+  =============================== -->
   <title>Elegí tu Mate Ideal | Viva el Mate 🌿</title>
-  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía.">
+  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía. Mates pintados a mano con alma.">
+  <link rel="canonical" href="https://maximilianomeza.github.io/viva-el-mate/elige-tu-mate.html" />
+
+  <!-- ==============================
+       OPEN GRAPH
+  =============================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Elegí tu Mate Ideal | Viva el Mate 🌿" />
+  <meta property="og:description" content="Descubrí qué mate fue hecho para vos. Un test corto, artesanal y lleno de color. Viva el Mate desde Chaco, Argentina.">
+  <meta property="og:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/images/mate-flores2.png" />
+  <meta property="og:url" content="https://maximilianomeza.github.io/viva-el-mate/elige-tu-mate.html" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- ==============================
+       TWITTER CARDS
+  =============================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elegí tu Mate Ideal | Viva el Mate 🌿" />
+  <meta name="twitter:description" content="Descubrí el mate que conecta con tu energía y estilo. Viva el Mate — arte, color y alma.">
+  <meta name="twitter:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/images/mate-flores2.png" />
+
+  <!-- ==============================
+       FAVICON
+  =============================== -->
+  <link rel="icon" type="image/png" href="assets/icons/icono-mate.svg" />
+
+  <!-- ==============================
+       FUENTES Y ESTILOS
+  =============================== -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+
   <style>
     /* ===================================================
        ESTILOS GLOBALES — TEST "ELEGÍ TU MATE"
@@ -123,6 +156,31 @@
       color: #777;
     }
   </style>
+
+  <!-- ==============================
+       MICRODATOS (Schema.org)
+  =============================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "Elegí tu Mate Ideal",
+    "description": "Test artesanal creado por Viva el Mate para ayudarte a descubrir qué mate pintado a mano vibra con tu energía.",
+    "creator": {
+      "@type": "Organization",
+      "name": "Viva el Mate",
+      "url": "https://maximilianomeza.github.io/viva-el-mate/"
+    },
+    "mainEntity": {
+      "@type": "Question",
+      "name": "¿Qué tipo de mate representa tu energía?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mate Botánico, Abstracto, Minimalista o Cultural"
+      }
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -196,6 +254,7 @@
     <h3 id="mateName"></h3>
     <p id="mateDesc"></p>
     <a href="index.html#tienda" class="btn-primary">Ver en la Tienda</a>
+    <p style="margin-top:1rem;">¿Querés recibir tips de arte y mates? <a href="https://instagram.com/viva.el_mate" target="_blank">Seguinos en Instagram</a>.</p>
   </section>
 
   <footer>
@@ -216,7 +275,6 @@
     let currentQuestion = 0;
     let answers = [];
 
-    // Inicia el test
     startBtn.addEventListener('click', () => {
       document.getElementById('intro').style.display = 'none';
       showQuestion(currentQuestion);
