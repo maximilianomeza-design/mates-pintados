@@ -3,28 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ==============================
+       SEO GENERAL
+  =============================== -->
   <title>VIVA EL MATE | Mates pintados a mano y talleres artísticos</title>
   <meta name="description" content="Mates pintados a mano creados con arte, color y alma. Descubrí piezas únicas y talleres donde vos también podés crear las tuyas.">
+  <link rel="canonical" href="https://tuusuario.github.io/viva-el-mate/" />
+
+  <!-- ==============================
+       OPEN GRAPH (para compartir)
+  =============================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Viva el Mate | Mates pintados a mano y talleres artísticos" />
+  <meta property="og:description" content="Mates pintados a mano con alma, color y emoción. Descubrí piezas únicas y talleres donde vos también creás las tuyas." />
+  <meta property="og:image" content="https://tuusuario.github.io/viva-el-mate/assets/images/mate-flores2.png" />
+  <meta property="og:url" content="https://tuusuario.github.io/viva-el-mate/" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- ==============================
+       TWITTER CARDS
+  =============================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Viva el Mate | Mates pintados a mano y talleres artísticos" />
+  <meta name="twitter:description" content="Cada mate es una obra de arte. Descubrí el tuyo y participá en nuestros talleres." />
+  <meta name="twitter:image" content="https://tuusuario.github.io/viva-el-mate/assets/images/mate-flores2.png" />
+
+  <!-- ==============================
+       FAVICON
+  =============================== -->
+  <link rel="icon" type="image/png" href="assets/icons/icono-mate.svg" />
+
+  <!-- ==============================
+       FUENTES Y ESTILOS
+  =============================== -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&family=Pacifico&display=swap" rel="stylesheet">
   <link href="styles/styles.css" rel="stylesheet">
   <script src="scripts/main.js" defer></script>
+
+  <!-- ==============================
+       MICRODATOS BÁSICOS (Schema)
+  =============================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Viva el Mate",
+    "description": "Mates pintados a mano y talleres artísticos en Argentina.",
+    "image": "https://tuusuario.github.io/viva-el-mate/assets/images/mate-flores2.png",
+    "url": "https://tuusuario.github.io/viva-el-mate/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Argentina"
+    },
+    "sameAs": [
+      "https://instagram.com/vivaelmate"
+    ]
+  }
+  </script>
 </head>
 
 <body>
   <!-- ===================================================
        BANNER SUPERIOR
   =================================================== -->
-  <div id="banner-info">
+  <div id="banner-info" role="banner">
     <div class="banner-item">
-      <img src="assets/icons/icono-envio.svg" alt="Envíos a todo el país" />
+      <img src="assets/icons/icono-envio.svg" alt="Icono de envío a todo el país" />
       <p><strong>Enviamos tu compra</strong> — A todo el país</p>
     </div>
     <div class="banner-item">
-      <img src="assets/icons/icono-pago.svg" alt="Pagá como quieras" />
+      <img src="assets/icons/icono-pago.svg" alt="Icono de pago seguro" />
       <p><strong>Pagá como quieras</strong> — Tarjeta o transferencia</p>
     </div>
     <div class="banner-item">
-      <img src="assets/icons/icono-seguridad.svg" alt="Compra segura" />
+      <img src="assets/icons/icono-seguridad.svg" alt="Icono de seguridad en compras" />
       <p><strong>Comprá con seguridad</strong> — Tus datos protegidos</p>
     </div>
   </div>
@@ -34,11 +87,11 @@
   =================================================== -->
   <header>
     <div class="header-logo">
-      <span class="sparkle">✨</span>
+      <span class="sparkle" aria-hidden="true">✨</span>
       <h1>Viva el Mate <img src="assets/icons/icono-mate.svg" alt="Ícono de mate" class="mate-icon" /></h1>
-      <span class="sparkle">✨</span>
+      <span class="sparkle" aria-hidden="true">✨</span>
     </div>
-    <nav>
+    <nav aria-label="Menú principal">
       <a href="#tienda">Tienda</a>
       <a href="#talleres">Talleres</a>
       <a href="#portfolio">Portfolio</a>
@@ -66,22 +119,22 @@
     <h3>Tienda Artesanal</h3>
     <div class="tienda-grid">
       <div class="producto">
-        <img src="assets/images/mate-ojoturco2.png" alt="Mate Ojo turco">
+        <img src="assets/images/mate-ojoturco2.png" alt="Mate Ojo turco pintado a mano">
         <h4>Mate Ojo turco</h4>
         <p class="precio">$19.900</p>
-        <button>Agregar al carrito</button>
+        <button aria-label="Agregar Mate Ojo turco al carrito">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="assets/images/mate-abstracto1.png" alt="Mate Abstracto">
+        <img src="assets/images/mate-abstracto1.png" alt="Mate Abstracto pintado a mano">
         <h4>Mate Abstracto</h4>
         <p class="precio">$19.700</p>
-        <button>Agregar al carrito</button>
+        <button aria-label="Agregar Mate Abstracto al carrito">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="assets/images/mate-flores4.png" alt="Mate Botánico">
+        <img src="assets/images/mate-flores4.png" alt="Mate Botánico pintado a mano">
         <h4>Mate Botánico</h4>
         <p class="precio">$19.800</p>
-        <button>Agregar al carrito</button>
+        <button aria-label="Agregar Mate Botánico al carrito">Agregar al carrito</button>
       </div>
     </div>
   </section>
@@ -93,10 +146,10 @@
     <h3>Lo que dicen quienes ya tienen su mate 💛</h3>
     <div class="testimonios-carousel">
       <div class="testimonios-track">
-        <div class="testimonio"><img src="assets/images/clienta1.jpg" alt="Cliente feliz"><p>“No sabés con cuál mate quedarte, todos hermosos! La atención un 10 💛”</p><strong>Gisela Ramos</strong></div>
-        <div class="testimonio"><img src="assets/images/cliente2.jpg" alt="Cliente feliz"><p>“Extraordinario el mate, estoy muy feliz! Excelente servicio y producto.”</p><strong>Pedro Romero</strong></div>
-        <div class="testimonio"><img src="assets/images/cliente3.jpg" alt="Cliente feliz"><p>“Los mejores mates del mercado ☕💞. Majo te atiende con la mejor predisposición. ¡Un lujo!”</p><strong>Matías Franco</strong></div>
-        <div class="testimonio"><img src="assets/images/cliente4.jpg" alt="Cliente feliz"><p>“Hermosos diseños y la calidad excelente. Me llegó rapidísimo, súper recomendable 🌿✨”</p><strong>Sofía Morales</strong></div>
+        <div class="testimonio"><img src="assets/images/clienta1.jpg" alt="Cliente feliz con su mate"><p>“No sabés con cuál mate quedarte, todos hermosos! La atención un 10 💛”</p><strong>Gisela Ramos</strong></div>
+        <div class="testimonio"><img src="assets/images/cliente2.jpg" alt="Cliente feliz mostrando su mate"><p>“Extraordinario el mate, estoy muy feliz! Excelente servicio y producto.”</p><strong>Pedro Romero</strong></div>
+        <div class="testimonio"><img src="assets/images/cliente3.jpg" alt="Cliente sonriente con su mate"><p>“Los mejores mates del mercado ☕💞. Majo te atiende con la mejor predisposición. ¡Un lujo!”</p><strong>Matías Franco</strong></div>
+        <div class="testimonio"><img src="assets/images/cliente4.jpg" alt="Cliente satisfecha con su mate"><p>“Hermosos diseños y la calidad excelente. Me llegó rapidísimo, súper recomendable 🌿✨”</p><strong>Sofía Morales</strong></div>
       </div>
     </div>
   </section>
@@ -113,7 +166,7 @@
           <source src="assets/videos/taller1video.mp4" type="video/mp4" />
         </video>
       </div>
-      <form class="taller-form">
+      <form class="taller-form" aria-label="Formulario de inscripción a talleres">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" required />
         <label for="email">Email</label>
@@ -137,9 +190,9 @@
     <h3>Portfolio de Obras</h3>
     <div class="slider-container">
       <div class="slider-track">
-        <figure><img src="assets/images/mate-ojoturco3.png" alt="Mate base rosa"><figcaption>Mate base rosa</figcaption></figure>
-        <figure><img src="assets/images/mate-flores1.png" alt="Mate flores margaritas"><figcaption>Mate flores margaritas</figcaption></figure>
-        <figure><img src="assets/images/mate-flores2.png" alt="Mate diseño natural"><figcaption>Mate diseño natural</figcaption></figure>
+        <figure><img src="assets/images/mate-ojoturco3.png" alt="Mate base rosa pintado a mano"><figcaption>Mate base rosa</figcaption></figure>
+        <figure><img src="assets/images/mate-flores1.png" alt="Mate flores margaritas pintado a mano"><figcaption>Mate flores margaritas</figcaption></figure>
+        <figure><img src="assets/images/mate-flores2.png" alt="Mate diseño natural pintado a mano"><figcaption>Mate diseño natural</figcaption></figure>
       </div>
     </div>
   </section>
@@ -166,9 +219,9 @@
     <h3>Llevate arte para tu día 🌿</h3>
     <p>Seguinos o escribinos para encargos personalizados.</p>
     <div class="social-links">
-      <a href="#" class="social instagram">Instagram</a>
-      <a href="#" class="social whatsapp">WhatsApp</a>
-      <a href="mailto:contacto@matesamano.com" class="social email">Email</a>
+      <a href="#" class="social instagram" aria-label="Ir al Instagram de Viva el Mate">Instagram</a>
+      <a href="#" class="social whatsapp" aria-label="Enviar mensaje por WhatsApp a Viva el Mate">WhatsApp</a>
+      <a href="mailto:contacto@matesamano.com" class="social email" aria-label="Enviar email a Viva el Mate">Email</a>
     </div>
   </section>
 
