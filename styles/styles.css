@@ -70,20 +70,22 @@ body {
 /* ===================================================
    ENCABEZADO RESPONSIVE
 =================================================== */
-.site-header {
+/* ===================================================
+   ENCABEZADO Y NAVEGACIÓN (Estilo 2025 restaurado)
+=================================================== */
+header {
   background-color: #fffaf4;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -94,55 +96,42 @@ body {
   gap: 0.6rem;
 }
 
-.site-title {
+.header-logo h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 2.4rem;
   color: var(--color-titulo);
+  text-shadow: 0 1px 0 #fff, 0 3px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-.logo-link {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
-}
-
 .mate-icon {
-  width: 38px;
-  height: 38px;
-  transform: translateY(4px);
+  width: 34px;
+  height: 34px;
+  transform: translateY(3px);
 }
 
-.sparkle {
-  font-size: 1.2rem;
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--color-titulo);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+nav a:hover,
+nav a.active {
   color: var(--color-acento);
 }
 
-.site-nav {
-  position: relative;
-}
-
-.menu-list {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.menu-list a {
-  text-decoration: none;
-  color: var(--color-titulo);
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.menu-list a::after {
+nav a::after {
   content: "";
   position: absolute;
   width: 0%;
@@ -153,59 +142,25 @@ body {
   transition: width 0.3s ease;
 }
 
-.menu-list a:hover::after {
+nav a:hover::after {
   width: 100%;
 }
 
-.menu-list a:hover {
-  color: var(--color-acento);
-}
-
-/* ======= MODO MOBILE ======= */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--color-titulo);
-}
-
+/* Ajuste móvil */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu-list {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
+  .header-container {
     flex-direction: column;
-    background: #fffaf4;
-    box-shadow: var(--sombra-suave);
-    border-radius: 0 0 12px 12px;
-    width: 220px;
-    text-align: right;
-    padding: 1rem;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
+    gap: 0.6rem;
   }
 
-  .menu-list.active {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .menu-list li {
-    margin: 0.5rem 0;
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
 /* ===================================================
-   HERO PRINCIPAL
+   HERO PRINCIPAL — versión estética restaurada
 =================================================== */
 #hero {
   text-align: center;
@@ -215,45 +170,54 @@ body {
 }
 
 @keyframes fadeInHero {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #hero h2 {
   font-family: 'Marcellus', serif;
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   color: var(--color-titulo);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 #hero p {
   font-size: 1.1rem;
   color: var(--color-texto);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   max-width: 650px;
   margin-inline: auto;
+  opacity: 0.9;
 }
 
 .cta-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .btn-primary,
 .btn-secondary {
-  padding: 0.8rem 1.5rem;
-  border-radius: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 0.8rem;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
 }
 
 .btn-primary {
   background-color: var(--color-acento);
   color: #fff;
-  box-shadow: var(--sombra-suave);
 }
 
 .btn-secondary {
@@ -261,16 +225,68 @@ body {
   color: var(--color-titulo);
 }
 
+/* --- Hover con animación tipo "rebote" --- */
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
 .btn-primary:hover {
   background-color: #3a9d97;
-  transform: translateY(-2px);
 }
 
 .btn-secondary:hover {
   background-color: #f0d9b8;
-  transform: translateY(-2px);
 }
 
+/* --- Animación de entrada suave para botones --- */
+.cta-buttons a {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.cta-buttons a:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.cta-buttons a:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.cta-buttons a:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Modo móvil --- */
+@media (max-width: 768px) {
+  #hero {
+    padding: 4rem 1.5rem;
+  }
+
+  #hero h2 {
+    font-size: 2.2rem;
+  }
+
+  .cta-buttons {
+    gap: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 320px;
+  }
+}
 /* ===================================================
    TIENDA ARTESANAL
 =================================================== */
