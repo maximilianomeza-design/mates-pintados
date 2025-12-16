@@ -8,7 +8,7 @@
        SEO GENERAL
   =============================== -->
   <title>Elegí tu Mate Ideal | Viva el Mate 🌿</title>
-  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía. Mates pintados a mano con alma.">
+  <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía.">
   <link rel="canonical" href="https://maximilianomeza.github.io/viva-el-mate/elige-tu-mate.html" />
 
   <!-- ==============================
@@ -16,32 +16,20 @@
   =============================== -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Elegí tu Mate Ideal | Viva el Mate 🌿" />
-  <meta property="og:description" content="Descubrí qué mate fue hecho para vos. Un test corto, artesanal y lleno de color. Viva el Mate desde Chaco, Argentina.">
+  <meta property="og:description" content="Descubrí tu mate ideal con nuestro test interactivo. Cada diseño está inspirado en energía, arte y conexión." />
   <meta property="og:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/images/mate-flores2.png" />
   <meta property="og:url" content="https://maximilianomeza.github.io/viva-el-mate/elige-tu-mate.html" />
   <meta property="og:locale" content="es_AR" />
 
   <!-- ==============================
-       TWITTER CARDS
-  =============================== -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Elegí tu Mate Ideal | Viva el Mate 🌿" />
-  <meta name="twitter:description" content="Descubrí el mate que conecta con tu energía y estilo. Viva el Mate — arte, color y alma.">
-  <meta name="twitter:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/images/mate-flores2.png" />
-
-  <!-- ==============================
-       FAVICON
-  =============================== -->
-  <link rel="icon" type="image/png" href="assets/icons/icono-mate.svg" />
-
-  <!-- ==============================
-       FUENTES Y ESTILOS
+       ESTILOS GLOBALES UNIFICADOS
   =============================== -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+  <link href="styles/styles.css" rel="stylesheet" />
 
   <style>
     /* ===================================================
-       ESTILOS GLOBALES — TEST "ELEGÍ TU MATE"
+       ESTILOS PROPIOS — TEST "ELEGÍ TU MATE"
     =================================================== */
     body {
       font-family: 'Inter', sans-serif;
@@ -144,7 +132,7 @@
     }
 
     .result img {
-      max-width: 200px;
+      max-width: 220px;
       border-radius: 12px;
       margin: 1rem 0;
     }
@@ -156,31 +144,6 @@
       color: #777;
     }
   </style>
-
-  <!-- ==============================
-       MICRODATOS (Schema.org)
-  =============================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Quiz",
-    "name": "Elegí tu Mate Ideal",
-    "description": "Test artesanal creado por Viva el Mate para ayudarte a descubrir qué mate pintado a mano vibra con tu energía.",
-    "creator": {
-      "@type": "Organization",
-      "name": "Viva el Mate",
-      "url": "https://maximilianomeza.github.io/viva-el-mate/"
-    },
-    "mainEntity": {
-      "@type": "Question",
-      "name": "¿Qué tipo de mate representa tu energía?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mate Botánico, Abstracto, Minimalista o Cultural"
-      }
-    }
-  }
-  </script>
 </head>
 
 <body>
@@ -194,10 +157,10 @@
   <!-- ===================================================
        INTRO
   =================================================== -->
-  <section id="intro">
+  <section id="intro" role="main">
     <h2>Tu mate, tu energía 🍃</h2>
     <p>Cada persona tiene su ritual. Contanos un poco sobre vos y descubrí el mate que vibra con tu esencia.</p>
-    <button class="btn-primary" id="startBtn">Comenzar</button>
+    <button class="btn-primary" id="startBtn" aria-label="Comenzar el test para descubrir tu mate ideal">Comenzar</button>
   </section>
 
   <!-- ===================================================
@@ -207,40 +170,40 @@
     <div class="question" id="q1">
       <h3>¿Qué momento del día te inspira más?</h3>
       <div class="options">
-        <button class="option" data-value="mañana">☀️ Mañanas tranquilas</button>
-        <button class="option" data-value="tarde">🎨 Tardes creativas</button>
-        <button class="option" data-value="amigos">💬 Encuentros con amigos</button>
-        <button class="option" data-value="noche">🌙 Noches reflexivas</button>
+        <button class="option" data-value="mañana" aria-label="Elegir mañanas tranquilas">☀️ Mañanas tranquilas</button>
+        <button class="option" data-value="tarde" aria-label="Elegir tardes creativas">🎨 Tardes creativas</button>
+        <button class="option" data-value="amigos" aria-label="Elegir encuentros con amigos">💬 Encuentros con amigos</button>
+        <button class="option" data-value="noche" aria-label="Elegir noches reflexivas">🌙 Noches reflexivas</button>
       </div>
     </div>
 
     <div class="question" id="q2">
       <h3>¿Qué color te representa hoy?</h3>
       <div class="options">
-        <button class="option" data-value="verde">🌿 Verde calma</button>
-        <button class="option" data-value="dorado">💛 Dorado alegría</button>
-        <button class="option" data-value="azul">💙 Azul serenidad</button>
-        <button class="option" data-value="terracota">🧡 Terracota tierra</button>
+        <button class="option" data-value="verde" aria-label="Elegir verde calma">🌿 Verde calma</button>
+        <button class="option" data-value="dorado" aria-label="Elegir dorado alegría">💛 Dorado alegría</button>
+        <button class="option" data-value="azul" aria-label="Elegir azul serenidad">💙 Azul serenidad</button>
+        <button class="option" data-value="terracota" aria-label="Elegir terracota tierra">🧡 Terracota tierra</button>
       </div>
     </div>
 
     <div class="question" id="q3">
       <h3>¿Qué diseño te atrae más?</h3>
       <div class="options">
-        <button class="option" data-value="botanico">🌸 Botánico</button>
-        <button class="option" data-value="abstracto">✨ Abstracto</button>
-        <button class="option" data-value="minimalista">🤍 Minimalista</button>
-        <button class="option" data-value="cultural">🎭 Cultural</button>
+        <button class="option" data-value="botanico" aria-label="Elegir diseño botánico">🌸 Botánico</button>
+        <button class="option" data-value="abstracto" aria-label="Elegir diseño abstracto">✨ Abstracto</button>
+        <button class="option" data-value="minimalista" aria-label="Elegir diseño minimalista">🤍 Minimalista</button>
+        <button class="option" data-value="cultural" aria-label="Elegir diseño cultural">🎭 Cultural</button>
       </div>
     </div>
 
     <div class="question" id="q4">
       <h3>¿Qué buscás en tu mate?</h3>
       <div class="options">
-        <button class="option" data-value="energia">⚡ Energía</button>
-        <button class="option" data-value="conexion">🌿 Conexión</button>
-        <button class="option" data-value="inspiracion">🎨 Inspiración</button>
-        <button class="option" data-value="paz">☁️ Paz</button>
+        <button class="option" data-value="energia" aria-label="Elegir energía">⚡ Energía</button>
+        <button class="option" data-value="conexion" aria-label="Elegir conexión">🌿 Conexión</button>
+        <button class="option" data-value="inspiracion" aria-label="Elegir inspiración">🎨 Inspiración</button>
+        <button class="option" data-value="paz" aria-label="Elegir paz">☁️ Paz</button>
       </div>
     </div>
   </section>
@@ -250,13 +213,15 @@
   =================================================== -->
   <section class="result" id="result">
     <h2>💛 Tu mate ideal es...</h2>
-    <img id="mateImage" src="" alt="Mate recomendado">
+    <img id="mateImage" src="" alt="Mate recomendado" loading="lazy">
     <h3 id="mateName"></h3>
     <p id="mateDesc"></p>
     <a href="index.html#tienda" class="btn-primary">Ver en la Tienda</a>
-    <p style="margin-top:1rem;">¿Querés recibir tips de arte y mates? <a href="https://instagram.com/viva.el_mate" target="_blank">Seguinos en Instagram</a>.</p>
   </section>
 
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
   <footer>
     <p>© 2025 Viva el Mate — Diseñado con arte y alma.</p>
   </footer>
@@ -275,6 +240,7 @@
     let currentQuestion = 0;
     let answers = [];
 
+    // Inicia el test
     startBtn.addEventListener('click', () => {
       document.getElementById('intro').style.display = 'none';
       showQuestion(currentQuestion);
