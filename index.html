@@ -89,22 +89,45 @@
     </div>
   </div>
 
-  <!-- ===================================================
-       ENCABEZADO
-  =================================================== -->
-  <header>
-    <div class="header-logo">
+ <!-- ===================================================
+     ENCABEZADO RESPONSIVE - VIVA EL MATE
+=================================================== -->
+<header role="banner" class="site-header">
+  <div class="header-container">
+    <!-- LOGO -->
+    <div class="header-logo" aria-label="Logotipo de Viva el Mate">
       <span class="sparkle" aria-hidden="true">✨</span>
-      <h1>Viva el Mate <img src="assets/icons/icono-mate.svg" alt="Ícono de mate" class="mate-icon" /></h1>
+      <h1 class="site-title">
+        <a href="index.html" title="Volver al inicio de Viva el Mate" class="logo-link">
+          Viva el Mate
+          <picture>
+            <img
+              src="assets/icons/icono-mate.svg"
+              alt=""
+              class="mate-icon"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </a>
+      </h1>
       <span class="sparkle" aria-hidden="true">✨</span>
     </div>
-    <nav aria-label="Menú principal">
-      <a href="#tienda">Tienda</a>
-      <a href="#talleres">Talleres</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contacto">Contacto</a>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="site-nav" aria-label="Menú principal del sitio">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu-list">
+        ☰
+      </button>
+      <ul id="menu-list" class="menu-list">
+        <li><a href="#tienda">Tienda</a></li>
+        <li><a href="#talleres">Talleres</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
   <!-- ===================================================
        HERO PRINCIPAL
