@@ -3,33 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ==============================
-       SEO GENERAL
-  =============================== -->
   <title>Elegí tu Mate Ideal | Viva el Mate 🌿</title>
   <meta name="description" content="Descubrí tu mate ideal con nuestro test artesanal. Respondé unas breves preguntas y encontrá el diseño que vibra con tu energía.">
-  <link rel="canonical" href="https://maximilianomeza.github.io/viva-el-mate/elige-tu-mate.html" />
-
-  <!-- ==============================
-       OPEN GRAPH
-  =============================== -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Elegí tu Mate Ideal | Viva el Mate 🌿" />
-  <meta property="og:description" content="Descubrí tu mate ideal con nuestro test interactivo. Cada diseño está inspirado en energía, arte y conexión." />
-  <meta property="og:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/images/mate-flores2.png" />
-  <meta property="og:url" content="https://maximilianomeza.github.io/viva-el-mate/elige-tu-mate.html" />
-  <meta property="og:locale" content="es_AR" />
-
-  <!-- ==============================
-       ESTILOS GLOBALES UNIFICADOS
-  =============================== -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
-  <link href="styles/styles.css" rel="stylesheet" />
 
   <style>
     /* ===================================================
-       ESTILOS PROPIOS — TEST "ELEGÍ TU MATE"
+       ESTILOS GLOBALES — TEST "ELEGÍ TU MATE"
     =================================================== */
     body {
       font-family: 'Inter', sans-serif;
@@ -41,10 +21,17 @@
       text-align: center;
     }
 
+    /* ===================================================
+       ENCABEZADO
+    =================================================== */
     header {
       background-color: #fffaf4;
       padding: 1rem 0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
     }
 
     header h1 {
@@ -52,8 +39,25 @@
       font-size: 2rem;
       color: #2e2e2e;
       margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
+    .mate-icon {
+      width: 34px;
+      height: 34px;
+      transform: translateY(3px);
+      transition: transform 0.3s ease;
+    }
+
+    .mate-icon:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===================================================
+       SECCIONES GENERALES
+    =================================================== */
     section {
       max-width: 700px;
       margin: 2rem auto;
@@ -109,13 +113,15 @@
     .btn-primary {
       background-color: #58b6aa;
       color: #fff;
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 1.6rem;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       margin-top: 2rem;
       font-weight: 600;
       transition: background 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-primary:hover {
@@ -127,14 +133,92 @@
       display: none;
       background: #fffaf4;
       border-radius: 1rem;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .result img {
-      max-width: 220px;
+      max-width: 200px;
       border-radius: 12px;
       margin: 1rem 0;
+    }
+
+    .cta-frase {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #2e2e2e;
+      opacity: 0.85;
+      font-style: italic;
+    }
+
+    .cta-redes {
+      margin-top: 2rem;
+      background: #fffaf4;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      max-width: 500px;
+      margin-inline: auto;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    .cta-redes p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn-instagram {
+      display: inline-block;
+      background: linear-gradient(90deg, #f3d6b1, #58b6aa);
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .btn-instagram:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===================================================
+       BOTÓN FLOTANTE — VOLVER AL INICIO
+    =================================================== */
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #58b6aa;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #backToTop:hover {
+      background-color: #3a9d97;
+      transform: translateY(-2px);
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     footer {
@@ -151,16 +235,16 @@
        ENCABEZADO
   =================================================== -->
   <header>
-    <h1>✨ Viva el Mate 🌿</h1>
+    <h1>✨ Viva el Mate <img src="assets/icons/icono-mate.svg" alt="Ícono de mate" class="mate-icon" /> 🌿</h1>
   </header>
 
   <!-- ===================================================
        INTRO
   =================================================== -->
-  <section id="intro" role="main">
+  <section id="intro">
     <h2>Tu mate, tu energía 🍃</h2>
     <p>Cada persona tiene su ritual. Contanos un poco sobre vos y descubrí el mate que vibra con tu esencia.</p>
-    <button class="btn-primary" id="startBtn" aria-label="Comenzar el test para descubrir tu mate ideal">Comenzar</button>
+    <button class="btn-primary" id="startBtn">Comenzar</button>
   </section>
 
   <!-- ===================================================
@@ -170,58 +254,69 @@
     <div class="question" id="q1">
       <h3>¿Qué momento del día te inspira más?</h3>
       <div class="options">
-        <button class="option" data-value="mañana" aria-label="Elegir mañanas tranquilas">☀️ Mañanas tranquilas</button>
-        <button class="option" data-value="tarde" aria-label="Elegir tardes creativas">🎨 Tardes creativas</button>
-        <button class="option" data-value="amigos" aria-label="Elegir encuentros con amigos">💬 Encuentros con amigos</button>
-        <button class="option" data-value="noche" aria-label="Elegir noches reflexivas">🌙 Noches reflexivas</button>
+        <button class="option" data-value="mañana">☀️ Mañanas tranquilas</button>
+        <button class="option" data-value="tarde">🎨 Tardes creativas</button>
+        <button class="option" data-value="amigos">💬 Encuentros con amigos</button>
+        <button class="option" data-value="noche">🌙 Noches reflexivas</button>
       </div>
     </div>
 
     <div class="question" id="q2">
       <h3>¿Qué color te representa hoy?</h3>
       <div class="options">
-        <button class="option" data-value="verde" aria-label="Elegir verde calma">🌿 Verde calma</button>
-        <button class="option" data-value="dorado" aria-label="Elegir dorado alegría">💛 Dorado alegría</button>
-        <button class="option" data-value="azul" aria-label="Elegir azul serenidad">💙 Azul serenidad</button>
-        <button class="option" data-value="terracota" aria-label="Elegir terracota tierra">🧡 Terracota tierra</button>
+        <button class="option" data-value="verde">🌿 Verde calma</button>
+        <button class="option" data-value="dorado">💛 Dorado alegría</button>
+        <button class="option" data-value="azul">💙 Azul serenidad</button>
+        <button class="option" data-value="terracota">🧡 Terracota tierra</button>
       </div>
     </div>
 
     <div class="question" id="q3">
       <h3>¿Qué diseño te atrae más?</h3>
       <div class="options">
-        <button class="option" data-value="botanico" aria-label="Elegir diseño botánico">🌸 Botánico</button>
-        <button class="option" data-value="abstracto" aria-label="Elegir diseño abstracto">✨ Abstracto</button>
-        <button class="option" data-value="minimalista" aria-label="Elegir diseño minimalista">🤍 Minimalista</button>
-        <button class="option" data-value="cultural" aria-label="Elegir diseño cultural">🎭 Cultural</button>
+        <button class="option" data-value="botanico">🌸 Botánico</button>
+        <button class="option" data-value="abstracto">✨ Abstracto</button>
+        <button class="option" data-value="minimalista">🤍 Minimalista</button>
+        <button class="option" data-value="cultural">🎭 Cultural</button>
       </div>
     </div>
 
     <div class="question" id="q4">
       <h3>¿Qué buscás en tu mate?</h3>
       <div class="options">
-        <button class="option" data-value="energia" aria-label="Elegir energía">⚡ Energía</button>
-        <button class="option" data-value="conexion" aria-label="Elegir conexión">🌿 Conexión</button>
-        <button class="option" data-value="inspiracion" aria-label="Elegir inspiración">🎨 Inspiración</button>
-        <button class="option" data-value="paz" aria-label="Elegir paz">☁️ Paz</button>
+        <button class="option" data-value="energia">⚡ Energía</button>
+        <button class="option" data-value="conexion">🌿 Conexión</button>
+        <button class="option" data-value="inspiracion">🎨 Inspiración</button>
+        <button class="option" data-value="paz">☁️ Paz</button>
       </div>
     </div>
   </section>
 
   <!-- ===================================================
-       RESULTADO
+       RESULTADO FINAL
   =================================================== -->
   <section class="result" id="result">
     <h2>💛 Tu mate ideal es...</h2>
-    <img id="mateImage" src="" alt="Mate recomendado" loading="lazy">
+    <img id="mateImage" src="" alt="Mate recomendado">
     <h3 id="mateName"></h3>
     <p id="mateDesc"></p>
+
     <a href="index.html#tienda" class="btn-primary">Ver en la Tienda</a>
+    <p class="cta-frase">🌿 Cada mate tiene su historia… elegí el tuyo y sumate al ritual del color.</p>
+
+    <div class="cta-redes">
+      <p>¿Querés ver más diseños y procesos en vivo?</p>
+      <a href="https://instagram.com/viva.el_mate" target="_blank" rel="noopener" class="btn-instagram">
+        💛 Seguí a <strong>@viva.el_mate</strong>
+      </a>
+    </div>
   </section>
 
   <!-- ===================================================
-       FOOTER
+       BOTÓN VOLVER AL INICIO
   =================================================== -->
+  <button id="backToTop">Volver al inicio</button>
+
   <footer>
     <p>© 2025 Viva el Mate — Diseñado con arte y alma.</p>
   </footer>
@@ -236,11 +331,11 @@
     const mateName = document.getElementById('mateName');
     const mateDesc = document.getElementById('mateDesc');
     const mateImage = document.getElementById('mateImage');
+    const backToTop = document.getElementById('backToTop');
 
     let currentQuestion = 0;
     let answers = [];
 
-    // Inicia el test
     startBtn.addEventListener('click', () => {
       document.getElementById('intro').style.display = 'none';
       showQuestion(currentQuestion);
@@ -299,6 +394,19 @@
       mateDesc.textContent = recommendation.desc;
       mateImage.src = recommendation.img;
     }
+
+    // Botón Volver al inicio
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
   </script>
 </body>
 </html>
