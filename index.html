@@ -211,35 +211,44 @@
     </div>
   </section>
 
-  <!-- ===================================================
+ <!-- ===================================================
        TALLERES
   =================================================== -->
-  <section id="talleres">
-    <h3>Viví la experiencia Viva el Mate</h3>
-    <p>Conectá con el arte, el color y el ritual del mate. Cupos limitados 💛</p>
-    <div class="talleres-container">
-      <div class="taller-video">
-        <video autoplay muted loop playsinline>
-          <source src="assets/videos/taller1video.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <form class="taller-form" aria-label="Formulario de inscripción a talleres">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" required />
-        <label for="email">Email</label>
-        <input type="email" id="email" required />
-        <label for="taller">Elegí tu taller</label>
-        <select id="taller" required>
-          <option value="">Seleccionar...</option>
-          <option value="inicial">Pintura en mate — Nivel inicial</option>
-          <option value="intermedio">Técnicas florales — Nivel intermedio</option>
-          <option value="avanzado">Técnicas de diseño — Nivel avanzado</option>
-        </select>
-        <button type="submit">Inscribirme</button>
-      </form>
-    </div>
-  </section>
+<section id="talleres">
+  <h3>Viví la experiencia Viva el Mate</h3>
+  <p>Conectá con el arte, el color y el ritual del mate. Cupos limitados 💛</p>
 
+  <div class="talleres-container">
+    <div class="taller-video">
+      <video autoplay muted loop playsinline>
+        <source src="assets/videos/taller1video.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <form 
+      class="taller-form" 
+      action="https://formspree.io/f/mwveqwga" 
+      method="POST" 
+      aria-label="Formulario de inscripción a talleres">
+
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="taller">Elegí tu taller</label>
+      <select id="taller" name="taller" required>
+        <option value="">Seleccionar...</option>
+        <option value="inicial">Pintura en mate — Nivel inicial</option>
+        <option value="intermedio">Técnicas florales — Nivel intermedio</option>
+        <option value="avanzado">Técnicas de diseño — Nivel avanzado</option>
+      </select>
+
+      <button type="submit">Inscribirme</button>
+    </form>
+  </div>
+</section>
   <!-- ===================================================
        PORTFOLIO
   =================================================== -->
