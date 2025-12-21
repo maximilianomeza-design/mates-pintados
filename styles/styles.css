@@ -657,3 +657,28 @@ footer {
 .btn-volver:hover {
   opacity: 0.8;
 }
+/* ===================================================
+   BOTÓN DE COMPRA TIENDANUBE
+   =================================================== */
+
+.btn-comprar {
+  display: inline-block;
+  background-color: var(--color-acento);
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-comprar:hover {
+  background-color: #3a9d97;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
