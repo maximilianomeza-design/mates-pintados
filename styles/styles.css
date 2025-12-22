@@ -503,6 +503,48 @@ figcaption {
 }
 
 /* ===================================================
+   PORTFOLIO — BOTONES DE NAVEGACIÓN RESTAURADOS
+=================================================== */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  font-size: 2rem;
+  color: var(--color-titulo);
+  cursor: pointer;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  background: var(--color-acento);
+  color: #fff;
+  transform: scale(1.1) translateY(-50%);
+}
+
+.slider-btn.prev {
+  left: -1.5rem;
+}
+
+.slider-btn.next {
+  right: -1.5rem;
+}
+
+@media (max-width: 768px) {
+  .slider-btn.prev {
+    left: 0.3rem;
+  }
+  .slider-btn.next {
+    right: 0.3rem;
+  }
+}
+
+/* ===================================================
    SOBRE LA MARCA
 =================================================== */
 #sobre-vivaelmate {
