@@ -476,7 +476,7 @@ nav a:hover::after {
 .slider-track {
   display: flex;
   gap: 1rem;
-  animation: slidePortfolio 30s linear infinite;
+  animation: slidePortfolio 120s linear infinite;
 }
 
 @keyframes slidePortfolio {
