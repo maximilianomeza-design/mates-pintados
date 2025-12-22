@@ -65,6 +65,30 @@ if (portfolioTrack && portfolioContainer) {
 }
 
 /* ===================================================
+   🔹 BOTONES DE NAVEGACIÓN DEL PORTFOLIO (nuevo bloque)
+=================================================== */
+const prevBtn = document.querySelector(".slider-btn.prev");
+const nextBtn = document.querySelector(".slider-btn.next");
+
+if (portfolioTrack && prevBtn && nextBtn) {
+  let currentPosition = 0;
+  const moveAmount = 320; // ancho aprox. de cada figura + gap
+
+  prevBtn.addEventListener("click", () => {
+    currentPosition += moveAmount;
+    if (currentPosition > 0) currentPosition = 0;
+    portfolioTrack.style.transform = `translateX(${currentPosition}px)`;
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentPosition -= moveAmount;
+    const maxOffset = -(portfolioTrack.scrollWidth - portfolioContainer.clientWidth);
+    if (currentPosition < maxOffset) currentPosition = maxOffset;
+    portfolioTrack.style.transform = `translateX(${currentPosition}px)`;
+  });
+}
+
+/* ===================================================
    FORMULARIO DE TALLERES — Validación + Mensaje
 =================================================== */
 const formTaller = document.querySelector(".taller-form");
