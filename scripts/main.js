@@ -49,7 +49,7 @@ if (track) {
 }
 
 /* ===================================================
-   CARRUSEL DE PORTFOLIO (fluido y con botones)
+   CARRUSEL DE PORTFOLIO (fluido, rápido y con botones funcionales)
 =================================================== */
 const portfolioTrack = document.querySelector(".slider-track");
 const portfolioContainer = document.querySelector(".slider-container");
@@ -59,58 +59,57 @@ const nextBtn = document.querySelector(".slider-btn.next");
 if (portfolioTrack && portfolioContainer) {
   let position = 0;
   const slideWidth = 320; // ancho aprox. de cada imagen + gap
-  const autoSpeed = 0.6; // velocidad de auto-scroll (px/frame)
+  const autoSpeed = 2.5; // velocidad de auto-scroll (px/frame)
   let autoScroll = true;
+  let lastTime = 0;
 
-  // función de auto-scroll continuo
-  function animateScroll() {
+  function animateScroll(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    const delta = timestamp - lastTime;
+    lastTime = timestamp;
+
     if (autoScroll) {
-      position -= autoSpeed;
+      position -= autoSpeed * (delta / 16.6); // sincroniza con FPS real
       if (Math.abs(position) >= portfolioTrack.scrollWidth - portfolioContainer.clientWidth) {
-        position = 0; // reinicia suavemente sin duplicar
+        position = 0; // reinicia suavemente
       }
       portfolioTrack.style.transform = `translateX(${position}px)`;
     }
     requestAnimationFrame(animateScroll);
   }
 
-  // activar animación
   requestAnimationFrame(animateScroll);
 
   // botones manuales
   if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
-      autoScroll = false;
-      position += slideWidth;
-      if (position > 0) position = 0;
-      portfolioTrack.style.transform = `translateX(${position}px)`;
-      restartAutoScroll();
-    });
+    const moveBy = slideWidth;
 
-    nextBtn.addEventListener("click", () => {
+    function movePortfolio(direction) {
       autoScroll = false;
-      position -= slideWidth;
+      position += direction * moveBy;
+
       const maxOffset = -(portfolioTrack.scrollWidth - portfolioContainer.clientWidth);
+      if (position > 0) position = 0;
       if (position < maxOffset) position = maxOffset;
+
       portfolioTrack.style.transform = `translateX(${position}px)`;
-      restartAutoScroll();
-    });
+
+      // pausa temporal y reanuda
+      clearTimeout(window.resumeAuto);
+      window.resumeAuto = setTimeout(() => {
+        autoScroll = true;
+      }, 4000);
+    }
+
+    prevBtn.addEventListener("click", () => movePortfolio(1));  // retrocede
+    nextBtn.addEventListener("click", () => movePortfolio(-1)); // avanza
   }
 
   // pausa al pasar el mouse
   portfolioContainer.addEventListener("mouseenter", () => (autoScroll = false));
   portfolioContainer.addEventListener("mouseleave", () => {
     autoScroll = true;
-    requestAnimationFrame(animateScroll);
   });
-
-  // reactiva el auto-scroll después de usar botones
-  function restartAutoScroll() {
-    clearTimeout(window.autoTimer);
-    window.autoTimer = setTimeout(() => {
-      autoScroll = true;
-    }, 4000);
-  }
 }
 
 /* ===================================================
