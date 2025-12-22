@@ -49,68 +49,68 @@ if (track) {
 }
 
 /* ===================================================
-   CARRUSEL DE PORTFOLIO (auto mejorado)
+   CARRUSEL DE PORTFOLIO (fluido y con botones)
 =================================================== */
 const portfolioTrack = document.querySelector(".slider-track");
 const portfolioContainer = document.querySelector(".slider-container");
-
-if (portfolioTrack && portfolioContainer) {
-  let autoScroll = true;
-  let scrollPosition = 0;
-  const scrollStep = 1.5; // velocidad (px por frame)
-  const fps = 60;         // fotogramas por segundo (suavidad)
-
-  // duplicar contenido para un loop continuo
-  const clone = portfolioTrack.cloneNode(true);
-  portfolioContainer.appendChild(clone);
-
-  function animatePortfolio() {
-    if (!autoScroll) return;
-    scrollPosition -= scrollStep;
-    portfolioTrack.style.transform = `translateX(${scrollPosition}px)`;
-    clone.style.transform = `translateX(${scrollPosition + portfolioTrack.scrollWidth}px)`;
-
-    // reinicia el scroll de manera imperceptible
-    if (scrollPosition <= -portfolioTrack.scrollWidth) {
-      scrollPosition = 0;
-    }
-    requestAnimationFrame(animatePortfolio);
-  }
-
-  // iniciar animación
-  requestAnimationFrame(animatePortfolio);
-
-  // pausa al pasar el mouse sobre el carrusel
-  portfolioContainer.addEventListener("mouseenter", () => (autoScroll = false));
-  portfolioContainer.addEventListener("mouseleave", () => {
-    autoScroll = true;
-    requestAnimationFrame(animatePortfolio);
-  });
-}
-
-
-/* ===================================================
-   🔹 BOTONES DE NAVEGACIÓN DEL PORTFOLIO (nuevo bloque)
-=================================================== */
 const prevBtn = document.querySelector(".slider-btn.prev");
 const nextBtn = document.querySelector(".slider-btn.next");
 
-if (portfolioTrack && prevBtn && nextBtn) {
-  let currentPosition = 0;
-  const moveAmount = 320; // ancho aprox. de cada figura + gap
+if (portfolioTrack && portfolioContainer) {
+  let position = 0;
+  const slideWidth = 320; // ancho aprox. de cada imagen + gap
+  const autoSpeed = 0.6; // velocidad de auto-scroll (px/frame)
+  let autoScroll = true;
 
-  prevBtn.addEventListener("click", () => {
-    currentPosition += moveAmount;
-    if (currentPosition > 0) currentPosition = 0;
-    portfolioTrack.style.transform = `translateX(${currentPosition}px)`;
+  // función de auto-scroll continuo
+  function animateScroll() {
+    if (autoScroll) {
+      position -= autoSpeed;
+      if (Math.abs(position) >= portfolioTrack.scrollWidth - portfolioContainer.clientWidth) {
+        position = 0; // reinicia suavemente sin duplicar
+      }
+      portfolioTrack.style.transform = `translateX(${position}px)`;
+    }
+    requestAnimationFrame(animateScroll);
+  }
+
+  // activar animación
+  requestAnimationFrame(animateScroll);
+
+  // botones manuales
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      autoScroll = false;
+      position += slideWidth;
+      if (position > 0) position = 0;
+      portfolioTrack.style.transform = `translateX(${position}px)`;
+      restartAutoScroll();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      autoScroll = false;
+      position -= slideWidth;
+      const maxOffset = -(portfolioTrack.scrollWidth - portfolioContainer.clientWidth);
+      if (position < maxOffset) position = maxOffset;
+      portfolioTrack.style.transform = `translateX(${position}px)`;
+      restartAutoScroll();
+    });
+  }
+
+  // pausa al pasar el mouse
+  portfolioContainer.addEventListener("mouseenter", () => (autoScroll = false));
+  portfolioContainer.addEventListener("mouseleave", () => {
+    autoScroll = true;
+    requestAnimationFrame(animateScroll);
   });
 
-  nextBtn.addEventListener("click", () => {
-    currentPosition -= moveAmount;
-    const maxOffset = -(portfolioTrack.scrollWidth - portfolioContainer.clientWidth);
-    if (currentPosition < maxOffset) currentPosition = maxOffset;
-    portfolioTrack.style.transform = `translateX(${currentPosition}px)`;
-  });
+  // reactiva el auto-scroll después de usar botones
+  function restartAutoScroll() {
+    clearTimeout(window.autoTimer);
+    window.autoTimer = setTimeout(() => {
+      autoScroll = true;
+    }, 4000);
+  }
 }
 
 /* ===================================================
