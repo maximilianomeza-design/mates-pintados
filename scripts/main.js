@@ -49,7 +49,7 @@ if (track) {
 }
 
 /* ===================================================
-   CARRUSEL DE PORTFOLIO (fluido, rápido y con botones funcionales)
+   CARRUSEL DE PORTFOLIO — control 100% JS
 =================================================== */
 const portfolioTrack = document.querySelector(".slider-track");
 const portfolioContainer = document.querySelector(".slider-container");
@@ -57,59 +57,43 @@ const prevBtn = document.querySelector(".slider-btn.prev");
 const nextBtn = document.querySelector(".slider-btn.next");
 
 if (portfolioTrack && portfolioContainer) {
+  const slideWidth = 320; // ancho estimado de cada imagen + gap
   let position = 0;
-  const slideWidth = 320; // ancho aprox. de cada imagen + gap
-  const autoSpeed = 2.5; // velocidad de auto-scroll (px/frame)
   let autoScroll = true;
-  let lastTime = 0;
 
-  function animateScroll(timestamp) {
-    if (!lastTime) lastTime = timestamp;
-    const delta = timestamp - lastTime;
-    lastTime = timestamp;
-
+  // desplazamiento automático continuo
+  function animatePortfolio() {
     if (autoScroll) {
-      position -= autoSpeed * (delta / 16.6); // sincroniza con FPS real
-      if (Math.abs(position) >= portfolioTrack.scrollWidth - portfolioContainer.clientWidth) {
-        position = 0; // reinicia suavemente
-      }
+      position -= 1.5; // velocidad (px/frame)
+      const maxScroll = portfolioTrack.scrollWidth - portfolioContainer.clientWidth;
+      if (Math.abs(position) >= maxScroll) position = 0;
       portfolioTrack.style.transform = `translateX(${position}px)`;
     }
-    requestAnimationFrame(animateScroll);
+    requestAnimationFrame(animatePortfolio);
   }
+  requestAnimationFrame(animatePortfolio);
 
-  requestAnimationFrame(animateScroll);
-
-  // botones manuales
+  // controles manuales
   if (prevBtn && nextBtn) {
-    const moveBy = slideWidth;
-
-    function movePortfolio(direction) {
-      autoScroll = false;
-      position += direction * moveBy;
-
-      const maxOffset = -(portfolioTrack.scrollWidth - portfolioContainer.clientWidth);
-      if (position > 0) position = 0;
-      if (position < maxOffset) position = maxOffset;
-
-      portfolioTrack.style.transform = `translateX(${position}px)`;
-
-      // pausa temporal y reanuda
-      clearTimeout(window.resumeAuto);
-      window.resumeAuto = setTimeout(() => {
-        autoScroll = true;
-      }, 4000);
-    }
-
-    prevBtn.addEventListener("click", () => movePortfolio(1));  // retrocede
-    nextBtn.addEventListener("click", () => movePortfolio(-1)); // avanza
+    prevBtn.addEventListener("click", () => movePortfolio(1));
+    nextBtn.addEventListener("click", () => movePortfolio(-1));
   }
 
-  // pausa al pasar el mouse
+  function movePortfolio(direction) {
+    autoScroll = false;
+    position += direction * slideWidth;
+    const maxOffset = -(portfolioTrack.scrollWidth - portfolioContainer.clientWidth);
+    if (position > 0) position = 0;
+    if (position < maxOffset) position = maxOffset;
+    portfolioTrack.style.transform = `translateX(${position}px)`;
+
+    clearTimeout(window.resumeScroll);
+    window.resumeScroll = setTimeout(() => (autoScroll = true), 4000);
+  }
+
+  // pausa con hover
   portfolioContainer.addEventListener("mouseenter", () => (autoScroll = false));
-  portfolioContainer.addEventListener("mouseleave", () => {
-    autoScroll = true;
-  });
+  portfolioContainer.addEventListener("mouseleave", () => (autoScroll = true));
 }
 
 /* ===================================================
