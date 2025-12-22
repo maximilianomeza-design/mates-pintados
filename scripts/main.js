@@ -49,20 +49,45 @@ if (track) {
 }
 
 /* ===================================================
-   CARRUSEL DE PORTFOLIO (auto)
+   CARRUSEL DE PORTFOLIO (auto mejorado)
 =================================================== */
 const portfolioTrack = document.querySelector(".slider-track");
 const portfolioContainer = document.querySelector(".slider-container");
 
 if (portfolioTrack && portfolioContainer) {
-  let slideOffset = 0;
-  const slideSpeed = 45;
-  setInterval(() => {
-    slideOffset -= 1;
-    portfolioTrack.style.transform = `translateX(${slideOffset}px)`;
-    if (Math.abs(slideOffset) >= portfolioTrack.scrollWidth / 2) slideOffset = 0;
-  }, slideSpeed);
+  let autoScroll = true;
+  let scrollPosition = 0;
+  const scrollStep = 1.5; // velocidad (px por frame)
+  const fps = 60;         // fotogramas por segundo (suavidad)
+
+  // duplicar contenido para un loop continuo
+  const clone = portfolioTrack.cloneNode(true);
+  portfolioContainer.appendChild(clone);
+
+  function animatePortfolio() {
+    if (!autoScroll) return;
+    scrollPosition -= scrollStep;
+    portfolioTrack.style.transform = `translateX(${scrollPosition}px)`;
+    clone.style.transform = `translateX(${scrollPosition + portfolioTrack.scrollWidth}px)`;
+
+    // reinicia el scroll de manera imperceptible
+    if (scrollPosition <= -portfolioTrack.scrollWidth) {
+      scrollPosition = 0;
+    }
+    requestAnimationFrame(animatePortfolio);
+  }
+
+  // iniciar animación
+  requestAnimationFrame(animatePortfolio);
+
+  // pausa al pasar el mouse sobre el carrusel
+  portfolioContainer.addEventListener("mouseenter", () => (autoScroll = false));
+  portfolioContainer.addEventListener("mouseleave", () => {
+    autoScroll = true;
+    requestAnimationFrame(animatePortfolio);
+  });
 }
+
 
 /* ===================================================
    🔹 BOTONES DE NAVEGACIÓN DEL PORTFOLIO (nuevo bloque)
