@@ -68,7 +68,7 @@ body {
 }
 
 /* ===================================================
-   ENCABEZADO Y NAVEGACIÓN (Estilo 2025 restaurado)
+   ENCABEZADO Y NAVEGACIÓN
 =================================================== */
 header {
   background-color: #fffaf4;
@@ -220,36 +220,18 @@ nav a:hover::after {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-.btn-primary:hover {
-  background-color: #3a9d97;
-}
-
-.btn-secondary:hover {
-  background-color: #f0d9b8;
-}
+.btn-primary:hover { background-color: #3a9d97; }
+.btn-secondary:hover { background-color: #f0d9b8; }
 
 @media (max-width: 768px) {
-  #hero {
-    padding: 4rem 1.5rem;
-  }
-
-  #hero h2 {
-    font-size: 2.2rem;
-  }
-
-  .cta-buttons {
-    gap: 1rem;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 320px;
-  }
+  #hero { padding: 4rem 1.5rem; }
+  #hero h2 { font-size: 2.2rem; }
+  .cta-buttons { gap: 1rem; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 320px; }
 }
 
 /* ===================================================
-   TIENDA ARTESANAL
+   TIENDA
 =================================================== */
 #tienda {
   text-align: center;
@@ -294,6 +276,110 @@ nav a:hover::after {
 
 .producto:hover img {
   transform: scale(1.08);
+}
+
+/* ===================================================
+   TESTIMONIOS
+=================================================== */
+#testimonios {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fffaf4;
+}
+
+#testimonios h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.testimonios-carousel {
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonios-track {
+  display: flex;
+  gap: 2rem;
+  animation: scrollTestimonials 30s linear infinite;
+}
+
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testimonio {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+  padding: 1rem;
+  flex: 0 0 250px;
+}
+
+.testimonio img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* ===================================================
+   TALLERES
+=================================================== */
+#talleres {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.talleres-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.taller-video video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.taller-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 350px;
+  width: 100%;
+}
+
+.taller-form input,
+.taller-form select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.taller-form button {
+  background-color: var(--color-acento);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.taller-form button:hover {
+  background-color: #3a9d97;
 }
 
 /* ===================================================
@@ -390,7 +476,7 @@ figcaption {
 }
 
 /* ===================================================
-   SOBRE LA MARCA, CONTACTO, FOOTER, HISTORIA, BOTONES
+   SOBRE, CONTACTO, HISTORIA, BOTONES
 =================================================== */
 #sobre-vivaelmate {
   padding: 4rem 2rem;
@@ -432,7 +518,7 @@ figcaption {
   font-weight: 600;
 }
 
-/* CONTACTO Y FOOTER */
+/* CONTACTO */
 #contacto {
   text-align: center;
   padding: 3rem 2rem;
