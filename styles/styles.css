@@ -681,26 +681,3 @@ footer {
   transform: translateY(-2px);
 }
 
-.guias-media {
-  max-width: 750px;
-  margin: 2rem auto 3rem auto;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
-  position: relative;
-}
-
-.guias-media video {
-  width: 100%;
-  display: block;
-  border-radius: 1rem;
-}
-
-.guias-caption {
-  font-family: 'Marcellus', serif;
-  font-size: 1rem;
-  color: #2e2e2e;
-  margin-top: 0.6rem;
-  text-align: center;
-  opacity: 0.85;
-}
