@@ -613,3 +613,64 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
+/* ===================================================
+   GUIAS DEL RITUAL — Bloque SEO integrado
+=================================================== */
+#guias {
+  background-color: #fffaf4;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#guias h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 2rem;
+  color: #2e2e2e;
+  margin-bottom: 1rem;
+}
+
+.intro-guias {
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.guias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+}
+
+.guia-item {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guia-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+.guia-item h4 {
+  font-family: 'Marcellus', serif;
+  color: #2e2e2e;
+  margin-bottom: 0.6rem;
+}
+
+.link-guias {
+  color: #58b6aa;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-guias:hover {
+  color: #3a9d97;
+}
