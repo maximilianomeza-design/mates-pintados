@@ -613,17 +613,43 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
-/* ============================================
-   Ajuste final de video y espaciado en "Guías del Ritual"
-============================================ */
+/* ===================================================
+   GUIAS DEL RITUAL — Versión optimizada y estable 2025
+=================================================== */
 #guias {
   background-color: #fffaf4;
-  padding: 1.5rem 2rem 2.5rem 2rem; /* menos espacio arriba */
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
 }
 
+#guias h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.9rem;
+  color: var(--color-titulo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#guias .icono-mate {
+  width: 26px;
+  height: 26px;
+  transform: translateY(2px);
+}
+
+.intro-guias {
+  font-size: 1rem;
+  color: var(--color-texto);
+  opacity: 0.9;
+  max-width: 650px;
+  margin: 0.5rem auto 1.5rem;
+}
+
+/* --- Video --- */
 .guias-media {
-  max-width: 440px; /* video más pequeño */
-  margin: 1rem auto 1.5rem auto; /* menos separación general */
+  max-width: 420px;
+  margin: 0.8rem auto 1.5rem;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
@@ -635,14 +661,73 @@ footer {
   border-radius: 1rem;
   object-fit: cover;
   height: auto;
-  max-height: 380px; /* límite de altura */
+  max-height: 340px;
 }
 
 .guias-caption {
   font-family: 'Marcellus', serif;
   font-size: 0.95rem;
   color: #2e2e2e;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   text-align: center;
   opacity: 0.8;
+}
+
+/* --- Cuadros de guías --- */
+.guias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+.guia-item {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--sombra-suave);
+  padding: 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.guia-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.guia-item h4 {
+  font-family: 'Marcellus', serif;
+  color: var(--color-titulo);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.guia-item p {
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+.link-guias {
+  color: var(--color-acento);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link-guias:hover {
+  text-decoration: underline;
+}
+
+/* --- Ajuste responsivo --- */
+@media (max-width: 768px) {
+  #guias {
+    padding: 2rem 1rem;
+  }
+  .guias-media {
+    max-width: 90%;
+  }
+  .guias-grid {
+    grid-template-columns: 1fr;
+  }
 }
