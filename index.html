@@ -395,5 +395,163 @@
        SCRIPTS
   =================================================== -->
   <script src="scripts/main.js" defer></script>
+<!-- 🌿 Chat Flotante "Majo 2.0" -->
+<div id="chat-majo" class="chat-majo">
+  <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">👩‍🎨</button>
+  
+  <div id="chat-window" class="chat-window hidden">
+    <div class="chat-header">
+      <span>💛 Majo 2.0</span>
+      <button id="close-chat" aria-label="Cerrar chat">×</button>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+      <div class="majo-msg">
+        <p>¡Hola! 💛 Soy Majo 2.0 — la versión digital de quien pinta los mates.<br>
+        ¿Querés que te ayude a <strong>elegir, cuidar o crear</strong> el tuyo?</p>
+      </div>
+
+      <div class="chat-options">
+        <button class="chat-option" data-option="elegir">Elegir o encargar un mate 💛</button>
+        <button class="chat-option" data-option="cuidar">Cuidar mi mate 🌿</button>
+        <button class="chat-option" data-option="taller">Participar en un taller 🎨</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 🌿 CHAT FLOTANTE MAJO 2.0 */
+.chat-majo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 🔘 BOTÓN PRINCIPAL */
+.chat-btn {
+  background-color: #f3d6b1;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.chat-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* 💬 VENTANA DEL CHAT */
+.chat-window {
+  position: absolute;
+  bottom: 75px;
+  right: 0;
+  width: 320px;
+  background-color: #fffaf4;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ENCABEZADO DEL CHAT */
+.chat-header {
+  background-color: #58b6aa;
+  color: #fff;
+  padding: 0.8rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* CUERPO DEL CHAT */
+.chat-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.majo-msg {
+  background: #f3d6b1;
+  color: #2e2e2e;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  align-self: flex-start;
+  max-width: 85%;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-msg {
+  background: #58b6aa;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  align-self: flex-end;
+  max-width: 85%;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* BOTONES DE OPCIÓN */
+.chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.chat-option {
+  background-color: #fff;
+  border: 1px solid #f3d6b1;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.chat-option:hover {
+  background-color: #f3d6b1;
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
 </body>
 </html>
