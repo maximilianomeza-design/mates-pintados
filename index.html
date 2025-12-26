@@ -421,10 +421,10 @@
 </div>
 
 <style>
-<!-- 🌿 Chat Flotante "Majo 2.0" -->
+<!-- 🌿 Chat Flotante "Majo 2.0" — versión conversacional completa -->
 <div id="chat-majo" class="chat-majo">
   <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">👩‍🎨</button>
-  
+
   <div id="chat-window" class="chat-window hidden">
     <div class="chat-header">
       <span>💛 Majo 2.0</span>
@@ -433,7 +433,8 @@
 
     <div class="chat-body" id="chat-body">
       <div class="majo-msg">
-        <p>¡Hola! 💛 Soy Majo 2.0 — la versión digital de quien pinta los mates.<br>
+        <p>¡Hola! Soy <strong>Majo 2.0</strong> 👩‍🎨<br>
+        La versión digital de quien pinta los mates.<br>
         ¿Querés que te ayude a <strong>elegir, cuidar o crear</strong> el tuyo?</p>
       </div>
 
@@ -446,17 +447,14 @@
   </div>
 </div>
 
-<!-- 🌿 Estilos del chat -->
 <style>
 .chat-majo {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 9999;
+  z-index: 99999;
   font-family: 'Inter', sans-serif;
 }
-
-/* 🔘 BOTÓN PRINCIPAL */
 .chat-btn {
   background-color: #f3d6b1;
   border: none;
@@ -465,34 +463,25 @@
   height: 60px;
   font-size: 2rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+.chat-btn:hover { transform: scale(1.1); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
 
-.chat-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
-/* 💬 VENTANA DEL CHAT */
 .chat-window {
-  position: absolute;
-  bottom: 75px;
-  right: 0;
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
   width: 320px;
   background-color: #fffaf4;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  display: flex;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
   flex-direction: column;
+  display: none;
   animation: fadeInUp 0.4s ease;
 }
+.chat-window.show { display: flex; }
 
-.hidden {
-  display: none;
-}
-
-/* ENCABEZADO DEL CHAT */
 .chat-header {
   background-color: #58b6aa;
   color: #fff;
@@ -505,15 +494,6 @@
   font-weight: 600;
 }
 
-.chat-header button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-/* CUERPO DEL CHAT */
 .chat-body {
   padding: 1rem;
   display: flex;
@@ -522,36 +502,24 @@
   max-height: 350px;
   overflow-y: auto;
 }
-
+.majo-msg, .user-msg {
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  max-width: 85%;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 .majo-msg {
   background: #f3d6b1;
   color: #2e2e2e;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
   align-self: flex-start;
-  max-width: 85%;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .user-msg {
   background: #58b6aa;
   color: #fff;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
   align-self: flex-end;
-  max-width: 85%;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-/* BOTONES DE OPCIÓN */
-.chat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
+.chat-options { display: flex; flex-direction: column; gap: 0.6rem; }
 .chat-option {
   background-color: #fff;
   border: 1px solid #f3d6b1;
@@ -561,47 +529,23 @@
   transition: all 0.2s ease;
   font-weight: 500;
 }
+.chat-option:hover { background-color: #f3d6b1; }
 
-.chat-option:hover {
-  background-color: #f3d6b1;
-}
-
-/* ANIMACIÓN DE ENTRADA */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ✨ ANIMACIÓN DE LOS TRES PUNTITOS */
-.typing {
-  display: inline-block;
-  margin-left: 5px;
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .typing span {
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 6px; height: 6px;
   background: #2e2e2e;
   border-radius: 50%;
   margin-right: 3px;
   animation: blink 1.4s infinite both;
 }
-.typing span:nth-child(2) { animation-delay: 0.2s; }
-.typing span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0; }
-  40% { opacity: 1; }
-}
+@keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
 </style>
 
-<!-- 🌿 Script del Chat Majo 2.0 -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const chatBtn = document.getElementById("chat-btn");
@@ -610,73 +554,73 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatBody = document.getElementById("chat-body");
   const options = document.querySelectorAll(".chat-option");
 
-  chatBtn.addEventListener("click", () => {
-    chatWindow.classList.toggle("hidden");
-  });
+  function showChat() { chatWindow.classList.add("show"); }
+  function hideChat() { chatWindow.classList.remove("show"); }
 
-  closeChat.addEventListener("click", () => {
-    chatWindow.classList.add("hidden");
-  });
+  chatBtn.addEventListener("click", showChat);
+  closeChat.addEventListener("click", hideChat);
 
-  const respuestas = {
-    elegir: "Porque un mate artesanal tiene historia. 💛 Cada uno nace de un momento distinto: un color, una flor o una idea. Lo artesanal vibra distinto: no busca ser perfecto, busca ser tuyo. 👉 Mirá algunos en la Tienda, seguro uno te llama.",
-    cuidar: "Sí, pero solo mojarlo, no ahogarlo 😉 Podés usarlo todos los días. Solo evitá mojar demasiado el exterior y secalo con amor. 👉 Son mates pensados para usarse, no para mirar de lejos.",
-    taller: "El secreto está en la calma 🎨 En nuestros talleres pintás tu propio mate, aprendés técnicas y compartís el ritual. 👉 Escribime si querés sumarte al próximo."
+  const conversaciones = {
+    elegir: [
+      "¿Querés que te cuente cómo elegir el mate que vibra con vos? 💛",
+      "Cada mate artesanal tiene historia. Nace de un color, una flor o una emoción.",
+      "Lo artesanal vibra distinto — no busca ser perfecto, busca ser tuyo.",
+      "👉 Podés mirar algunos en la Tienda, seguro uno te va a llamar."
+    ],
+    cuidar: [
+      "¿Tenés dudas sobre cómo cuidar tu mate pintado? 🌿",
+      "Sí, se puede usar todos los días, pero sin dejarlo en remojo.",
+      "El secreto está en el amor con que lo secás después de usarlo 💛",
+      "👉 Son mates pensados para acompañarte, no para quedarse quietos."
+    ],
+    taller: [
+      "¿Querés vivir la experiencia de pintar tu propio mate conmigo? 🎨",
+      "En los talleres aprendemos, reímos y creamos desde el alma.",
+      "No necesitás experiencia, solo ganas de conectar con el color y la calma.",
+      "👉 Escribime si querés reservar un lugar en el próximo encuentro."
+    ]
   };
 
   options.forEach(opt => {
     opt.addEventListener("click", () => {
       const valor = opt.dataset.option;
-      const respuesta = respuestas[valor];
+      const secuencia = conversaciones[valor];
 
+      // mostrar mensaje del usuario
       const userMsg = document.createElement("div");
       userMsg.classList.add("user-msg");
       userMsg.textContent = opt.textContent;
       chatBody.appendChild(userMsg);
 
-      const typing = document.createElement("div");
-      typing.classList.add("majo-msg");
-      typing.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-      chatBody.appendChild(typing);
-      chatBody.scrollTop = chatBody.scrollHeight;
+      // mostrar secuencia de mensajes de Majo
+      let delay = 1000;
+      secuencia.forEach((linea, index) => {
+        const typing = document.createElement("div");
+        typing.classList.add("majo-msg");
+        typing.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+        setTimeout(() => {
+          chatBody.appendChild(typing);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, delay);
+        delay += 1000;
 
-      setTimeout(() => {
-        typing.remove();
-        const majoMsg = document.createElement("div");
-        majoMsg.classList.add("majo-msg");
-        majoMsg.innerHTML = `<p>${respuesta}</p>`;
-        chatBody.appendChild(majoMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, 1400);
+        setTimeout(() => {
+          typing.remove();
+          const msg = document.createElement("div");
+          msg.classList.add("majo-msg");
+          msg.innerHTML = `<p>${linea}</p>`;
+          chatBody.appendChild(msg);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, delay + 500);
+        delay += 2000;
+      });
     });
   });
 
-  /* 🌿 APARICIÓN AUTOMÁTICA DEL CHAT MAJO 2.0 */
-  let chatShown = false;
-  let userScrolled = false;
-
-  function showChatTemporarily() {
-    if (chatShown) return;
-    chatShown = true;
-    chatWindow.classList.remove("hidden");
-    setTimeout(() => {
-      chatWindow.classList.add("hidden");
-    }, 6000);
-  }
-
-  setTimeout(showChatTemporarily, 8000);
-
-  window.addEventListener("scroll", () => {
-    if (!userScrolled && !chatShown) {
-      userScrolled = true;
-      showChatTemporarily();
-    }
-  });
+  // 🌿 Chat se abre solo al inicio y no se cierra
+  setTimeout(() => showChat(), 6000);
 });
 </script>
-
-<!-- ✅ main.js al final -->
-<script src="scripts/main.js" defer></script>
 
 </body>
 </html>
