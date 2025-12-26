@@ -421,7 +421,33 @@
 </div>
 
 <style>
-/* 🌿 CHAT FLOTANTE MAJO 2.0 */
+<!-- 🌿 Chat Flotante "Majo 2.0" -->
+<div id="chat-majo" class="chat-majo">
+  <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">👩‍🎨</button>
+  
+  <div id="chat-window" class="chat-window hidden">
+    <div class="chat-header">
+      <span>💛 Majo 2.0</span>
+      <button id="close-chat" aria-label="Cerrar chat">×</button>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+      <div class="majo-msg">
+        <p>¡Hola! 💛 Soy Majo 2.0 — la versión digital de quien pinta los mates.<br>
+        ¿Querés que te ayude a <strong>elegir, cuidar o crear</strong> el tuyo?</p>
+      </div>
+
+      <div class="chat-options">
+        <button class="chat-option" data-option="elegir">Elegir o encargar un mate 💛</button>
+        <button class="chat-option" data-option="cuidar">Cuidar mi mate 🌿</button>
+        <button class="chat-option" data-option="taller">Participar en un taller 🎨</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🌿 Estilos del chat -->
+<style>
 .chat-majo {
   position: fixed;
   bottom: 20px;
@@ -551,16 +577,106 @@
     transform: translateY(0);
   }
 }
+
+/* ✨ ANIMACIÓN DE LOS TRES PUNTITOS */
+.typing {
+  display: inline-block;
+  margin-left: 5px;
+}
+.typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #2e2e2e;
+  border-radius: 50%;
+  margin-right: 3px;
+  animation: blink 1.4s infinite both;
+}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
 </style>
-<!-- 🌿 Chat Majo 2.0 — Script -->
+
+<!-- 🌿 Script del Chat Majo 2.0 -->
 <script>
-  // Todo el bloque JS que te di antes (desde document.addEventListener...)
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBtn = document.getElementById("chat-btn");
+  const chatWindow = document.getElementById("chat-window");
+  const closeChat = document.getElementById("close-chat");
+  const chatBody = document.getElementById("chat-body");
+  const options = document.querySelectorAll(".chat-option");
+
+  chatBtn.addEventListener("click", () => {
+    chatWindow.classList.toggle("hidden");
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatWindow.classList.add("hidden");
+  });
+
+  const respuestas = {
+    elegir: "Porque un mate artesanal tiene historia. 💛 Cada uno nace de un momento distinto: un color, una flor o una idea. Lo artesanal vibra distinto: no busca ser perfecto, busca ser tuyo. 👉 Mirá algunos en la Tienda, seguro uno te llama.",
+    cuidar: "Sí, pero solo mojarlo, no ahogarlo 😉 Podés usarlo todos los días. Solo evitá mojar demasiado el exterior y secalo con amor. 👉 Son mates pensados para usarse, no para mirar de lejos.",
+    taller: "El secreto está en la calma 🎨 En nuestros talleres pintás tu propio mate, aprendés técnicas y compartís el ritual. 👉 Escribime si querés sumarte al próximo."
+  };
+
+  options.forEach(opt => {
+    opt.addEventListener("click", () => {
+      const valor = opt.dataset.option;
+      const respuesta = respuestas[valor];
+
+      const userMsg = document.createElement("div");
+      userMsg.classList.add("user-msg");
+      userMsg.textContent = opt.textContent;
+      chatBody.appendChild(userMsg);
+
+      const typing = document.createElement("div");
+      typing.classList.add("majo-msg");
+      typing.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+      chatBody.appendChild(typing);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      setTimeout(() => {
+        typing.remove();
+        const majoMsg = document.createElement("div");
+        majoMsg.classList.add("majo-msg");
+        majoMsg.innerHTML = `<p>${respuesta}</p>`;
+        chatBody.appendChild(majoMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 1400);
+    });
+  });
+
+  /* 🌿 APARICIÓN AUTOMÁTICA DEL CHAT MAJO 2.0 */
+  let chatShown = false;
+  let userScrolled = false;
+
+  function showChatTemporarily() {
+    if (chatShown) return;
+    chatShown = true;
+    chatWindow.classList.remove("hidden");
+    setTimeout(() => {
+      chatWindow.classList.add("hidden");
+    }, 6000);
+  }
+
+  setTimeout(showChatTemporarily, 8000);
+
+  window.addEventListener("scroll", () => {
+    if (!userScrolled && !chatShown) {
+      userScrolled = true;
+      showChatTemporarily();
+    }
+  });
+});
 </script>
 
-<!-- ✨ Animación de los tres puntitos -->
-<style>
-  /* Todo el bloque de .typing y @keyframes */
-</style>
+<!-- ✅ main.js al final -->
+<script src="scripts/main.js" defer></script>
 
 </body>
 </html>
