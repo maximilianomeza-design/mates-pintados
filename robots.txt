@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maximilianomeza.github.io/viva-el-mate/sitemap.xml
+Sitemap: https://maximilianomeza-design.github.io/mates-pintados/sitemap.xml
+
