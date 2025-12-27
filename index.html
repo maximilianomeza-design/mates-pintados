@@ -395,9 +395,11 @@
        SCRIPTS
   =================================================== -->
   <script src="scripts/main.js" defer></script>
-<!-- 🌿 Chat Flotante "Majo 2.0" — versión conversacional mejorada -->
+<!-- 🌿 Chat Flotante "Majo 2.0" — versión interactiva mejorada -->
 <div id="chat-majo" class="chat-majo">
   <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">👩‍🎨</button>
+
+  <div id="chat-tooltip" class="chat-tooltip">Hola, soy Majo 💛 ¿charlamos?</div>
 
   <div id="chat-window" class="chat-window">
     <div class="chat-header">
@@ -412,7 +414,7 @@
         ¿Querés que te ayude a <strong>elegir, cuidar o crear</strong> el tuyo?</p>
       </div>
 
-      <div class="chat-options">
+      <div class="chat-options" id="chat-options">
         <button class="chat-option" data-option="elegir">Elegir o encargar un mate 💛</button>
         <button class="chat-option" data-option="cuidar">Cuidar mi mate 🌿</button>
         <button class="chat-option" data-option="taller">Participar en un taller 🎨</button>
@@ -422,7 +424,6 @@
 </div>
 
 <style>
-/* 🌿 POSICIÓN Y ESTILO BASE */
 .chat-majo {
   position: fixed;
   bottom: 20px;
@@ -431,7 +432,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* 🔘 BOTÓN FLOTANTE SIEMPRE VISIBLE */
+/* BOTÓN FLOTANTE */
 .chat-btn {
   background-color: #f3d6b1;
   border: none;
@@ -442,7 +443,6 @@
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  z-index: 100000;
   animation: pulse 2.5s infinite;
 }
 .chat-btn:hover {
@@ -450,13 +450,30 @@
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-/* 💓 ANIMACIÓN LATIDO */
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,100%{transform:scale(1)}50%{transform:scale(1.1)}
 }
 
-/* 💬 VENTANA DEL CHAT */
+/* BURBUJA DE SALUDO */
+.chat-tooltip {
+  position: absolute;
+  right: 70px;
+  bottom: 20px;
+  background-color: #fffaf4;
+  color: #2e2e2e;
+  border: 1px solid #f3d6b1;
+  border-radius: 15px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.4s ease;
+  transform: translateY(10px);
+}
+.chat-tooltip.show { opacity: 1; transform: translateY(0); }
+
+/* VENTANA DE CHAT */
 .chat-window {
   position: fixed;
   bottom: 90px;
@@ -484,6 +501,7 @@
   font-weight: 600;
 }
 
+/* CUERPO DEL CHAT */
 .chat-body {
   padding: 1rem;
   display: flex;
@@ -504,7 +522,7 @@
 .majo-msg { background: #f3d6b1; color: #2e2e2e; align-self: flex-start; }
 .user-msg { background: #58b6aa; color: #fff; align-self: flex-end; }
 
-/* OPCIONES DE RESPUESTA */
+/* OPCIONES */
 .chat-options { display: flex; flex-direction: column; gap: 0.6rem; }
 .chat-option {
   background-color: #fff;
@@ -518,28 +536,15 @@
 .chat-option:hover { background-color: #f3d6b1; }
 
 /* ANIMACIONES */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 .typing span {
-  display: inline-block;
-  width: 6px; height: 6px;
-  background: #2e2e2e;
-  border-radius: 50%;
-  margin-right: 3px;
-  animation: blink 1.4s infinite both;
+  display:inline-block;width:6px;height:6px;background:#2e2e2e;border-radius:50%;margin-right:3px;animation:blink 1.4s infinite both;
 }
-@keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
+@keyframes blink {0%,80%,100%{opacity:0}40%{opacity:1}}
 
-/* 📱 OPTIMIZACIÓN MÓVIL */
-@media (max-width: 600px) {
-  .chat-window {
-    width: 90%;
-    bottom: 80px;
-    right: 5%;
-    max-height: 70vh;
-  }
+@media (max-width:600px){
+  .chat-window{width:90%;bottom:80px;right:5%;max-height:70vh}
+  .chat-tooltip{right:50%;transform:translateX(50%)}
 }
 </style>
 
@@ -549,20 +554,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatWindow = document.getElementById("chat-window");
   const closeChat = document.getElementById("close-chat");
   const chatBody = document.getElementById("chat-body");
+  const chatOptions = document.getElementById("chat-options");
+  const tooltip = document.getElementById("chat-tooltip");
   const options = document.querySelectorAll(".chat-option");
 
-  function showChat() {
+  let tooltipTimeout, reappearTimer;
+
+  // Mostrar/Ocultar chat
+  const showChat = () => {
     chatWindow.classList.add("show");
     chatBtn.style.display = "none";
-  }
+    tooltip.classList.remove("show");
+    clearTimeout(tooltipTimeout);
+  };
 
-  function hideChat() {
+  const hideChat = () => {
     chatWindow.classList.remove("show");
     chatBtn.style.display = "block";
-  }
+    startTooltipTimer();
+  };
 
   chatBtn.addEventListener("click", showChat);
   closeChat.addEventListener("click", hideChat);
+
+  // Mostrar burbuja inicial
+  function startTooltipTimer() {
+    tooltipTimeout = setTimeout(() => {
+      tooltip.classList.add("show");
+      setTimeout(() => tooltip.classList.remove("show"), 6000);
+    }, 4000);
+  }
+  startTooltipTimer();
+
+  // Reaparecer tooltip tras 30s sin interacción
+  function resetReappearTimer() {
+    clearTimeout(reappearTimer);
+    reappearTimer = setTimeout(() => tooltip.classList.add("show"), 30000);
+  }
+  document.addEventListener("mousemove", resetReappearTimer);
+  document.addEventListener("scroll", resetReappearTimer);
 
   const conversaciones = {
     elegir: [
@@ -575,7 +605,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "¿Tenés dudas sobre cómo lavar tu mate pintado? 🌿",
       "Sí, se puede mojar, pero sin dejarlo en remojo.",
       "El secreto está en el amor con que lo secás después de lavarlo 💛",
-      "👉 Son mates pensados para acompañarte todos los dias, no para quedarse quietos."
+      "👉 Son mates pensados para acompañarte todos los días, no para quedarse quietos."
     ],
     taller: [
       "¿Querés vivir la experiencia de pintar tu propio mate conmigo? 🎨",
@@ -589,10 +619,14 @@ document.addEventListener("DOMContentLoaded", () => {
     opt.addEventListener("click", () => {
       const valor = opt.dataset.option;
       const secuencia = conversaciones[valor];
+
       const userMsg = document.createElement("div");
       userMsg.classList.add("user-msg");
       userMsg.textContent = opt.textContent;
       chatBody.appendChild(userMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      chatOptions.style.display = "none";
 
       let delay = 1000;
       secuencia.forEach(linea => {
@@ -615,13 +649,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }, delay + 500);
         delay += 2000;
       });
+
+      // 🌿 Al final, mostrar otra vez las opciones
+      setTimeout(() => {
+        const extra = document.createElement("div");
+        extra.classList.add("majo-msg");
+        extra.innerHTML = "<p>¿Querés que sigamos charlando? 🌿 Elegí otra opción 👇</p>";
+        chatBody.appendChild(extra);
+        chatOptions.style.display = "flex";
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, delay + 1500);
     });
   });
-
-  // 🌿 Mostrar automáticamente al inicio (6 segundos)
-  setTimeout(() => showChat(), 6000);
 });
 </script>
+
 
 </body>
 </html>
