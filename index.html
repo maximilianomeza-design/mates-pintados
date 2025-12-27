@@ -395,13 +395,13 @@
        SCRIPTS
   =================================================== -->
   <script src="scripts/main.js" defer></script>
-<!-- 🌿 Chat Flotante "Majo 2.0" — versión interactiva mejorada -->
+<!-- 🌿 Chat Flotante Majo 2.0 -->
 <div id="chat-majo" class="chat-majo">
-  <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">👩‍🎨</button>
+  <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">
+    <img src="assets/icons/majochat.webp" alt="Majo 2.0" class="chat-avatar">
+  </button>
 
-  <div id="chat-tooltip" class="chat-tooltip">Hola, soy Majo 💛 ¿charlamos?</div>
-
-  <div id="chat-window" class="chat-window">
+  <div id="chat-window" class="chat-window hidden">
     <div class="chat-header">
       <span>💛 Majo 2.0</span>
       <button id="close-chat" aria-label="Cerrar chat">×</button>
@@ -409,12 +409,11 @@
 
     <div class="chat-body" id="chat-body">
       <div class="majo-msg">
-        <p>¡Hola! Soy <strong>Majo 2.0</strong> 👩‍🎨<br>
-        La versión digital de quien pinta los mates.<br>
+        <p>¡Hola! Soy <strong>Majo 2.0</strong> 👩‍🎨 — la versión digital de quien pinta los mates.<br>
         ¿Querés que te ayude a <strong>elegir, cuidar o crear</strong> el tuyo?</p>
       </div>
 
-      <div class="chat-options" id="chat-options">
+      <div class="chat-options">
         <button class="chat-option" data-option="elegir">Elegir o encargar un mate 💛</button>
         <button class="chat-option" data-option="cuidar">Cuidar mi mate 🌿</button>
         <button class="chat-option" data-option="taller">Participar en un taller 🎨</button>
@@ -423,72 +422,57 @@
   </div>
 </div>
 
+<!-- 🌿 Estilos del chat -->
 <style>
 .chat-majo {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 99999;
+  z-index: 9999;
   font-family: 'Inter', sans-serif;
 }
 
-/* BOTÓN FLOTANTE */
+/* Botón de avatar */
 .chat-btn {
-  background-color: #f3d6b1;
+  background: none;
   border: none;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 2rem;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
+  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  animation: pulse 2.5s infinite;
 }
+
 .chat-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 
-@keyframes pulse {
-  0%,100%{transform:scale(1)}50%{transform:scale(1.1)}
+.chat-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-/* BURBUJA DE SALUDO */
-.chat-tooltip {
-  position: absolute;
-  right: 70px;
-  bottom: 20px;
-  background-color: #fffaf4;
-  color: #2e2e2e;
-  border: 1px solid #f3d6b1;
-  border-radius: 15px;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease, transform 0.4s ease;
-  transform: translateY(10px);
-}
-.chat-tooltip.show { opacity: 1; transform: translateY(0); }
-
-/* VENTANA DE CHAT */
+/* Ventana */
 .chat-window {
-  position: fixed;
-  bottom: 90px;
-  right: 25px;
+  position: absolute;
+  bottom: 80px;
+  right: 0;
   width: 320px;
   background-color: #fffaf4;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
   flex-direction: column;
-  display: none;
   animation: fadeInUp 0.4s ease;
 }
-.chat-window.show { display: flex; }
 
-/* ENCABEZADO */
+.hidden { display: none; }
+
 .chat-header {
   background-color: #58b6aa;
   color: #fff;
@@ -501,7 +485,14 @@
   font-weight: 600;
 }
 
-/* CUERPO DEL CHAT */
+.chat-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 .chat-body {
   padding: 1rem;
   display: flex;
@@ -511,19 +502,26 @@
   overflow-y: auto;
 }
 
-/* MENSAJES */
-.majo-msg, .user-msg {
-  border-radius: 10px;
+.majo-msg {
+  background: #f3d6b1;
+  color: #2e2e2e;
   padding: 0.8rem 1rem;
+  border-radius: 10px;
+  align-self: flex-start;
   max-width: 85%;
   font-size: 0.95rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.majo-msg { background: #f3d6b1; color: #2e2e2e; align-self: flex-start; }
-.user-msg { background: #58b6aa; color: #fff; align-self: flex-end; }
 
-/* OPCIONES */
-.chat-options { display: flex; flex-direction: column; gap: 0.6rem; }
+.user-msg {
+  background: #58b6aa;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  align-self: flex-end;
+  max-width: 85%;
+  font-size: 0.95rem;
+}
+
 .chat-option {
   background-color: #fff;
   border: 1px solid #f3d6b1;
@@ -533,137 +531,89 @@
   transition: all 0.2s ease;
   font-weight: 500;
 }
-.chat-option:hover { background-color: #f3d6b1; }
 
-/* ANIMACIONES */
-@keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-.typing span {
-  display:inline-block;width:6px;height:6px;background:#2e2e2e;border-radius:50%;margin-right:3px;animation:blink 1.4s infinite both;
+.chat-option:hover {
+  background-color: #f3d6b1;
 }
-@keyframes blink {0%,80%,100%{opacity:0}40%{opacity:1}}
 
-@media (max-width:600px){
-  .chat-window{width:90%;bottom:80px;right:5%;max-height:70vh}
-  .chat-tooltip{right:50%;transform:translateX(50%)}
+/* Animación */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 
+<!-- 🌿 Script funcional -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const chatBtn = document.getElementById("chat-btn");
-  const chatWindow = document.getElementById("chat-window");
-  const closeChat = document.getElementById("close-chat");
-  const chatBody = document.getElementById("chat-body");
-  const chatOptions = document.getElementById("chat-options");
-  const tooltip = document.getElementById("chat-tooltip");
-  const options = document.querySelectorAll(".chat-option");
+const chatBtn = document.getElementById("chat-btn");
+const chatWindow = document.getElementById("chat-window");
+const closeChat = document.getElementById("close-chat");
+const chatBody = document.getElementById("chat-body");
 
-  let tooltipTimeout, reappearTimer;
+const conversaciones = {
+  elegir: [
+    "¿Querés que te cuente cómo elegir el mate que vibra con vos? 💛",
+    "Cada mate artesanal tiene historia. Nace de un color, una inspiración o una emoción.",
+    "Lo artesanal vibra distinto — no busca ser perfecto, busca ser tuyo.",
+    "👉 Podés mirar algunos en la Tienda, seguro uno te va a llamar."
+  ],
+  cuidar: [
+    "¿Tenés dudas sobre cómo lavar tu mate pintado? 🌿",
+    "Sí, se puede mojar, pero sin dejarlo en remojo.",
+    "El secreto está en el amor con que lo secás después de lavarlo 💛",
+    "👉 Son mates pensados para acompañarte todos los días, no para quedarse quietos."
+  ],
+  taller: [
+    "¿Querés vivir la experiencia de pintar tu propio mate conmigo? 🎨",
+    "En los talleres aprendemos, reímos y creamos desde el alma.",
+    "No necesitás experiencia, solo ganas de conectar con el color y la calma.",
+    "👉 Escribime si querés reservar un lugar en el próximo encuentro."
+  ]
+};
 
-  // Mostrar/Ocultar chat
-  const showChat = () => {
-    chatWindow.classList.add("show");
-    chatBtn.style.display = "none";
-    tooltip.classList.remove("show");
-    clearTimeout(tooltipTimeout);
-  };
+// Abrir y cerrar chat
+chatBtn.addEventListener("click", () => {
+  chatWindow.classList.toggle("hidden");
+});
 
-  const hideChat = () => {
-    chatWindow.classList.remove("show");
-    chatBtn.style.display = "block";
-    startTooltipTimer();
-  };
+closeChat.addEventListener("click", () => {
+  chatWindow.classList.add("hidden");
+});
 
-  chatBtn.addEventListener("click", showChat);
-  closeChat.addEventListener("click", hideChat);
-
-  // Mostrar burbuja inicial
-  function startTooltipTimer() {
-    tooltipTimeout = setTimeout(() => {
-      tooltip.classList.add("show");
-      setTimeout(() => tooltip.classList.remove("show"), 6000);
-    }, 4000);
-  }
-  startTooltipTimer();
-
-  // Reaparecer tooltip tras 30s sin interacción
-  function resetReappearTimer() {
-    clearTimeout(reappearTimer);
-    reappearTimer = setTimeout(() => tooltip.classList.add("show"), 30000);
-  }
-  document.addEventListener("mousemove", resetReappearTimer);
-  document.addEventListener("scroll", resetReappearTimer);
-
-  const conversaciones = {
-    elegir: [
-      "¿Querés que te cuente cómo elegir el mate que vibra con vos? 💛",
-      "Cada mate artesanal tiene historia. Nace de un color, una inspiración o una emoción.",
-      "Lo artesanal vibra distinto — no busca ser perfecto, busca ser tuyo.",
-      "👉 Podés mirar algunos en la Tienda, seguro uno te va a llamar."
-    ],
-    cuidar: [
-      "¿Tenés dudas sobre cómo lavar tu mate pintado? 🌿",
-      "Sí, se puede mojar, pero sin dejarlo en remojo.",
-      "El secreto está en el amor con que lo secás después de lavarlo 💛",
-      "👉 Son mates pensados para acompañarte todos los días, no para quedarse quietos."
-    ],
-    taller: [
-      "¿Querés vivir la experiencia de pintar tu propio mate conmigo? 🎨",
-      "En los talleres aprendemos, reímos y creamos desde el alma.",
-      "No necesitás experiencia, solo ganas de conectar con el color y la calma.",
-      "👉 Escribime si querés reservar un lugar en el próximo encuentro."
-    ]
-  };
-
-  options.forEach(opt => {
-    opt.addEventListener("click", () => {
-      const valor = opt.dataset.option;
-      const secuencia = conversaciones[valor];
-
-      const userMsg = document.createElement("div");
-      userMsg.classList.add("user-msg");
-      userMsg.textContent = opt.textContent;
-      chatBody.appendChild(userMsg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-
-      chatOptions.style.display = "none";
-
-      let delay = 1000;
-      secuencia.forEach(linea => {
-        const typing = document.createElement("div");
-        typing.classList.add("majo-msg");
-        typing.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-        setTimeout(() => {
-          chatBody.appendChild(typing);
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }, delay);
-        delay += 1000;
-
-        setTimeout(() => {
-          typing.remove();
-          const msg = document.createElement("div");
-          msg.classList.add("majo-msg");
-          msg.innerHTML = `<p>${linea}</p>`;
-          chatBody.appendChild(msg);
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }, delay + 500);
-        delay += 2000;
-      });
-
-      // 🌿 Al final, mostrar otra vez las opciones
-      setTimeout(() => {
-        const extra = document.createElement("div");
-        extra.classList.add("majo-msg");
-        extra.innerHTML = "<p>¿Querés que sigamos charlando? 🌿 Elegí otra opción 👇</p>";
-        chatBody.appendChild(extra);
-        chatOptions.style.display = "flex";
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, delay + 1500);
-    });
+// Opciones de interacción
+document.querySelectorAll(".chat-option").forEach(option => {
+  option.addEventListener("click", () => {
+    const tipo = option.dataset.option;
+    mostrarConversacion(tipo);
   });
 });
-</script>
 
+// Función principal
+function mostrarConversacion(tipo) {
+  const mensajes = conversaciones[tipo];
+  const opciones = document.querySelector(".chat-options");
+  opciones.style.display = "none";
+
+  mensajes.forEach((texto, i) => {
+    setTimeout(() => {
+      const msg = document.createElement("div");
+      msg.classList.add("majo-msg");
+      msg.textContent = texto;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, i * 1500);
+  });
+
+  // Volver a mostrar opciones al final
+  setTimeout(() => {
+    const divider = document.createElement("div");
+    divider.classList.add("majo-msg");
+    divider.textContent = "¿Querés preguntarme algo más?";
+    chatBody.appendChild(divider);
+    opciones.style.display = "flex";
+  }, mensajes.length * 1500 + 1000);
+}
+</script>
 
 </body>
 </html>
