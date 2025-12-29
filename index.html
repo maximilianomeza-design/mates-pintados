@@ -5,95 +5,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ==============================
-       SEO GENERAL
-  =============================== -->
   <title>Viva el Mate | Mates pintados a mano y taller de pintura</title>
   <meta name="description" content="Mates pintados a mano creados con arte, color y alma. Descubrí piezas únicas y talleres donde vos también podés crear las tuyas.">
-  <link rel="canonical" href="https://maximilianomeza-design.github.io/mates-pintados/" />
+  <link rel="canonical" href="https://maximilianomeza.github.io/viva-el-mate/" />
 
-  <!-- ==============================
-       OPEN GRAPH
-  =============================== -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Viva el Mate | Mates pintados a mano y taller de pintura" />
   <meta property="og:description" content="Mates pintados a mano con alma, color y emoción. Descubrí piezas únicas y talleres donde vos también creás las tuyas." />
-  <meta property="og:image" content="https://maximilianomeza-design.github.io/mates-pintados/assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp" />
-  <meta property="og:url" content="https://maximilianomeza-design.github.io/mates-pintados/" />
+  <meta property="og:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp" />
+  <meta property="og:url" content="https://maximilianomeza.github.io/viva-el-mate/" />
   <meta property="og:locale" content="es_AR" />
 
-  <!-- ==============================
-       TWITTER CARDS
-  =============================== -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Viva el Mate | Mates pintados a mano y talleres artísticos" />
   <meta name="twitter:description" content="Cada mate es una obra de arte. Descubrí el tuyo y participá en nuestros talleres." />
-  <meta name="twitter:image" content="https://maximilianomeza-design.github.io/mates-pintados/assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp" />
+  <meta name="twitter:image" content="https://maximilianomeza.github.io/viva-el-mate/assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp" />
 
-  <!-- ==============================
-       FAVICON
-  =============================== -->
   <link rel="icon" type="image/png" href="assets/icons/icono-mate.svg" />
 
-  <!-- ==============================
-       FUENTES Y ESTILOS
-  =============================== -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Marcellus&family=Pacifico&display=swap" rel="stylesheet">
   <link href="styles/styles.css" rel="stylesheet">
-
-  <!-- ==============================
-       MICRODATOS
-  =============================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Viva el Mate",
-    "description": "Mates pintados a mano y talleres artísticos en Argentina.",
-    "image": "https://maximilianomeza-design.github.io/mates-pintados/assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp",
-    "url": "https://maximilianomeza-design.github.io/mates-pintados/",
-    "telephone": "+5493624112554",
-    "email": "majunavarro@gmail.com",
-    "priceRange": "$20.000 - $50.000",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Chaco",
-      "postalCode": "3505",
-      "addressCountry": "AR"
-    },
-    "sameAs": [
-      "https://instagram.com/viva.el_mate"
-    ]
-  }
-  </script>
-
-  <!-- ===================================================
-     FAQ ESTRUCTURADO PARA GOOGLE (Guías del Ritual)
-  =================================================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Qué mate va mejor conmigo?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Cada persona vibra con un color, una forma y una energía diferente. Nuestro test artesanal te ayuda a descubrir qué diseño refleja tu esencia y estilo personal. Probalo en nuestra sección 'Elegí tu Mate'."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo limpiar un mate pintado a mano?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Usá agua tibia, secá con calma y evitá productos abrasivos. Cuidar tu mate es cuidar la historia pintada que lleva encima. Solo amor y paciencia."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body>
@@ -124,7 +55,7 @@
         <span class="sparkle" aria-hidden="true">✨</span>
         <h1>
           Viva el Mate 
-          <img src="assets/icons/icono-mate.svg" alt="Ícono de mate" class="mate-icon" loading="lazy" width="40" height="40" />
+          <img src="assets/icons/icono-mate.svg" alt="Ícono de mate" class="mate-icon" loading="lazy" width="28" height="28" />
         </h1>
         <span class="sparkle" aria-hidden="true">✨</span>
       </div>
@@ -160,8 +91,15 @@
       <!-- Producto 1 -->
       <div class="producto">
         <picture>
-          <source srcset="assets/Images/mate_frida_base_celeste-foto2.webp" type="image/webp">
-          <img src="assets/Images/mate_frida_base_celeste-foto2.jpg" alt="Mate Frida base celeste pintado a mano, diseño artístico único" loading="lazy" width="600" height="600">
+          <source 
+            srcset="assets/Images/mate_frida_base_celeste-foto2-400.webp 400w,
+                    assets/Images/mate_frida_base_celeste-foto2-800.webp 800w,
+                    assets/Images/mate_frida_base_celeste-foto2.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/mate_frida_base_celeste-foto2.webp" 
+               alt="Mate Frida base celeste pintado a mano, diseño artístico único" 
+               loading="lazy" width="400" height="400" decoding="async">
         </picture>
         <h4>Mate Frida base celeste</h4>
         <p class="precio">$24.900</p>
@@ -171,8 +109,15 @@
       <!-- Producto 2 -->
       <div class="producto">
         <picture>
-          <source srcset="assets/Images/mate_frida_base_natural-foto5.webp" type="image/webp">
-          <img src="assets/Images/mate_frida_base_natural-foto5.jpg" alt="Mate Frida base natural pintado a mano, inspirado en arte latinoamericano" loading="lazy" width="600" height="600">
+          <source 
+            srcset="assets/Images/mate_frida_base_natural-foto5-400.webp 400w,
+                    assets/Images/mate_frida_base_natural-foto5-800.webp 800w,
+                    assets/Images/mate_frida_base_natural-foto5.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/mate_frida_base_natural-foto5.webp" 
+               alt="Mate Frida base natural pintado a mano, inspirado en arte latinoamericano" 
+               loading="lazy" width="400" height="400" decoding="async">
         </picture>
         <h4>Mate Frida base natural</h4>
         <p class="precio">$24.900</p>
@@ -182,151 +127,56 @@
       <!-- Producto 3 -->
       <div class="producto">
         <picture>
-          <source srcset="assets/Images/mate_frida_base_rosa-foto5.webp" type="image/webp">
-          <img src="assets/Images/mate_frida_base_rosa-foto5.jpg" alt="Mate Frida base rosa pintado a mano, inspirado en la naturaleza y el arte" loading="lazy" width="600" height="600">
+          <source 
+            srcset="assets/Images/mate_frida_base_rosa-foto5-400.webp 400w,
+                    assets/Images/mate_frida_base_rosa-foto5-800.webp 800w,
+                    assets/Images/mate_frida_base_rosa-foto5.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/mate_frida_base_rosa-foto5.webp" 
+               alt="Mate Frida base rosa pintado a mano, inspirado en la naturaleza y el arte" 
+               loading="lazy" width="400" height="400" decoding="async">
         </picture>
         <h4>Mate Frida base rosa</h4>
         <p class="precio">$24.900</p>
         <a href="https://vivaelmate3.mitiendanube.com/productos/mate-pintado-a-mano-frida-base-rosa/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
       </div>
-
-            <!-- Producto 4 -->
+      <!-- Producto 4 -->
       <div class="producto">
         <picture>
-          <source srcset="assets/Images/mate_flor_celeste_base_natural-foto2.webp" type="image/webp">
-          <img src="assets/Images/mate_flor_celeste_base_natural-foto2.jpg" alt="Mate Flor celeste base natural pintado a mano, obra artesanal original" loading="lazy" width="600" height="600">
+          <source 
+            srcset="assets/Images/mate_flor_rosa_base_natural-foto1-400.webp 400w,
+                    assets/Images/mate_flor_rosa_base_natural-foto1-800.webp 800w,
+                    assets/Images/mate_flor_rosa_base_natural-foto1.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/mate_flor_rosa_base_natural-foto1.webp"
+               alt="Mate flor rosa base natural pintado a mano"
+               loading="lazy" width="400" height="400" decoding="async">
         </picture>
-        <h4>Mate Flor celeste base natural</h4>
-        <p class="precio">$24.900</p>
-        <a href="https://vivaelmate3.mitiendanube.com/productos/mate-flor-celeste-base-natural/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
+        <h4>Mate Flor Rosa Base Natural</h4>
+        <p class="precio">$22.900</p>
+        <a href="https://vivaelmate3.mitiendanube.com/productos/mate-pintado-a-mano-flor-rosa-base-natural/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
       </div>
 
       <!-- Producto 5 -->
       <div class="producto">
         <picture>
-          <source srcset="assets/Images/mate_flores_base_rosa-foto1.webp" type="image/webp">
-          <img src="assets/Images/mate_flores_base_rosa-foto1.jpg" alt="Mate flores base rosa pintado a mano, diseño artesanal con colores suaves" loading="lazy" width="600" height="600">
+          <source 
+            srcset="assets/Images/mate_flores_base_rosa-foto1-400.webp 400w,
+                    assets/Images/mate_flores_base_rosa-foto1-800.webp 800w,
+                    assets/Images/mate_flores_base_rosa-foto1.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/mate_flores_base_rosa-foto1.webp"
+               alt="Mate flores base rosa pintado a mano"
+               loading="lazy" width="400" height="400" decoding="async">
         </picture>
-        <h4>Mate Flores base rosa</h4>
-        <p class="precio">$24.900</p>
-        <a href="https://vivaelmate3.mitiendanube.com/productos/mate-pintado-a-mano-flor-rosa-base-natural/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
+        <h4>Mate Flores Base Rosa</h4>
+        <p class="precio">$22.900</p>
+        <a href="https://vivaelmate3.mitiendanube.com/productos/mate-pintado-a-mano-flores-base-rosa/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
       </div>
 
-      <!-- Producto 6 -->
-      <div class="producto">
-        <picture>
-          <source srcset="assets/Images/mate_flor_rosa_base_natural-foto1.webp" type="image/webp">
-          <img src="assets/Images/mate_flor_rosa_base_natural-foto1.jpg" alt="Mate flores base natural pintado a mano con detalles florales" loading="lazy" width="600" height="600">
-        </picture>
-        <h4>Mate Flores base natural</h4>
-        <p class="precio">$24.900</p>
-        <a href="https://vivaelmate3.mitiendanube.com/productos/mate-pintado-a-mano-flor-rosa-base-natural/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
-      </div>
-
-      <!-- Producto 7 -->
-      <div class="producto">
-        <picture>
-          <source srcset="assets/Images/mate_medias_flores_pastel_base_natural-foto1.webp" type="image/webp">
-          <img src="assets/Images/mate_medias_flores_pastel_base_natural-foto1.jpg" alt="Mate medias flores pastel base natural pintado a mano" loading="lazy" width="600" height="600">
-        </picture>
-        <h4>Mate Medias Flores base natural</h4>
-        <p class="precio">$24.900</p>
-        <a href="https://vivaelmate3.mitiendanube.com/productos/mate-medias-flores-pastel-base-natural/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
-      </div>
-
-      <!-- Producto 8 -->
-      <div class="producto">
-        <picture>
-          <source srcset="assets/Images/yerbero_azucarero_rosa_flores_en_negro-foto2.webp" type="image/webp">
-          <img src="assets/Images/yerbero_azucarero_rosa_flores_en_negro-foto2.jpg" alt="Yerbero y azucarero rosa flores en negro pintados a mano" loading="lazy" width="600" height="600">
-        </picture>
-        <h4>Yerbero y azucarero rosa flores en negro</h4>
-        <p class="precio">$39.900</p>
-        <a href="https://vivaelmate3.mitiendanube.com/productos/yerbero-y-azucarero-rosa-flores-en-negro/" target="_blank" class="btn-comprar">🛒 Agregar al carrito</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
-     GUIAS DEL RITUAL — Versión carrusel continuo
-  =================================================== -->
-  <section id="guias" class="fade">
-    <h3>Guías del Ritual 
-      <img src="assets/icons/icono-mate.svg" alt="Ícono de mate" class="icono-mate" width="32" height="32" />
-    </h3>
-    <p class="intro-guias">
-      Pequeños secretos para elegir, cuidar y entender el alma de tu mate pintado a mano.
-    </p>
-
-    <div class="guias-carousel">
-      <div class="guias-track">
-        <article class="guia-item">
-          <h4>¿Qué mate va mejor conmigo?</h4>
-          <p>Descubrí cómo el color, la forma y la energía de cada diseño pueden conectar con tu estilo. 
-          <a href="elige-tu-mate.html" class="link-guias">Hacelo con nuestro test →</a></p>
-        </article>
-
-        <article class="guia-item">
-          <h4>¿Cómo limpiar un mate pintado a mano?</h4>
-          <p>Usá agua tibia y secá con calma. Nada de productos abrasivos — solo amor y paciencia. 
-          <a href="#talleres" class="link-guias">Aprendé más en nuestros talleres</a></p>
-        </article>
-
-        <article class="guia-item">
-          <h4>¿Qué pintura se usa para los mates?</h4>
-          <p>Usamos pintura acrílica y selladores ecológicos que protegen el arte sin alterar la textura. 
-          <a href="sobre.html#historia-viva" class="link-guias">Ver cómo lo hacemos</a></p>
-        </article>
-
-        <article class="guia-item">
-          <h4>¿Qué diferencia hay entre un mate artesanal y uno industrial?</h4>
-          <p>El artesanal tiene historia, manos y alma. El industrial solo forma. 
-          <a href="sobre.html">Conocé nuestra manera de crear</a></p>
-        </article>
-
-        <article class="guia-item">
-          <h4>¿Por qué el mate es un símbolo de conexión?</h4>
-          <p>Porque más que una bebida, es un ritual compartido. Un instante que une miradas y calma el alma.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       TALLERES
-  =================================================== -->
-  <section id="talleres">
-    <h3>Viví la experiencia Viva el Mate</h3>
-    <p>Conectá con el arte, el color y el ritual del mate. Cupos limitados 💛</p>
-
-    <div class="talleres-container">
-      <div class="taller-video">
-        <video autoplay muted loop playsinline width="640" height="360">
-          <source src="assets/videos/taller1video.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <form 
-        class="taller-form" 
-        action="https://formspree.io/f/mwveqwga" 
-        method="POST" 
-        aria-label="Formulario de inscripción a talleres">
-
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="taller">Elegí tu taller</label>
-        <select id="taller" name="taller" required>
-          <option value="">Seleccionar...</option>
-          <option value="inicial">Pintura en mate — Nivel inicial</option>
-          <option value="intermedio">Técnicas florales — Nivel intermedio</option>
-          <option value="avanzado">Técnicas de diseño — Nivel avanzado</option>
-        </select>
-
-        <button type="submit">Inscribirme</button>
-      </form>
     </div>
   </section>
 
@@ -334,51 +184,115 @@
        PORTFOLIO
   =================================================== -->
   <section id="portfolio">
-    <h3>Portfolio de Obras</h3>
-    <div class="slider-container">
-      <button class="slider-btn prev" aria-label="Ver imagen anterior del portfolio">‹</button>
+    <h3>✨ Momentos del taller y creación</h3>
+    <div class="portfolio-grid">
 
-      <div class="slider-track">
-        <figure><picture><source srcset="assets/Images/azucarero_rosa_flores_en_negro-foto1.webp" type="image/webp"><img src="assets/Images/azucarero_rosa_flores_en_negro-foto1.jpg" alt="Azucarero rosa flores en negro pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Azucarero rosa flores en negro</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_flor_celeste_base_natural-foto2.webp" type="image/webp"><img src="assets/Images/mate_flor_celeste_base_natural-foto2.jpg" alt="Mate flor celeste base natural pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate flor celeste base natural</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_flor_rosa_base_natural-foto2.webp" type="image/webp"><img src="assets/Images/mate_flor_rosa_base_natural-foto2.jpg" alt="Mate flor rosa base natural pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate flor rosa base natural</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_flores_base_rosa-foto2.webp" type="image/webp"><img src="assets/Images/mate_flores_base_rosa-foto2.jpg" alt="Mate flores base rosa pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate flores base rosa</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_frida_base_celeste-foto3.webp" type="image/webp"><img src="assets/Images/mate_frida_base_celeste-foto3.jpg" alt="Mate Frida base celeste pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate Frida base celeste</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_frida_base_natural-foto1.webp" type="image/webp"><img src="assets/Images/mate_frida_base_natural-foto1.jpg" alt="Mate Frida base natural pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate Frida base natural</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_frida_base_rosa-foto4.webp" type="image/webp"><img src="assets/Images/mate_frida_base_rosa-foto4.jpg" alt="Mate Frida base rosa pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate Frida base rosa</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/mate_medias_flores_pastel_base_natural-foto2.webp" type="image/webp"><img src="assets/Images/mate_medias_flores_pastel_base_natural-foto2.jpg" alt="Mate medias flores pastel base natural pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Mate medias flores pastel</figcaption></figure>
-        <figure><picture><source srcset="assets/Images/yerbero_rosa_flores_en_negro-foto2.webp" type="image/webp"><img src="assets/Images/yerbero_rosa_flores_en_negro-foto2.jpg" alt="Yerbero rosa flores en negro pintado a mano" loading="lazy" width="600" height="600"></picture><figcaption>Yerbero rosa flores en negro</figcaption></figure>
-      </div>
+      <picture>
+        <source 
+          srcset="assets/Images/proceso1-400.webp 400w,
+                  assets/Images/proceso1-800.webp 800w,
+                  assets/Images/proceso1.webp 1200w"
+          sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+          type="image/webp">
+        <img src="assets/Images/proceso1.webp" alt="Proceso de pintura artesanal en taller" loading="lazy" width="400" height="400" decoding="async">
+      </picture>
 
-      <button class="slider-btn next" aria-label="Ver siguiente imagen del portfolio">›</button>
+      <picture>
+        <source 
+          srcset="assets/Images/mate_frida1_proceso-400.webp 400w,
+                  assets/Images/mate_frida1_proceso-800.webp 800w,
+                  assets/Images/mate_frida1_proceso.webp 1200w"
+          sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+          type="image/webp">
+        <img src="assets/Images/mate_frida1_proceso.webp" alt="Majo pintando un mate en su taller" loading="lazy" width="400" height="400" decoding="async">
+      </picture>
+
+      <picture>
+        <source 
+          srcset="assets/Images/2 mates_frida_base_natural_y_rosa-foto1-400.webp 400w,
+                  assets/Images/2 mates_frida_base_natural_y_rosa-foto1-800.webp 800w,
+                  assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp 1200w"
+          sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+          type="image/webp">
+        <img src="assets/Images/2 mates_frida_base_natural_y_rosa-foto1.webp" alt="Mates Frida base natural y rosa sobre mesa artesanal" loading="lazy" width="400" height="400" decoding="async">
+      </picture>
+
+      <picture>
+        <source 
+          srcset="assets/Images/2 mates_flores_base_natural-foto1-400.webp 400w,
+                  assets/Images/2 mates_flores_base_natural-foto1-800.webp 800w,
+                  assets/Images/2 mates_flores_base_natural-foto1.webp 1200w"
+          sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+          type="image/webp">
+        <img src="assets/Images/2 mates_flores_base_natural-foto1.webp" alt="Mates florales base natural, diseño artesanal" loading="lazy" width="400" height="400" decoding="async">
+      </picture>
+
     </div>
   </section>
 
   <!-- ===================================================
        SOBRE VIVA EL MATE
   =================================================== -->
-  <section id="sobre-vivaelmate">
+  <section id="sobre">
     <div class="sobre-container">
+      <div class="sobre-texto">
+        <h3>🌿 Sobre Viva el Mate</h3>
+        <p>Viva el Mate nació del deseo de transformar lo cotidiano en arte.  
+        Cada pieza se pinta a mano con acrílicos y amor, buscando transmitir calma, alegría y conexión.</p>
+        <p>Desde el norte argentino, creamos con alma, color y propósito.  
+        Cada mate cuenta una historia: la tuya, la nuestra, la de quienes eligen compartir.</p>
+        <a href="sobre.html" class="btn-primary">Conocé nuestra historia</a>
+      </div>
+
       <div class="sobre-imagen">
         <picture>
-          <source srcset="assets/Images/mate_frida1_proceso.webp" type="image/webp">
-          <img src="assets/Images/mate_frida1_proceso.webp" alt="Mate modelo frida en proceso" loading="lazy" width="600" height="600">
+          <source 
+            srcset="assets/Images/mate_frida1_proceso-400.webp 400w,
+                    assets/Images/mate_frida1_proceso-800.webp 800w,
+                    assets/Images/mate_frida1_proceso.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/mate_frida1_proceso.webp" 
+               alt="Proceso artístico de pintura de mates en taller artesanal" 
+               loading="lazy" width="400" height="400" decoding="async">
         </picture>
       </div>
-      <div class="sobre-texto">
-        <h3><span class="icono-hoja">🍃</span> El alma detrás del mate</h3>
-        <p>En Viva el Mate creemos que cada objeto cotidiano puede transformarse en arte. Detrás de cada pincelada hay una historia, un momento, una emoción.</p>
-        <p>Nuestros mates están pintados a mano, uno por uno, en un taller donde el tiempo se desacelera y el color cobra vida.</p>
-        <a href="sobre.html" class="btn-sobre">Conocé nuestra historia</a>
+    </div>
+  </section>
+  <!-- ===================================================
+       TALLERES CREATIVOS
+  =================================================== -->
+  <section id="talleres">
+    <h3>🎨 Talleres de pintura en mate</h3>
+    <div class="talleres-grid">
+      <div class="taller-texto">
+        <p>En nuestros talleres, cada pincelada tiene alma.  
+        Aprendé a pintar tu propio mate y llevate más que una pieza:  
+        una experiencia que conecta arte, calma y comunidad.</p>
+        <p>No necesitás experiencia, solo ganas de crear desde el corazón. 💛</p>
+        <a href="https://instagram.com/viva.el_mate" target="_blank" class="btn-primary">Ver próximos talleres</a>
+      </div>
+      <div class="taller-imagen">
+        <picture>
+          <source 
+            srcset="assets/Images/taller_artesanal-400.webp 400w,
+                    assets/Images/taller_artesanal-800.webp 800w,
+                    assets/Images/taller_artesanal.webp 1200w"
+            sizes="(max-width: 600px) 90vw, (max-width: 1200px) 45vw, 400px"
+            type="image/webp">
+          <img src="assets/Images/taller_artesanal.webp" 
+               alt="Taller artesanal de pintura de mates" 
+               loading="lazy" width="400" height="400" decoding="async">
+        </picture>
       </div>
     </div>
   </section>
 
   <!-- ===================================================
-       CONTACTO Y FOOTER
+       CONTACTO
   =================================================== -->
   <section id="contacto">
-    <h3>Llevate arte para tu día 🌿</h3>
+    <h3>🌿 Llevate arte para tu día</h3>
     <p>Seguinos o escribinos para encargos personalizados.</p>
     <div class="social-links">
       <a href="https://instagram.com/viva.el_mate" target="_blank" class="social instagram" aria-label="Ir al Instagram de Viva el Mate">Instagram</a>
@@ -388,327 +302,61 @@
   </section>
 
   <!-- ===================================================
-     TESTIMONIOS — Opiniones de quienes ya tienen su mate
-=================================================== -->
-<section id="testimonios">
-  <h3>💛 Lo que dicen quienes ya tienen su mate</h3>
-
-  <div class="testimonios-carousel">
-    <div class="testimonios-track">
-      <div class="testimonio">
-        <img src="assets/Images/clienta1.webp" alt="Cliente feliz con su mate artesanal" loading="lazy">
-        <p>“No sabés con cuál mate quedarte, ¡todos hermosos! La atención un 10 💛”</p>
-        <strong>Gisela Ramos</strong>
-      </div>
-      <div class="testimonio">
-        <img src="assets/Images/cliente2.webp" alt="Cliente mostrando su mate pintado" loading="lazy">
-        <p>“Extraordinario el mate, estoy muy feliz. Excelente servicio y producto.”</p>
-        <strong>Pedro Romero</strong>
-      </div>
-      <div class="testimonio">
-        <img src="assets/Images/cliente3.webp" alt="Cliente compartiendo mate artesanal" loading="lazy">
-        <p>“Los mejores mates del mercado ☕💞. Majo te atiende con la mejor predisposición. ¡Un lujo!”</p>
-        <strong>Matías Franco</strong>
-      </div>
-      <div class="testimonio">
-        <img src="assets/Images/cliente4.webp" alt="Cliente satisfecha con su mate pintado a mano" loading="lazy">
-        <p>“Hermosos diseños y calidad excelente. Me llegó rapidísimo, súper recomendable 🌿✨”</p>
-        <strong>Sofía Morales</strong>
+       TESTIMONIOS
+  =================================================== -->
+  <section id="testimonios">
+    <h3>💛 Lo que dicen quienes ya tienen su mate</h3>
+    <div class="testimonios-carousel">
+      <div class="testimonios-track">
+        <div class="testimonio">
+          <img src="assets/Images/clienta1.webp" alt="Cliente feliz con su mate artesanal" loading="lazy" width="80" height="80">
+          <p>“No sabés con cuál mate quedarte, ¡todos hermosos! La atención un 10 💛”</p>
+          <strong>Gisela Ramos</strong>
+        </div>
+        <div class="testimonio">
+          <img src="assets/Images/cliente2.webp" alt="Cliente mostrando su mate pintado" loading="lazy" width="80" height="80">
+          <p>“Extraordinario el mate, estoy muy feliz. Excelente servicio y producto.”</p>
+          <strong>Pedro Romero</strong>
+        </div>
+        <div class="testimonio">
+          <img src="assets/Images/cliente3.webp" alt="Cliente compartiendo mate artesanal" loading="lazy" width="80" height="80">
+          <p>“Los mejores mates del mercado ☕💞. Majo te atiende con la mejor predisposición. ¡Un lujo!”</p>
+          <strong>Matías Franco</strong>
+        </div>
+        <div class="testimonio">
+          <img src="assets/Images/cliente4.webp" alt="Cliente satisfecha con su mate pintado a mano" loading="lazy" width="80" height="80">
+          <p>“Hermosos diseños y calidad excelente. Me llegó rapidísimo, súper recomendable 🌿✨”</p>
+          <strong>Sofía Morales</strong>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
   <footer>
-    <p>© 2025 <strong>Viva el Mate</strong>. Todos los derechos reservados.</p>
-  
+    <p>© 2025 <strong>Viva el Mate</strong>. Cada mate es una pieza única pintada a mano. Todos los derechos reservados.</p>
   </footer>
 
   <!-- ===================================================
        SCRIPTS
   =================================================== -->
   <script src="scripts/main.js" defer></script>
-<!-- 🌿 Chat Flotante Majo 2.0 -->
-<div id="chat-majo" class="chat-majo">
-  <button id="chat-btn" class="chat-btn" aria-label="Abrir chat Majo 2.0">
-    <img src="assets/icons/majochat.webp" alt="Majo 2.0" class="chat-avatar">
-  </button>
 
-  <div id="chat-window" class="chat-window hidden">
-    <div class="chat-header">
-      <span>💛 Majo 2.0</span>
-      <button id="close-chat" aria-label="Cerrar chat">×</button>
-    </div>
+  <!-- 🌿 Chat Flotante Majo 2.0 -->
+  <script src="scripts/chat-majo.js" defer></script>
 
-    <div class="chat-body" id="chat-body">
-      <div class="majo-msg">
-        <p>¡Hola! Soy <strong>Majo 2.0</strong> 👩‍🎨 — la versión digital de quien pinta los mates.<br>
-        ¿Querés que te ayude a <strong>elegir, cuidar o crear</strong> el tuyo?</p>
-      </div>
-
-      <div class="chat-options">
-        <button class="chat-option" data-option="elegir">Elegir o encargar un mate 💛</button>
-        <button class="chat-option" data-option="cuidar">Cuidar mi mate 🌿</button>
-        <button class="chat-option" data-option="taller">Participar en un taller 🎨</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 🌿 Estilos del chat -->
-<style>
-.chat-majo {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  font-family: 'Inter', sans-serif;
-}
-
-/* Botón de avatar */
-.chat-btn {
-  background: none;
-  border: none;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.chat-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-}
-
-.chat-avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* Ventana del chat */
-.chat-window {
-  position: absolute;
-  bottom: 80px;
-  right: 0;
-  width: 320px;
-  background-color: #fffaf4;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  animation: fadeInUp 0.4s ease;
-}
-
-.hidden { display: none; }
-
-.chat-header {
-  background-color: #58b6aa;
-  color: #fff;
-  padding: 0.8rem;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-}
-
-.chat-header button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.chat-body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  max-height: 350px;
-  overflow-y: auto;
-}
-
-.majo-msg {
-  background: #f3d6b1;
-  color: #2e2e2e;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  align-self: flex-start;
-  max-width: 85%;
-  font-size: 0.95rem;
-}
-
-.user-msg {
-  background: #58b6aa;
-  color: #fff;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  align-self: flex-end;
-  max-width: 85%;
-  font-size: 0.95rem;
-}
-
-/* Opciones */
-.chat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.chat-option {
-  background-color: #fff;
-  border: 1px solid #f3d6b1;
-  border-radius: 8px;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.chat-option:hover {
-  background-color: #f3d6b1;
-}
-
-/* Animaciones */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animación de "escribiendo" */
-.typing {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-}
-.typing span {
-  display: inline-block;
-  width: 0.3em;
-  height: 0.3em;
-  margin-right: 0.15em;
-  background: #58b6aa;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
-.typing span:nth-child(2) { animation-delay: 0.2s; }
-.typing span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0.2; transform: translateY(0); }
-  40% { opacity: 1; transform: translateY(-3px); }
-}
-</style>
-
-<!-- 🌿 Script funcional -->
-<script>
-const chatBtn = document.getElementById("chat-btn");
-const chatWindow = document.getElementById("chat-window");
-const closeChat = document.getElementById("close-chat");
-const chatBody = document.getElementById("chat-body");
-
-const conversaciones = {
-  elegir: [
-    "¿Querés que te cuente cómo elegir el mate que vibra con vos? 💛",
-    "Cada mate artesanal tiene historia. Nace de un color, una inspiración o una emoción.",
-    "Lo artesanal vibra distinto — no busca ser perfecto, busca ser tuyo.",
-    "👉 Podés mirar algunos en la Tienda, seguro uno te va a llamar."
-  ],
-  cuidar: [
-    "¿Tenés dudas sobre cómo lavar tu mate pintado? 🌿",
-    "Sí, se puede mojar, pero sin dejarlo en remojo.",
-    "El secreto está en el amor con que lo secás después de lavarlo 💛",
-    "👉 Son mates pensados para acompañarte todos los días, no para quedarse quietos."
-  ],
-  taller: [
-    "¿Querés vivir la experiencia de pintar tu propio mate conmigo? 🎨",
-    "En los talleres aprendemos, reímos y creamos desde el alma.",
-    "No necesitás experiencia, solo ganas de conectar con el color y la calma.",
-    "👉 Escribime si querés reservar un lugar en el próximo encuentro."
-  ]
-};
-
-// Abrir / cerrar chat
-chatBtn.addEventListener("click", () => {
-  chatWindow.classList.toggle("hidden");
-});
-
-closeChat.addEventListener("click", () => {
-  chatWindow.classList.add("hidden");
-});
-
-// Crear nuevas opciones
-function crearOpciones() {
-  const opciones = document.createElement("div");
-  opciones.classList.add("chat-options");
-  opciones.innerHTML = `
-    <button class="chat-option" data-option="elegir">Elegir o encargar un mate 💛</button>
-    <button class="chat-option" data-option="cuidar">Cuidar mi mate 🌿</button>
-    <button class="chat-option" data-option="taller">Participar en un taller 🎨</button>
-  `;
-  opciones.querySelectorAll(".chat-option").forEach(option => {
-    option.addEventListener("click", () => {
-      const tipo = option.dataset.option;
-      mostrarConversacion(tipo);
+  <!-- ✨ Activar animaciones suaves -->
+  <script>
+    document.addEventListener("scroll", () => {
+      document.querySelectorAll(".fade").forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          section.classList.add("visible");
+        }
+      });
     });
-  });
-  return opciones;
-}
-
-// Mostrar conversación con efecto “escribiendo...”
-function mostrarConversacion(tipo) {
-  const mensajes = conversaciones[tipo];
-  const opciones = document.querySelector(".chat-options");
-  if (opciones) opciones.remove();
-
-  mensajes.forEach((texto, i) => {
-    setTimeout(() => {
-      const typing = document.createElement("div");
-      typing.classList.add("majo-msg");
-      typing.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-      chatBody.appendChild(typing);
-      chatBody.scrollTop = chatBody.scrollHeight;
-
-      setTimeout(() => {
-        typing.remove();
-        const msg = document.createElement("div");
-        msg.classList.add("majo-msg");
-        msg.textContent = texto;
-        chatBody.appendChild(msg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, 900);
-    }, i * 1800);
-  });
-
-  // volver a mostrar opciones al final
-  setTimeout(() => {
-    const divider = document.createElement("div");
-    divider.classList.add("majo-msg");
-    divider.textContent = "¿Querés preguntarme algo más?";
-    chatBody.appendChild(divider);
-
-    const nuevasOpciones = crearOpciones();
-    chatBody.appendChild(nuevasOpciones);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }, mensajes.length * 1800 + 1500);
-}
-
-// Activar opciones iniciales
-document.querySelectorAll(".chat-option").forEach(option => {
-  option.addEventListener("click", () => {
-    const tipo = option.dataset.option;
-    mostrarConversacion(tipo);
-  });
-});
-</script>
-
-
+  </script>
 </body>
 </html>
